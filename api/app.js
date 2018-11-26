@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();         
 const bodyParser = require('body-parser');
-
+var cors = require('cors');
 
 //configurando o body parser para pegar POSTS caso precise
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,6 +13,7 @@ console.log('API funcionando!');
 
 const router = express.Router();
 
+app.use(cors({origin: '*'}));
 app.use('/', router);
 router.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
 
