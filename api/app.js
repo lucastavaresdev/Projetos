@@ -29,3 +29,7 @@ router.get('/usuarios', (req, res) =>{
     execQuery('SELECT * FROM usuarios', res);
 })
 
+router.get('/agendamento', (req, res) =>{
+    execQuery('SELECT * FROM agendamento;', res);
+})
+
