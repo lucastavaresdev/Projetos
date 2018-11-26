@@ -13,7 +13,7 @@ class App extends Component{
   }
   
 	componentDidMount(){
-		axios.get("http://localhost:3001/beacons",{}).then((res)=>{
+		axios.get("http://localhost:3001/agendamento",{}).then((res)=>{
 				//on success
 				this.setState({
 			userMsg:res.data
@@ -30,7 +30,7 @@ class App extends Component{
 
   render(){
     return <ul>
-                {this.state.userMsg.map(data => <li key={data.id}>{data.beacon}</li>)}
+                {this.state.userMsg.map(data => <li key={data.id}>{data.ATENDENTE}</li>)}
             </ul>;
   }
 
