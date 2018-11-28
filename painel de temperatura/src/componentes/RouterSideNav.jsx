@@ -69,15 +69,17 @@ class Rotas extends React.Component {
                     sidebar={
                         <div>
                             <ConteudoTopoNavBar />
-                           <Botao tituloBotao='Dashboard' iconeMDB=' fa-dashboard' link='/' classepersonalizada='espaçoPrimeiroBotao' />
-                           <Botao tituloBotao='Consolidado' iconeMDB='fa-cube' link='consolidado' />
+                           <Botao tituloBotao='Dashboard' iconeMDB=' fa-dashboard' link='/v' classepersonalizada='espaçoPrimeiroBotao' />
+                           <Botao tituloBotao='Consolidado' iconeMDB='fa-cube' link='/' />
                                        {this.state.userMsg.map(data => 
                                        <div key={data.mac_beacon}>
-                                                <Botao tituloBotao= {data.nome_do_beacon} iconeMDB='fa-cube' link='/' />
+                                                <Botao tituloBotao= {data.nome_do_beacon} iconeMDB='fa-cube' link={`/equipamento?parametro=${data.mac_beacon}`} />
                                        </div>)}
-                        </div>
+                            </div>
                     }
                 >
+
+                    
                     <div className='container-fluid navbar-cel' light>
                         <div className='row cinzabg navbar justify-content-end  '>
                             <Navbar />
@@ -89,8 +91,8 @@ class Rotas extends React.Component {
                         </div>
                     </div>
                  
-                    <Route exact path="/" component={Dashboard} />
-                    <Route path="/consolidado" component={Consolidado} />
+                    <Route exact path="/" component={Consolidado} />
+                    <Route path="/equipamento" component={Dashboard} />
                 </Sidebar >
             </Router >
 

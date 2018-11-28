@@ -5,13 +5,36 @@ import Grafico from './graficos/graficos'
 import Temperatura_Atual from './temperaturas/Temperatura_atual'
 import Temperatura_media from './temperaturas/Temperatura_media'
 import './_estilos_paginas/_dashboard.scss'
+import axios from "axios";
 
 
 class Dashboard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            userMsg: []
+        }
+    };
+
+
+    componentDidMount(){
+		axios.get("http://localhost:3001/hcor/beacons_temperatura_atual",{}).then((res)=>{
+				//on success
+				this.setState({
+			userMsg:res.data
+		});
+				
+		}).catch((error)=>{
+			//on error
+			alert("Erro da API");
+		});
+    }
+    
+
     render() {
         return (
             <div >
-                <NavBar tituloPag={'Dashboard'} />
+                <NavBar tituloPag={'dsa'} />
                         <div className='container-fluid'>
                             <div className="row bg_grafico_media">
                                 <div className='col-md-7 col-xs-12 mt-3 tamanho' >
