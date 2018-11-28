@@ -5,6 +5,7 @@ import '../scss/style.scss'
 import Botao from './sidenav/botao'
 import ConteudoTopoNavBar from '../componentes/sidenav/SideNavConteudo'
 import Navbar from './navbar/navbar';
+import axios from "axios";
 
 //paginas
 import Dashboard from './dashboard'
@@ -18,6 +19,7 @@ class Rotas extends React.Component {
         this.state = {
             sidebarDocked: mql.matches,
             sidebarOpen: false,
+            userMsg: []
         };
 
         this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
@@ -40,9 +42,23 @@ class Rotas extends React.Component {
         this.setState({ sidebarDocked: mql.matches, sidebarOpen: false });
     }
 
+    componentDidMount(){
+		axios.get("http://localhost:3001/hcor/beacons_temperatura_atual",{}).then((res)=>{
+				//on success
+				this.setState({
+			userMsg:res.data
+		});
+				
+		}).catch((error)=>{
+			//on error
+			alert("Erro da API");
+		});
+	}
+
 
     render() {
         return (
+   
             <Router>
                 <Sidebar
 
@@ -53,10 +69,13 @@ class Rotas extends React.Component {
                     sidebar={
                         <div>
                             <ConteudoTopoNavBar />
-                            <Botao tituloBotao='Dashboard' iconeMDB=' fa-dashboard' link='/' classepersonalizada='espaçoPrimeiroBotao' />
-                            <Botao tituloBotao='Consolidado' iconeMDB='fa-cube' link='consolidado' />
+                           <Botao tituloBotao='Dashboard' iconeMDB=' fa-dashboard' link='/' classepersonalizada='espaçoPrimeiroBotao' />
+                           <Botao tituloBotao='Consolidado' iconeMDB='fa-cube' link='consolidado' />
+                                       {this.state.userMsg.map(data => 
+                                       <div key={data.mac_beacon}>
+                                                <Botao tituloBotao= {data.nome_do_beacon} iconeMDB='fa-cube' link='/' />
+                                       </div>)}
                         </div>
-
                     }
                 >
                     <div className='container-fluid navbar-cel' light>
@@ -69,11 +88,13 @@ class Rotas extends React.Component {
                             </div >
                         </div>
                     </div>
-
+                 
                     <Route exact path="/" component={Dashboard} />
                     <Route path="/consolidado" component={Consolidado} />
                 </Sidebar >
             </Router >
+
+
         );
     }
 }
