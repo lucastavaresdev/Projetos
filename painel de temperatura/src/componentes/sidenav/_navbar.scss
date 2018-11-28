@@ -1,0 +1,56 @@
+@media(min-width: 980px) {
+    .btn_hamburger {
+        display: none;
+    }
+}
+
+.tituloPagina {
+    position: absolute;
+    top: -38px !important;
+    font-size: 20px;
+    color: $cinzaEscuro;
+    font-weight: 300;
+}
+
+.navbar {
+    padding: 1.3rem 1rem;
+    .scrolling-navbar {
+        padding-top: 21px;
+        padding-bottom: 21px;
+    }
+}
+
+.cinzabg {
+    background: $cinzaClaro;
+    strong {
+        color: $cinzaEscuro;
+        font-size: 36px;
+    }
+}
+
+.cinza {
+    color: $cinzaEscuro !important;
+}
+
+.ocultar {
+    display: none;
+}
+
+@media(max-width: 980px) {
+    .ocultar {
+        display: block;
+    }
+    .cinzabg {
+        background: $cinzaClaro;
+    }
+    .btn_hamburger {
+        display: block;
+    }
+    .tituloPagina {
+        position: absolute;
+        top: -48px !important;
+        font-size: 20px;
+        color: $cinzaEscuro;
+        font-weight: 300;
+    }
+}

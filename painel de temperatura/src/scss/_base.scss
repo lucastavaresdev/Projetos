@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a,
+ul,
+span {
+    font-family: 'Open Sans', sans-serif;
+}
+
+@mixin fonte( $tamanho: '12px',
+$espessura: normal,
+$cor:"#00ff00") {
+    font-size: #{$tamanho};
+    font-weight: #{$espessura};
+    color: #{$cor}
+}
+
+.tamanho {
+    height: 250px;
+}
+
+.bg_grafico_media {
+    background: $cor;
+}
+
+.texto-branco {
+    @include fonte( '18px',
+    500,
+    $branco);
+}

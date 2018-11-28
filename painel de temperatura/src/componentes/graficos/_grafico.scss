@@ -1,0 +1,11 @@
+.recharts-legend-item-text {
+    @include fonte( '18px', 500, $branco);
+}
+
+.recharts-wrapper {
+    margin-left: -25px;
+}
+
+.recharts-tooltip-item {
+    color: $cinzaEscuro !important;
+}

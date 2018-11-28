@@ -1,0 +1,63 @@
+.card {
+    height: 137px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 2px;
+    .temperatura {
+        font-size: 4em;
+    }
+    .imagem {
+        display: block;
+        height: 100%;
+    }
+}
+
+.status {
+    border-left: 5px solid red;
+}
+
+@media (min-width: 701px) and (max-width: 1000px) {
+    .card {
+        height: 137px;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 2px;
+        .temperatura {
+            font-size: 4em;
+        }
+        .imagem {
+            display: block;
+            height: 33%;
+        }
+    }
+}
+
+@media(max-width: 680px) {
+    .card {
+        height: 137px;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 2px;
+        .temperatura {
+            font-size: 4em;
+        }
+        .imagem {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+    .card {
+        height: 100px;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 2px;
+        .temperatura {
+            font-size: 2em;
+        }
+        .imagem {
+            display: none;
+        }
+    }
+}
