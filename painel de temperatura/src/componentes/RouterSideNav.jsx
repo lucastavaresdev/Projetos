@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import Sidebar from "react-sidebar";
 import '../scss/style.scss'
 import Botao from './sidenav/botao'
@@ -46,12 +46,13 @@ class Rotas extends React.Component {
 		axios.get("http://localhost:3001/hcor/beacons_temperatura_atual",{}).then((res)=>{
 				//on success
 				this.setState({
-			userMsg:res.data
+            userMsg:res.data
 		});
 				
 		}).catch((error)=>{
 			//on error
-			alert("Erro da API");
+            alert("Erro da API");
+  
 		});
 	}
 
@@ -73,7 +74,7 @@ class Rotas extends React.Component {
                            <Botao tituloBotao='Consolidado' iconeMDB='fa-cube' link='/' />
                                        {this.state.userMsg.map(data => 
                                        <div key={data.mac_beacon}>
-                                                <Botao tituloBotao= {data.nome_do_beacon} iconeMDB='fa-cube' link={`/equipamento?parametro=${data.mac_beacon}`} />
+                                                <Botao tituloBotao= {data.nome_do_beacon} iconeMDB='fa-cube' link={`/equipamento/${data.mac_beacon}`} nome= {data.nome_do_beacon} />
                                        </div>)}
                             </div>
                     }
@@ -92,10 +93,20 @@ class Rotas extends React.Component {
                     </div>
                  
                     <Route exact path="/" component={Consolidado} />
-                    <Route path="/equipamento" component={Dashboard} />
+                    
+                    {this.state.userMsg.map(data => 
+                      <Route  exact path="/equipamento/:mac"
+                            render={props => <Dashboard {...props}  data={this.state.userMsg[0]}    />}
+                        />
+                      )}
+                                    
+                    {/* {this.state.userMsg.map(data => 
+                            <Route exact path="/equipamento/:mac" render={(props) => <Dashboard {...props} zxc={data.nome_do_beacon}/> } />
+                    )} */}
+
                 </Sidebar >
             </Router >
-
+        
 
         );
     }
