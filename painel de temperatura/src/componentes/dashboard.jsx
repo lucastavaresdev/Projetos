@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import NavBar from './navbar/navbar'
 import Tabela from './tabela/tabela'
 import Grafico from './graficos/graficos'
+import Temperatura_Atual from './temperaturas/Temperatura_atual'
 import './_estilos_paginas/_dashboard.scss'
-
 
 
 class Dashboard extends Component {
@@ -31,10 +31,7 @@ class Dashboard extends Component {
                             <Tabela />
                         </div>
 
-                        <div className='col-md-5 tamanho text-center' >
-                            <h1 className='mt-5 '>Temperatura Atual</h1>
-                            <h1 className='titulo_temperatura_atual p-1'>23°C</h1>
-                        </div>
+                                <Temperatura_Atual/>
                     </div>
                 </div>
             </div >
