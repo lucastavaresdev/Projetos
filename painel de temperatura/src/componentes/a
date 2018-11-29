@@ -24,3 +24,26 @@
              .catch(function (error) {
                 console.log(error);
              })
+
+
+
+
+                         var arr = []
+
+            const {match: { params } } = this.props;
+            const { mac } = params;
+        
+            function retornoInformacoes() {
+                return axios.get(`http://localhost:3001/hcor/beacons_temperatura_atual/${mac}`, {arr})
+                        .then(function (response) {
+                           return  response.data[0]
+
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+             }
+
+      
+
+      

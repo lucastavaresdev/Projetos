@@ -57,12 +57,13 @@ class Rotas extends React.Component {
 	}
 
 
+
     render() {
+        
         return (
    
             <Router>
                 <Sidebar
-
                     sidebarClassName={'sidebarClassName'}
                     open={this.state.sidebarOpen}
                     docked={this.state.sidebarDocked}
@@ -94,11 +95,9 @@ class Rotas extends React.Component {
                  
                     <Route exact path="/" component={Consolidado} />
                     
-                    {this.state.userMsg.map(data => 
                       <Route  exact path="/equipamento/:mac"
-                            render={props => <Dashboard {...props}  data={this.state.userMsg[0]}    />}
+                            render={props => <Dashboard {...props}  data={this.state.nome}    />}
                         />
-                      )}
                                     
                     {/* {this.state.userMsg.map(data => 
                             <Route exact path="/equipamento/:mac" render={(props) => <Dashboard {...props} zxc={data.nome_do_beacon}/> } />
