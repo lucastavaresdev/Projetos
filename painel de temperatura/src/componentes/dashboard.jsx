@@ -9,43 +9,14 @@ import axios from "axios";
 
     class Dashboard extends Component{
          
-        constructor(){
-            super();
-            this.state={
-                userMsg: ['1dsaaaaaaaaaaa']
-            }
-      }
 
 
 
-      componentWillMount(){
-        const {match: { params } } = this.props;
-        const { mac } = params;
-
-                function  retornoInformacoes() {
-                    
-                    return axios.get(`http://localhost:3001/hcor/beacons_temperatura_atual/${mac}`)
-                                .then(function (response) {
-                                    return  response.data[0]
-
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                            })
-                    }
-
-                    retornoInformacoes().then(data => 
-                        this.setState({
-                            userMsg: data
-                  })
-        );
-   
-    }
 
         render(){
               return (
                         <div >
-                                        { <NavBar tituloPag={this.state.userMsg.nome_do_beacon}/> }
+                                        { <NavBar tituloPag={this.props.TitulodaPagina}/> }
                                                 <div className='container-fluid'>
                                                     <div className="row bg_grafico_media">
                                                         <div className='col-md-7 col-xs-12 mt-3 tamanho' >
@@ -58,7 +29,7 @@ import axios from "axios";
                                                 <div className='col-md-7 tamanho' >
                                                     <Tabela />
                                                 </div>
-                                                <Temperatura_Atual tempertatura_atual={this.state.userMsg.temperatura}/>
+                                                <Temperatura_Atual tempertatura_atual={'this.state.temp'}/>
                                             </div>
                                         </div>
                                     </div >

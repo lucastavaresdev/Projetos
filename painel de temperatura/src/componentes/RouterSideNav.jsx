@@ -48,7 +48,6 @@ class Rotas extends React.Component {
 				this.setState({
             userMsg:res.data
 		});
-				
 		}).catch((error)=>{
 			//on error
             alert("Erro da API");
@@ -95,15 +94,12 @@ class Rotas extends React.Component {
                  
                     <Route exact path="/" component={Consolidado} />
                     
-                      <Route  exact path="/equipamento/:mac"
-                            render={props => <Dashboard {...props}  data={this.state.nome}    />}
+                    {this.state.userMsg.map(data => 
+                  <Route  path={`/equipamento/${data.mac_beacon}`}
+                             render={props => <Dashboard {...props}  TitulodaPagina={data.nome_do_beacon} Temperatura={data.temperatura} />}
                         />
-                                    
-                    {/* {this.state.userMsg.map(data => 
-                            <Route exact path="/equipamento/:mac" render={(props) => <Dashboard {...props} zxc={data.nome_do_beacon}/> } />
-                    )} */}
-
-                </Sidebar >
+                    )}                     
+                          </Sidebar >
             </Router >
         
 
