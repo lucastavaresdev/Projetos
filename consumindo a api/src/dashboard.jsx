@@ -6,13 +6,15 @@ class Dashboard extends Component{
   constructor(){
 		super();
 		this.state={
-			userMsg: []
+			userMsg: [1]
 		}
   }
   
 	componentDidMount(){
-		axios.get("http://localhost:3001/hcor/beacons_temperatura_atual/DAEE003F9A01",{}).then((res)=>{
-				//on success
+        const {match: { params } } = this.props;
+        const { mac } = params;
+
+		axios.get(`http://localhost:3001/hcor/beacons_temperatura_atual/ ${ mac }`,{}).then((res)=>{
 				this.setState({
 			userMsg:res.data
 		});
@@ -23,13 +25,13 @@ class Dashboard extends Component{
 		});
 	}
 
-			
-  //console.log(this.state.userMsg)
+            
+    
 
   render(){
     return <ul>
-                {this.state.userMsg.map(data => <li key={data.mac_beacon}>{data.nome_do_beacon}</li>)}
-            </ul>;
+        <h1> teste {this.props.zxc}</h1>
+    </ul>;
   }
 
 }  
