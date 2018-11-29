@@ -12,39 +12,39 @@ import axios from "axios";
         constructor(){
             super();
             this.state={
-                userMsg: []
+                userMsg: ['1dsaaaaaaaaaaa']
             }
       }
 
+
+
+      componentWillUpdate(){
+        const {match: { params } } = this.props;
+        const { mac } = params;
+
+                function  retornoInformacoes() {
+                    
+                    return axios.get(`http://localhost:3001/hcor/beacons_temperatura_atual/${mac}`)
+                                .then(function (response) {
+                                    return  response.data[0]
+
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            })
+                    }
+
+                    retornoInformacoes().then(data => 
+                        this.setState({
+                            userMsg: data
+                  })
+        );
+   
+    }
+
         render(){
-         
-
-            const {match: { params } } = this.props;
-            const { mac } = params;
-        
-            function retornoInformacoes() {
-                return axios.get(`http://localhost:3001/hcor/beacons_temperatura_atual/${mac}`)
-                        .then(function (response) {
-                           return  response.data[0]
-
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    })
-             }
-                
-      
-             
-             
-             retornoInformacoes().then(data => 
-                this.setState({
-                    userMsg: data
-                })
-            );
-             
               return (
                         <div >
-                           
                                         { <NavBar tituloPag={this.state.userMsg.nome_do_beacon}/> }
                                                 <div className='container-fluid'>
                                                     <div className="row bg_grafico_media">
@@ -54,11 +54,11 @@ import axios from "axios";
                                                         </div>
                                                         <Temperatura_media />
                                                     </div>
-                                        <div className="row mt-3">
+                                              <div className="row mt-3">
                                                 <div className='col-md-7 tamanho' >
                                                     <Tabela />
                                                 </div>
-                                                <Temperatura_Atual/>
+                                                <Temperatura_Atual tempertatura_atual={this.state.userMsg.temperatura}/>
                                             </div>
                                         </div>
                                     </div >

@@ -12,7 +12,7 @@ class NavBotao extends Component {
                     <li className={`col-md-12 ${this.props.classepersonalizada}`}>
                         <div className='btn_link'>
                             <div >
-                                <Link to={this.props.link}  className={`fa ${this.props.iconeMDB}`} ><span>{this.props.tituloBotao}</span></Link>
+                                <Link to={this.props.link}    className={`fa ${this.props.iconeMDB}`} ><span>{this.props.tituloBotao}</span>{this.props.dados}</Link>
                             </div>
                         </div>
                     </li>
