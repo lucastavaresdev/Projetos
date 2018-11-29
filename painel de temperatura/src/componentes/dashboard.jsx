@@ -18,7 +18,7 @@ import axios from "axios";
 
 
 
-      componentWillUpdate(){
+      componentWillMount(){
         const {match: { params } } = this.props;
         const { mac } = params;
 
