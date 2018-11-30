@@ -5,9 +5,11 @@ import Grafico from './graficos/graficos'
 import Temperatura_Atual from './temperaturas/Temperatura_atual'
 import Temperatura_media from './temperaturas/Temperatura_media'
 import './_estilos_paginas/_dashboard.scss'
-import axios from "axios";
 
-    class Dashboard extends Component{
+ class Dashboard extends Component{
+
+
+
 
         render(){
               return (
@@ -25,7 +27,7 @@ import axios from "axios";
                                                 <div className='col-md-7 tamanho' >
                                                     <Tabela />
                                                 </div>
-                                                <Temperatura_Atual tempertatura_atual={'this.state.temp'}/>
+                                                <Temperatura_Atual tempertatura_atual={this.props.mac} temperatura={this.props.temperatura}/>
                                             </div>
                                         </div>
                                     </div >
