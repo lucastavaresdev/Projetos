@@ -8,10 +8,6 @@ import './_estilos_paginas/_dashboard.scss'
 import axios from "axios";
 
     class Dashboard extends Component{
-         
-
-
-
 
         render(){
               return (
@@ -37,7 +33,6 @@ import axios from "axios";
         )
     }
 }
-
 
 
 
