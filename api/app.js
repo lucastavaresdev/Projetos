@@ -46,3 +46,11 @@ router.get('/hcor/componente_temperatura_atual/:mac', (req, res) =>{
     execQuery($Temperatura_atual, res);
 })
 
+router.get('/hcor/temperatura_media', (req, res) =>{
+
+    var parametro = req.params.mac;
+    const $Temperatura_atual = `SELECT temperatura,DATE_FORMAT(data_hora, '%H:%i:%s') as hora FROM umdi.temperatura_media where data_hora = now() - interval 1 hour;`;
+
+    execQuery($Temperatura_atual, res);
+})
+
