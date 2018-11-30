@@ -96,7 +96,7 @@ class Rotas extends React.Component {
                     
                     {this.state.userMsg.map(data => 
                   <Route  path={`/equipamento/${data.mac_beacon}`}
-                             render={props => <Dashboard {...props}  TitulodaPagina={data.nome_do_beacon} mac={data.mac_beacon} temperatura={data.temperatura} />}
+                             render={props => <Dashboard {...props}  TitulodaPagina={data.nome_do_beacon} mac={data.mac_beacon} temperatura={data.temperatura} setor={data.nome_setor}/>}
                         />
                     )}                     
                           </Sidebar >
