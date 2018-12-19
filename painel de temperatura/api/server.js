@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 var Users = require('./routes/Users')
 
-app.use('/users', Users)
+app.use('/umditemperatura', Users)
 
 app.listen(port, () => {
-    console.log("Server is running on port: " + port)
+    console.log("Servidor Rodando na porta: " + port)
 })
