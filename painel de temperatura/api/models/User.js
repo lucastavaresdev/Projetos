@@ -2,7 +2,7 @@ const Sequelize = require("sequelize")
 const db = require("../database/db")
 
 module.exports = db.sequelize.define(
-    'user',
+    'usuarios',
     {
         id: {
             type: Sequelize.INTEGER,
@@ -36,7 +36,7 @@ module.exports = db.sequelize.define(
         crm: {
             type: Sequelize.STRING
         },
-        created: {
+        dataCadastro: {
             type: Sequelize.DATE,
             defaultValue: Sequelize.NOW
         }
