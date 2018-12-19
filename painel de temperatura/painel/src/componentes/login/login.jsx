@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {login} from './UserFuncions'
+import Logo from '../../img/logo.png'
+import './login.scss'
 
 class Login extends Component{
     constructor(){
@@ -35,8 +37,8 @@ onSubmit(e){
         return(
             <div className="container">
                 <div className="row">
-                    <div className="col-md-6 mt-5 mx-auto">
-                        <h1 className="h3 mb-3 font-weight-normal">Login</h1>
+                    <div className="col-md-6 mx-auto login_espaço_card">
+                        <img src={Logo} alt="Itechmed" width='250'/>
                         <div class="card pt-5 pb-5 pl-3 pr-3">
                             <form noValidate onSubmit={this.onSubmit}>
                                         <div className="form-group">
