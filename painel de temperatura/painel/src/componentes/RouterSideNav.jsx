@@ -6,7 +6,6 @@ import Botao from './sidenav/botao'
 import ConteudoTopoNavBar from '../componentes/sidenav/SideNavConteudo'
 import Navbar from './navbar/navbar';
 import axios from "axios";
-import jwt_decode from 'jwt-decode'
 
 
 
@@ -48,10 +47,6 @@ class Rotas extends React.Component {
     }
 
     componentDidMount(){
-
-        const token = localStorage.usertoken
-        const decoded = jwt_decode(token)
-
 		axios.get("http://localhost:3001/hcor/beacons_temperatura_atual",{}).then((res)=>{
 				//on success
 				this.setState({
@@ -64,13 +59,7 @@ class Rotas extends React.Component {
 		});
     }
 
-
     
-    sair(e) {
-        e.preventDefault()
-        localStorage.removeItem('usertoken')
-        this.props.history.push(`/`)
-    }
 
 
     render() {
@@ -103,7 +92,7 @@ class Rotas extends React.Component {
                     
                     <div className='container-fluid navbar-cel' light>
                         <div className='row cinzabg navbar justify-content-end  '>
-                            <Navbar />
+                             <Navbar /> 
                             <div className='col-6 text-right'>
                                 <a className='btn_hamburger' onClick={() => this.onSetSidebarOpen(true)}>
                                     <i className="fa fa-bars"></i>
@@ -122,12 +111,9 @@ class Rotas extends React.Component {
                         />
                     )}    
 
-                         <a href="" onClick={this.sair.bind(this)} className="nav-link">
-                                Sair
-                                </a>
                     
+              
                           </Sidebar >
-
             </Router >
         
 
