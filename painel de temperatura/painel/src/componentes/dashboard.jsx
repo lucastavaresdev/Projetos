@@ -1,41 +1,41 @@
 import React, { Component } from 'react'
-import NavBar from './navbar/navbar'
-import Tabela from './tabela/tabela'
-import Grafico from './graficos/graficos'
-import Temperatura_Atual from './temperaturas/Temperatura_atual'
-import Temperatura_media from './temperaturas/Temperatura_media'
-import './_estilos_paginas/_dashboard.scss'
+import jwt_decode from 'jwt-decode'
 
- class Dashboard extends Component{
+class Profile extends Component {
+    constructor() {
+        super()
+        this.state = {
+            nome: '',
+        }
+    }
 
+    componentDidMount () {
+        const token = localStorage.usertoken
+        const decoded = jwt_decode(token)
+        this.setState({
+            nome: decoded.nome,
+        })
+    }
 
-
-
-        render(){
-              return (
-                        <div >
-                                        { <NavBar tituloPag={this.props.TitulodaPagina} sinal={'-'} setor={this.props.setor}/> }
-                                                <div className='container-fluid'>
-                                                    <div className="row bg_grafico_media">
-                                                        <div className='col-md-7 col-xs-12 mt-3 tamanho' >
-                                                            <p className='texto-branco text-center'>Temperatura</p>
-                                                            <Grafico />
-                                                        </div>
-                                                        <Temperatura_media />
-                                                    </div>
-                                              <div className="row mt-3">
-                                                <div className='col-md-7 tamanho' >
-                                                    <Tabela />
-                                                </div>
-                                                <Temperatura_Atual tempertatura_atual={this.props.mac} temperatura={this.props.temperatura}/>
-                                            </div>
-                                        </div>
-                                    </div >
-                      
+    render () {
+        return (
+            <div className="container">
+                <div className="jumbotron mt-5">
+                    <div className="col-sm-8 mx-auto">
+                        <h1 className="text-center">PROFILE</h1>
+                    </div>
+                    <table className="table col-md-6 mx-auto">
+                        <tbody>
+                            <tr>
+                                <td>First Name</td>
+                                <td>{this.state.nome}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         )
     }
 }
 
-
-
-export default Dashboard
+export default Profile

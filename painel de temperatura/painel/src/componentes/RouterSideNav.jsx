@@ -6,10 +6,15 @@ import Botao from './sidenav/botao'
 import ConteudoTopoNavBar from '../componentes/sidenav/SideNavConteudo'
 import Navbar from './navbar/navbar';
 import axios from "axios";
+import jwt_decode from 'jwt-decode'
+
+
 
 //paginas
-import Dashboard from './dashboard'
+import Dashboard from './Dashboard'
+import Painel from './painel'
 import Consolidado from './consolidado'
+
 
 const mql = window.matchMedia(`(min-width: 1000px)`);
 
@@ -43,6 +48,10 @@ class Rotas extends React.Component {
     }
 
     componentDidMount(){
+
+        const token = localStorage.usertoken
+        const decoded = jwt_decode(token)
+
 		axios.get("http://localhost:3001/hcor/beacons_temperatura_atual",{}).then((res)=>{
 				//on success
 				this.setState({
@@ -53,8 +62,15 @@ class Rotas extends React.Component {
             alert("Erro da API");
   
 		});
-	}
+    }
 
+
+    
+    sair(e) {
+        e.preventDefault()
+        localStorage.removeItem('usertoken')
+        this.props.history.push(`/`)
+    }
 
 
     render() {
@@ -70,13 +86,17 @@ class Rotas extends React.Component {
                     sidebar={
                         <div>
                             <ConteudoTopoNavBar />
-                           <Botao tituloBotao='Dashboard' iconeMDB=' fa-dashboard' link='/v' classepersonalizada='espaçoPrimeiroBotao' />
-                           <Botao tituloBotao='Consolidado' iconeMDB='fa-cube' link='/' />
-                                       {this.state.userMsg.map(data => 
-                                       <div key={data.mac_beacon}>
-                                                <Botao tituloBotao= {data.nome_do_beacon} iconeMDB='fa-cube' link={`/equipamento/${data.mac_beacon}`} nome= {data.nome_do_beacon} />
-                                       </div>)}
-                            </div>
+                           <Botao tituloBotao='Dashboard' iconeMDB=' fa-dashboard' link='/perfil/home' classepersonalizada='espaçoPrimeiroBotao' />
+                           <Botao tituloBotao='Consolidado' iconeMDB='fa-cube' link='/perfil/consolidado' />
+                            
+                            {this.state.userMsg.map(data => 
+                                <div key={data.mac_beacon}>
+                                      <Botao tituloBotao= {data.nome_do_beacon} iconeMDB='fa-cube' link={`/perfil/equipamento/${data.mac_beacon}`} nome= {data.nome_do_beacon} />
+                                </div>
+                            )}
+                        </div>
+
+
                     }
                 >
 
@@ -92,14 +112,22 @@ class Rotas extends React.Component {
                         </div>
                     </div>
                  
-                    <Route exact path="/" component={Consolidado} />
+
+                    <Route path="/perfil/home" component={Dashboard} />
+                    <Route path="/perfil/consolidado" component={Consolidado} />
                     
                     {this.state.userMsg.map(data => 
-                  <Route  path={`/equipamento/${data.mac_beacon}`}
-                             render={props => <Dashboard {...props}  TitulodaPagina={data.nome_do_beacon} mac={data.mac_beacon} temperatura={data.temperatura} setor={data.nome_setor}/>}
+                        <Route  path={`/perfil/equipamento/${data.mac_beacon}`}
+                               render={props => <Painel {...props}  TitulodaPagina={data.nome_do_beacon} mac={data.mac_beacon} temperatura={data.temperatura} setor={data.nome_setor}/>}
                         />
-                    )}                     
+                    )}    
+
+                         <a href="" onClick={this.sair.bind(this)} className="nav-link">
+                                Sair
+                                </a>
+                    
                           </Sidebar >
+
             </Router >
         
 
@@ -108,3 +136,5 @@ class Rotas extends React.Component {
 }
 
 export default Rotas;
+
+

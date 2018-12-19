@@ -2,7 +2,13 @@ import React, { Component } from 'react'
 import Card from './cards/card'
 import NavBar from './navbar/navbar'
 
+
 class Consolidado extends Component {
+
+
+
+
+
     render() {
         return (
             <div>
