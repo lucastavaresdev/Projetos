@@ -9,16 +9,31 @@ module.exports = db.sequelize.define(
             primaryKey: true,
             autoIncrement: true
         },
-        first_name: {
+        nome: {
             type: Sequelize.STRING
         },
-        last_name: {
+        sexo: {
             type: Sequelize.STRING
         },
-        email: {
+        cadastro: {
             type: Sequelize.STRING
         },
-        password: {
+        perfil: {
+            type: Sequelize.STRING
+        },
+        login: {
+            type: Sequelize.STRING
+        },
+        senha: {
+            type: Sequelize.STRING
+        },
+        ativo: {
+            type: Sequelize.STRING
+        },
+        tipoUsuario: {
+            type: Sequelize.STRING
+        },
+        crm: {
             type: Sequelize.STRING
         },
         created: {
