@@ -4,6 +4,10 @@
 /node_modules
 /database/db.js
 /routes/Users.js
+painel de temperatura/api/database/db.js
+painel de temperatura/api/routes/Users.js
+painel de temperatura/api/database/db.js
+
 
 /.pnp
 .pnp.js
