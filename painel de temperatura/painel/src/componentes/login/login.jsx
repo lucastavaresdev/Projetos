@@ -32,8 +32,22 @@ onSubmit(e){
             this.props.history.push('/perfil/home')
         }
     })
-    }
+ }
     render(){
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+            });
+            return vars;
+            }
+        
+        var invalido = getUrlVars()["usuario"];
+        
+                if (invalido) {
+                    invalido = "Usuario ou senha invalido";
+                } 
+
         return(
             <div className="container">
                 <div className="row">
@@ -42,7 +56,6 @@ onSubmit(e){
                         <div class="card pt-5 pb-5 pl-3 pr-3">
                             <form noValidate onSubmit={this.onSubmit}>
                                         <div className="form-group">
-                                                <label htmlFor="login">Usuario</label>
                                                 <input type="login" 
                                                 className="form-control"
                                                 name="login"
@@ -53,7 +66,6 @@ onSubmit(e){
                                         </div>
 
                                         <div className="form-group ">
-                                                <label htmlFor="senha">Senha</label>
                                                 <input type="password" 
                                                 className="form-control"
                                                 name="senha"
@@ -64,11 +76,12 @@ onSubmit(e){
                                         </div>
                                     <div className='pt-4'>
                                         <button type="submit "
-                                            className="btn btn-lg btn-primary btn-block">
+                                            className="btn btn-lg  cor_do_botao btn-block">
                                                 Acessar                                
                                         </button>
                                         </div>
                             </form>
+                            <p className='text-danger pt-3'>{invalido}</p>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 
+@import '../../scss/variaveis';
 
 body{
     background: url('../../img/bg.jpg') no-repeat center;
@@ -7,3 +8,11 @@ body{
 .login_espaço_card{
     margin-top: -50px;
 }
+
+.cor_do_botao{
+    background: $cor;
+}
+
+
+
+
