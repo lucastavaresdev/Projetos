@@ -6,16 +6,16 @@ import Login from './componentes/login/login'
 class App extends Component {
   render() {
     return (
-      <div>
-        <Router>
-        <div className="App">
-          <Route exact path="/" component={Login} />
-          <div className="container">
+      <Router>
+        <div>
+            <div className='App'>
+              <Route exact path="/" component={Login} />
+          </div>
+          <div className="container pagina">
             <Route   path="/perfil" component={SideNav} />
           </div>
-        </div>
-      </Router>
       </div>
+      </Router>
     );
   }
 }

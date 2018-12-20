@@ -49,7 +49,7 @@ onSubmit(e){
                 } 
 
         return(
-            <div className="container">
+            <div className="container login">
                 <div className="row">
                     <div className="col-md-6 mx-auto login_espaço_card">
                         <img src={Logo} alt="Itechmed" width='250'/>

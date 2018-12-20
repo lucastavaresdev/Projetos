@@ -88,9 +88,8 @@ class Rotas extends React.Component {
 
                     }
                 >
-
                     
-                    <div className='container-fluid navbar-cel' light>
+                    <div className='container-fluid navbar-cel ' light>
                         <div className='row cinzabg navbar justify-content-end  '>
                              <Navbar /> 
                             <div className='col-6 text-right'>
@@ -100,7 +99,6 @@ class Rotas extends React.Component {
                             </div >
                         </div>
                     </div>
-                 
 
                     <Route path="/perfil/home" component={Dashboard} />
                     <Route path="/perfil/consolidado" component={Consolidado} />
