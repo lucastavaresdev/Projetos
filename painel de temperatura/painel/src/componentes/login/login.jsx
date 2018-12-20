@@ -48,7 +48,11 @@ onSubmit(e){
                     invalido = "Usuario ou senha invalido";
                 } 
 
+                document.body.classList.add('login_body');
+
+
         return(
+
             <div className="container login">
                 <div className="row">
                     <div className="col-md-6 mx-auto login_espaço_card">

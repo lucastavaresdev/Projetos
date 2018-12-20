@@ -9,6 +9,7 @@ class Profile extends Component {
         }
     }
 
+
     componentDidMount () {
         const token = localStorage.usertoken
         const decoded = jwt_decode(token)
@@ -17,7 +18,10 @@ class Profile extends Component {
         })
     }
 
+    
     render () {
+        document.body.classList.remove('login_body');
+
         return (
             <div className="container">
                 <div className="jumbotron mt-5">
