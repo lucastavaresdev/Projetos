@@ -99,6 +99,7 @@ class Rotas extends React.Component {
                     }
                 >
                 
+               
                    
                          <Navbar dark expand="md">
                                     <NavbarNav right>
@@ -110,6 +111,8 @@ class Rotas extends React.Component {
                                                 </div>
                                             </NavItem>
                                             </NavbarNav>
+
+                                         
                                     </Navbar>
 
                     <Route path="/perfil/home" component={Dashboard} />
@@ -121,9 +124,6 @@ class Rotas extends React.Component {
                         />
                     )}    
 
-                        <a href="" className='right' onClick={this.sair.bind(this)} className="nav-link">
-                       Sair
-                       </a>
               
                  
                                                         
