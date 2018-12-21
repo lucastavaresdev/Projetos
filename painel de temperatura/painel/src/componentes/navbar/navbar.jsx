@@ -4,12 +4,6 @@ import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collap
 
 
 class Titulo extends Component {
-
-
-
-
-   
-
     render() {
         return (
             <p className="cinza-text text-center text-top">{this.props.titulo}</p>
