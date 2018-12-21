@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
 h1,
 h2,
 h3,
@@ -35,3 +37,26 @@ $cor:"#00ff00") {
     $branco);
 }
 
+.bem-vindo{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    -webkit-animation: fadein 12s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 12s; /* Firefox < 16 */
+     -ms-animation: fadein 12s; /* Internet Explorer */
+      -o-animation: fadein 12s; /* Opera < 12.1 */
+         animation: fadein 12s;
+
+    h1{
+        font-size: 2em;
+        font-weight: 300;
+        font-family: 'Roboto', sans-serif;
+
+    
+
+        span{
+                color: $cor
+        }
+    }
+}

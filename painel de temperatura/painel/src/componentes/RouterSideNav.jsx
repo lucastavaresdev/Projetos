@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import Sidebar from "react-sidebar";
 import '../scss/style.scss'
 import Botao from './sidenav/botao'
-import ConteudoTopoNavBar from '../componentes/sidenav/SideNavConteudo'
+import LogoSideBar from '../componentes/sidenav/SideNavConteudo'
 import Navbar from './navbar/navbar';
 import axios from "axios";
 
@@ -74,7 +74,7 @@ class Rotas extends React.Component {
                     onSetOpen={this.onSetSidebarOpen}
                     sidebar={
                         <div>
-                            <ConteudoTopoNavBar />
+                            <LogoSideBar />
                            <Botao tituloBotao='Dashboard' iconeMDB=' fa-dashboard' link='/perfil/home' classepersonalizada='espaçoPrimeiroBotao' />
                            <Botao tituloBotao='Consolidado' iconeMDB='fa-cube' link='/perfil/consolidado' />
                             
@@ -89,16 +89,16 @@ class Rotas extends React.Component {
                     }
                 >
                     
-                    <div className='container-fluid navbar-cel ' light>
-                        <div className='row cinzabg navbar justify-content-end  '>
-                             <Navbar /> 
-                            <div className='col-6 text-right'>
+                    {/* <div className='container-fluid navbar-cel ' light>
+                        <div className='row cinzabg navbar justify-content-end  '> */}
+                             {/* <Navbar />  */}
+                            {/* <div className='col-6 text-right'>
                                 <a className='btn_hamburger' onClick={() => this.onSetSidebarOpen(true)}>
                                     <i className="fa fa-bars"></i>
                                 </a>
                             </div >
                         </div>
-                    </div>
+                    </div> */}
 
                     <Route path="/perfil/home" component={Dashboard} />
                     <Route path="/perfil/consolidado" component={Consolidado} />
