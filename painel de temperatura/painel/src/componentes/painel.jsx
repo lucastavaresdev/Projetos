@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NavBar from './navbar/navbar'
+import Titulo from './navbar/navbar'
 import Tabela from './tabela/tabela'
 import Grafico from './graficos/graficos'
 import Temperatura_Atual from './temperaturas/Temperatura_atual'
@@ -19,7 +19,8 @@ import jwt_decode from 'jwt-decode'
         render(){
               return (
                         <div >
-                                        {/* <NavBar tituloPag={this.props.TitulodaPagina} sinal={'-'} setor={this.props.setor}/>  */}
+                                            { <Titulo titulo={this.props.TitulodaPagina} /> }
+
                                                 <div className='container-fluid'>
                                                     <div className="row bg_grafico_media">
                                                         <div className='col-md-7 col-xs-12 mt-3 tamanho' >

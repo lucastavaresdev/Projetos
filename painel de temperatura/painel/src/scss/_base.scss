@@ -41,13 +41,6 @@ $cor:"#00ff00") {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-
-    -webkit-animation: fadein 12s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 12s; /* Firefox < 16 */
-     -ms-animation: fadein 12s; /* Internet Explorer */
-      -o-animation: fadein 12s; /* Opera < 12.1 */
-         animation: fadein 12s;
-
     h1{
         font-size: 2em;
         font-weight: 300;
@@ -59,4 +52,23 @@ $cor:"#00ff00") {
                 color: $cor
         }
     }
+}
+
+.cinza-text{
+    color: #2E2E2E
+}
+
+.text-top{
+margin-top: -46px;
+padding-bottom: 5px;
+z-index: 50;
+
+}
+
+@media (min-width: 920px){
+        .text-top {
+        margin-top: -34px;
+        margin-bottom: 6px;
+        z-index: 50;
+        }
 }

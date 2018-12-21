@@ -4,9 +4,11 @@ import Sidebar from "react-sidebar";
 import '../scss/style.scss'
 import Botao from './sidenav/botao'
 import LogoSideBar from '../componentes/sidenav/SideNavConteudo'
-import Navbar from './navbar/navbar';
+ import Titulo from './navbar/navbar';
 import axios from "axios";
+import jwt_decode from 'jwt-decode'
 
+import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem } from "mdbreact";
 
 
 //paginas
@@ -56,10 +58,18 @@ class Rotas extends React.Component {
 			//on error
             alert("Erro da API");
   
-		});
+        });
+        
+        const token = localStorage.usertoken
+        const decoded = jwt_decode(token)
     }
 
-    
+
+    sair(e) {
+        e.preventDefault()
+        localStorage.removeItem('usertoken')
+        this.props.history.push(`/`)
+    }
 
 
     render() {
@@ -88,29 +98,35 @@ class Rotas extends React.Component {
 
                     }
                 >
-                    
-                    {/* <div className='container-fluid navbar-cel ' light>
-                        <div className='row cinzabg navbar justify-content-end  '> */}
-                             {/* <Navbar />  */}
-                            {/* <div className='col-6 text-right'>
-                                <a className='btn_hamburger' onClick={() => this.onSetSidebarOpen(true)}>
-                                    <i className="fa fa-bars"></i>
-                                </a>
-                            </div >
-                        </div>
-                    </div> */}
+                
+                   
+                         <Navbar dark expand="md">
+                                    <NavbarNav right>
+                                            <NavItem>
+                                                <div className="md-form my-0">
+                                                        <a id="navbarCollapse3" className='btn_hamburger' onClick={() => this.onSetSidebarOpen(true)} navbar>
+                                                                    <i className="fa fa-bars"></i>
+                                                        </a>
+                                                </div>
+                                            </NavItem>
+                                            </NavbarNav>
+                                    </Navbar>
 
                     <Route path="/perfil/home" component={Dashboard} />
                     <Route path="/perfil/consolidado" component={Consolidado} />
                     
                     {this.state.userMsg.map(data => 
                         <Route  path={`/perfil/equipamento/${data.mac_beacon}`}
-                               render={props => <Painel {...props}  TitulodaPagina={data.nome_do_beacon} mac={data.mac_beacon} temperatura={data.temperatura} setor={data.nome_setor}/>}
+                               render={props => <Painel {...props} TitulodaPagina={data.nome_do_beacon} mac={data.mac_beacon} temperatura={data.temperatura} setor={data.nome_setor}/>}
                         />
                     )}    
 
-                    
+                        <a href="" className='right' onClick={this.sair.bind(this)} className="nav-link">
+                       Sair
+                       </a>
               
+                 
+                                                        
                           </Sidebar >
             </Router >
         
