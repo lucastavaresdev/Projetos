@@ -4,7 +4,7 @@ import Tabela from './tabela/tabela'
 import Grafico from './graficos/graficos'
 import Temperatura_Atual from './temperaturas/Temperatura_atual'
 import Temperatura_media from './temperaturas/Temperatura_media'
-import './_estilos_paginas/_dashboard.scss'
+
 import jwt_decode from 'jwt-decode'
 
 
@@ -25,13 +25,13 @@ import jwt_decode from 'jwt-decode'
                                             <p className='texto-branco text-center'>Temperatura</p>
                                             <Grafico />
                                         </div>
-                                        <Temperatura_media />
+                                        {/* <Temperatura_media /> */}
                                     </div>
                                     <div className="row mt-3">
                                         <div className='col-md-7 tamanho' >
-                                            <Tabela />
+                                            {/* <Tabela /> */}
                                         </div>
-                                        <Temperatura_Atual tempertatura_atual={this.props.mac} temperatura={this.props.temperatura}/>
+                                        {/* <Temperatura_Atual tempertatura_atual={this.props.mac} temperatura={this.props.temperatura}/> */}
                                     </div>
                                </div>
                         </div >
