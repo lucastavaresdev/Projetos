@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import './_card.scss';
+import './card.scss';
 import imagem from '../../img/teste.jpg'
 class Card extends Component {
     render() {
         return (
-            <div className='container-fluid'>
-                <div className='card status mt-3'>
-                    <div className='row '>
-
-                        <div className=' col-sm-12 col-md-12 col-xl-5 '>
-                            <img className='imagem' src={imagem} />
-                        </div>
-
-                        <div className='col-sm-12 col-md-12 col-xl-6'>
-                            <p className='text-center'>Geladeira de Vacinas</p>
-                            <p className='temperatura text-center   '>25,5°C</p>
-                        </div>
-
+        <section>
+            <div className="container py-3">
+              <div className="card background-color">
+                <div className="row ">
+                  <div className="col-lg-4 col-md-5">
+                        <h1 className='text-center pl-3 pt-4 pb-3 align_vertical'>21ºC</h1>
                     </div>
+                    <div className="col-lg-8 col-md-7 info-local-setor" >
+                        <h2 className='text-center  align_vertical'>Geladeira</h2>
+                        <p className='text-center  align_vertical'>Sala de Medicamentos</p>
+                    </div>
+                 
                 </div>
+                <div class="card-footer text-muted"></div>
+              </div>
             </div>
+        </section>
         )
     }
 }
