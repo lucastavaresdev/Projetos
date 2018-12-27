@@ -54,12 +54,14 @@ router.get('/hcor/temperatura_media', (req, res) =>{
     execQuery($Temperatura_atual, res);
 })
 
-router.get('/umdi/temperatura_media_hora', (req, res) =>{
+router.get('/umdi/temperatura_media_hora/:mac', (req, res) =>{
 
     var parametro = req.params.mac;
-    const $Temperatura_atual = `select distinct(id_beacon), tempo, ROUND(avg(temperatura), 2) as temperatura_media_hora from (
+
+    const $Temperatura_media_hora = `select tempo, ROUND(avg(temperatura), 2) as temperatura_media_hora from (
         SELECT
-          *,(CASE
+          beacons.beacon, temperatura_media.data_hora, temperatura_media.temperatura  
+          ,(CASE
               WHEN DATE_FORMAT(data_hora, '%H:%i:%s') > '01:00' 
               && DATE_FORMAT(data_hora, '%H:%i:%s') < '01:59' THEN '01h'
           
@@ -134,9 +136,11 @@ router.get('/umdi/temperatura_media_hora', (req, res) =>{
               
               ELSE 0 END)
         AS tempo
-        FROM temperatura_media where DATE_FORMAT(data_hora, '%y-%m-%d') = curdate()
-      ) as horas GROUP BY id_beacon, tempo`;
+        FROM temperatura_media 
+        inner join beacons on temperatura_media.id_beacon = beacons.codigo
+        where DATE_FORMAT(data_hora, '%y-%m-%d') = curdate() and beacon = '${parametro}'
+      ) as horas GROUP BY  tempo `;
 
-    execQuery($Temperatura_atual, res);
+    execQuery($Temperatura_media_hora, res);
 })
 
