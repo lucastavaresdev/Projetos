@@ -57,7 +57,7 @@ onSubmit(e){
                 <div className="row">
                     <div className="col-md-6 mx-auto login_espaço_card">
                         <img src={Logo} alt="Itechmed" width='250'/>
-                        <div class="card pt-5 pb-5 pl-3 pr-3">
+                        <div className="card pt-5 pb-5 pl-3 pr-3">
                             <form noValidate onSubmit={this.onSubmit}>
                                         <div className="form-group">
                                                 <input type="login" 

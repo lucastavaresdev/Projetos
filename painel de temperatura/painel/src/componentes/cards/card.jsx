@@ -17,7 +17,7 @@ class Card extends Component {
                     </div>
                  
                 </div>
-                <div class="card-footer text-muted"></div>
+                <div className="card-footer text-muted"></div>
               </div>
             </div>
         </section>

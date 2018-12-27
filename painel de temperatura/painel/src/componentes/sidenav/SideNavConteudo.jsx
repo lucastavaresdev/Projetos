@@ -28,7 +28,7 @@ class Logo extends Component {
                     <div className="container">
                         <div className="row">
                     <div className='col-12 text-right sair'>
-                        <a href="" onClick={this.sair.bind(this)} className="nav-link"> <i class="fa fa-power-off" aria-hidden="true"></i> Sair  </a>
+                        <a href="" onClick={this.sair.bind(this)} className="nav-link"> <i className="fa fa-power-off" aria-hidden="true"></i> Sair  </a>
                         </div>
                         </div>
                     </div>
