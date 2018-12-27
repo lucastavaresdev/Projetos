@@ -16,10 +16,7 @@ import axios from 'axios';
     state = {
         temperatura: 
             [
-                { name: '0h', graus: 5 },
-                { name: '1h', graus: 5 },
-                { name: '0h', graus: 5 },
-                { name: '1h', graus: 5 },
+                { name: '0', graus: 0 },
           ]
         }
 
@@ -33,7 +30,6 @@ import axios from 'axios';
         axios.get(`http://localhost:3001/umdi/temperatura_media_hora/${this.props.mac}`)
         .then(res => {
           const temperatura = res.data;
-          console.log(temperatura)
           this.setState({ temperatura : res.data });
         })
         
@@ -62,7 +58,11 @@ import axios from 'axios';
                                     </div>
                                     <div className="row mt-3">
                                         <div className='col-md-7 tamanho' >
-                                            {/* <Tabela /> */}
+                                            
+                                            
+                                                <Tabela macpage={this.props.mac}/>
+                                           
+
                                         </div>
                                         {/* <Temperatura_Atual tempertatura_atual={this.props.mac} temperatura={this.props.temperatura}/> */}
                                     </div>

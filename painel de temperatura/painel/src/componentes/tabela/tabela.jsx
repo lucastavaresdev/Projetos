@@ -1,7 +1,33 @@
-import React from 'react';
+import React,{Component} from 'react';
 import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import axios from 'axios';
 
-const TablePage = (props) => {
+
+
+
+
+
+
+class TablePage extends Component{
+
+    state = { 
+        rows: [
+            {
+                'name': '0',
+                'graus': '0',
+            }
+        ]
+        }
+
+        componentDidMount () {
+            axios.get(`http://localhost:3001/umdi/temperatura_media_hora/${this.props.macpage}`)
+                    .then(res => {
+                    this.setState({ rows : res.data });
+            })
+        }
+
+render(){
+
     const data = {
         columns: [
             {
@@ -19,32 +45,23 @@ const TablePage = (props) => {
                 field: 'status',
                 sort: 'asc'
             },
-        ],
-        rows: [
-            {
-                'hora': '7h',
-                'temperatura': '23',
-                'status': '2',
-            },
-            {
-                'hora': '8h',
-                'temperatura': '23',
-                'status': '1',
-            },
-            {
-                'hora': '9h',
-                'temperatura': '23,5',
-                'status': '1',
-            }
         ]
     };
 
+
+
     return (
+        
         <MDBTable responsive striped>
             <MDBTableHead columns={data.columns} />
-            <MDBTableBody rows={data.rows} />
+           
+                <MDBTableBody rows={this.state.rows} />
+
         </MDBTable>
     );
+
+    }
+
 };
 
 export default TablePage;
