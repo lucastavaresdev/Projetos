@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Titulo from './navbar/navbar'
 import Tabela from './tabela/tabela'
-import Temperatura_Atual from './temperaturas/Temperatura_atual'
+import './estilos_paginas/painel.scss'
 import Temperatura_media from './temperaturas/Temperatura_media'
+
 
 import jwt_decode from 'jwt-decode'
 
@@ -54,17 +55,19 @@ import axios from 'axios';
                                                         </LineChart>
                                                     </ResponsiveContainer>
                                         </div>
-                                        {/* <Temperatura_media /> */}
+                                        <Temperatura_media />
+                                        </div>
+                                        <div className='container-fluid'>
                                     </div>
                                     <div className="row mt-3">
                                         <div className='col-md-7 tamanho' >
-                                            
-                                            
                                                 <Tabela macpage={this.props.mac}/>
-                                           
-
                                         </div>
-                                        {/* <Temperatura_Atual tempertatura_atual={this.props.mac} temperatura={this.props.temperatura}/> */}
+                                        
+                                        <div className='col-md-5 text-center tempertatura_Atual' >
+                                            <h1 className='mt-5 '>Temperatura Atual</h1>
+                                                <h3 className=' p-3'>{this.props.temperatura}</h3>
+                                            </div>
                                     </div>
                                </div>
                         </div >

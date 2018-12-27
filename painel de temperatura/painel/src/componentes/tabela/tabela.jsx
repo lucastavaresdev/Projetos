@@ -40,11 +40,6 @@ render(){
                 field: 'temperatura',
                 sort: 'asc'
             },
-            {
-                label: 'Status',
-                field: 'status',
-                sort: 'asc'
-            },
         ]
     };
 
