@@ -58,7 +58,7 @@ router.get('/umdi/temperatura_media_hora/:mac', (req, res) =>{
 
     var parametro = req.params.mac;
 
-    const $Temperatura_media_hora = `select tempo, ROUND(avg(temperatura), 2) as temperatura_media_hora from (
+    const $Temperatura_media_hora = `select tempo as name, ROUND(avg(temperatura), 2) as graus from (
         SELECT
           beacons.beacon, temperatura_media.data_hora, temperatura_media.temperatura  
           ,(CASE

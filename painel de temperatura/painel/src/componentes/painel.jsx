@@ -8,11 +8,37 @@ import Temperatura_media from './temperaturas/Temperatura_media'
 import jwt_decode from 'jwt-decode'
 
 
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, ReferenceLine, Area, } from 'recharts';
+import axios from 'axios';
+
+
  class Painel extends Component{
+
+    state = {
+        temperatura: 
+            [
+                { name: '0h', graus: 5 },
+                { name: '1h', graus: 5 },
+                { name: '0h', graus: 5 },
+                { name: '1h', graus: 5 },
+          ]
+        }
+
     
     componentDidMount () {
         const token = localStorage.usertoken
         const decoded = jwt_decode(token)
+
+        //axios
+
+        axios.get(`http://localhost:3001/umdi/temperatura_media_hora/DAEE003F9A01`)
+        .then(res => {
+          const temperatura = res.data;
+          console.log(temperatura)
+          this.setState({ temperatura : res.data });
+        })
+        
+
     }
 
         render(){
@@ -23,7 +49,23 @@ import jwt_decode from 'jwt-decode'
                                     <div className="row bg_grafico_media">
                                         <div className='col-md-7 col-xs-12 mt-3 tamanho' >
                                             <p className='texto-branco text-center'>Temperatura</p>
-                                            <Grafico />
+                                      
+                                      
+                                {console.log(this.temperatura)}
+
+                                                    <ResponsiveContainer width="100%" height="80%">
+                                                        <LineChart width={730} height={250} data={this.state.temperatura}>
+                                                            <XAxis dataKey="name" stroke="#ffffff" />
+                                                            <YAxis stroke="#ffffff" />
+                                                            <Tooltip />
+                                                            <Legend />
+                                                            <Line type="monotone" dataKey="graus" stroke="#ffffff" />
+                                                        </LineChart>
+                                                    </ResponsiveContainer>
+                                      
+                                      
+                                      
+                                            {/* <Grafico /> */}
                                         </div>
                                         {/* <Temperatura_media /> */}
                                     </div>
