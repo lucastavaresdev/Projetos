@@ -15,7 +15,8 @@ import axios from 'axios';
 
     state = {
         temperatura: [{ name: '0', graus: 0 }],
-        temperaturaAtual: 0
+        temperaturaAtual: 0,
+        temperaturaCidade: []
     }
 
     
@@ -29,22 +30,43 @@ import axios from 'axios';
         .then(res => {
             this.setState({ temperatura : res.data });
         })
-        
+
         this.tempertaturaAtual();
+        this.tempertaturaCidade();
+        
         this.interval = setInterval(() => {
           this.tempertaturaAtual();
         }, 5000);
 
+
+        var currentDateSeconds = new Date().getSeconds()
+
+        this.interval = setInterval(() => {
+          this.tempertaturaCidade();
+        }, (60 - currentDateSeconds) * 1000);
+
+        import Icone from `../img/icones_temperatura${this.state.temperaturaCidade.icon}`
+
+
     }
-    
-    
+
+        //o acesso a api esta no email suporte
+        tempertaturaCidade()  {
+        axios.get(`http://apiadvisor.climatempo.com.br/api/v1/weather/locale/3477/current?token=076783c1f233dda416e9157a53762865`)
+            .then(res => {
+                this.setState({ temperaturaCidade : res.data.data });
+            })
+        }
+        
         tempertaturaAtual()  {
             axios.get(`http://localhost:3001/umdi/temperatura_atual/${this.props.mac}`)
             .then(res => {
-              this.setState({ temperaturaAtual : res.data[0].temperatura });
+            this.setState({ temperaturaAtual : res.data[0].temperatura });
             })
-        }
 
+            
+        }
+        
 
         componentWillUnmount() {
             clearInterval(this.interval);
@@ -68,11 +90,30 @@ import axios from 'axios';
                                                         </LineChart>
                                                     </ResponsiveContainer>
                                         </div>
+
+
                                         <div className='col-md-5 col-xs-12 mt-3 tamanho text-white text-center' >
                                                 <p className='mt-5'>Temperatura diaria</p>
-                                                <h1 className='titulo_temperatura_media'>23°C</h1>
+                                                {console.log(this.state.temperaturaCidade)}
+                                                <h1 className='titulo_temperatura_media'>{this.state.temperaturaCidade.temperature} °C</h1>
+                                                <div className="row">
+                                                    <div className="col-4">
+                                                        <p>Sensação</p>
+                                                        <p>{this.state.temperaturaCidade.sensation}</p>
+                                                    </div>
+                                                    <div className="col-4">
+                                                        <p>Umidade </p>
+                                                        <p>{this.state.temperaturaCidade.humidity}</p>
+                                                    </div>
+                                                    <div className="col-4">
+                                                        <p>{this.state.temperaturaCidade.icon}</p>
+                                                        <img src={Icone} alt="fireSpot"/>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+
+
                                     <div className='container-fluid'>
                                     </div>
                                     <div className="row mt-3">
