@@ -13,21 +13,109 @@
     }
 }
 
+
 @mixin icone {
-        width: 100px;
-        height: 66px;
-        margin-top: 6px;
-        background-size: cover;
+    width: 100px;
+    height: 100px;
+    background-size: 100px 100px;
 }
 
+    .a1{
+        @include icone;
+        background: url('../../img/icones_temperatura/1.png') no-repeat;
+    }
 
+    .a1n{
+        @include icone;
+        background: url('../../img/icones_temperatura/1n.png') no-repeat;
+    }
+    .a2{
+        @include icone;
+        background: url('../../img/icones_temperatura/2.png') no-repeat;
+    }
+    .a2n{
+        @include icone;
+        background: url('../../img/icones_temperatura/2n.png') no-repeat;
+    }
     .a2r{
         @include icone;
-        background: url('../../img/icones_temperatura/2r.jpg') no-repeat;
+        background: url('../../img/icones_temperatura/2r.png') no-repeat;
     }
-
+    .a2rN{
+        @include icone;
+        background: url('../../img/icones_temperatura/2rN.png') no-repeat;
+    }
+    .a3{
+        @include icone;
+        background: url('../../img/icones_temperatura/3.png') no-repeat;
+    }
+    .a3n{
+        @include icone;
+        background: url('../../img/icones_temperatura/3n.png') no-repeat;
+    }
+    .a3TM{
+        @include icone;
+        background: url('../../img/icones_temperatura/3TM.png') no-repeat;
+    }
     .a4{
-        background-size:100% 100%;
-        background-size: cover;
+        width: 100px;
+        height: 100px;
+        background-size: 100px 100px;
         background: url('../../img/icones_temperatura/4.png') no-repeat;
     }
+    .a4n{
+        @include icone;
+        background: url('../../img/icones_temperatura/4n.png') no-repeat;
+    }
+    .a4r{
+        @include icone;
+        background: url('../../img/icones_temperatura/4r.png') no-repeat;
+    }
+
+    .a4rN{
+        @include icone;
+        background: url('../../img/icones_temperatura/4rN.png') no-repeat;
+    }
+
+    .a5{
+        @include icone;
+        background: url('../../img/icones_temperatura/5.png') no-repeat;
+    }
+
+    .a5n{
+        @include icone;
+        background: url('../../img/icones_temperatura/5n.png') no-repeat;
+    }
+    .a6{
+        @include icone;
+        background: url('../../img/icones_temperatura/6.png') no-repeat;
+    }
+    .a6n{
+        @include icone;
+        background: url('../../img/icones_temperatura/6n.png') no-repeat;
+    }
+    .a7{
+        @include icone;
+        background: url('../../img/icones_temperatura/7.png') no-repeat;
+    }
+    .a7n{
+        @include icone;
+        background: url('../../img/icones_temperatura/7n.png') no-repeat;
+    }
+    .a8{
+        @include icone;
+        background: url('../../img/icones_temperatura/8.png') no-repeat;
+    }
+    .a8n{
+        @include icone;
+        background: url('../../img/icones_temperatura/8n.png') no-repeat;
+    }
+    .a9{
+        @include icone;
+        background: url('../../img/icones_temperatura/9.png') no-repeat;
+    }
+    .a9n{
+        @include icone;
+        background: url('../../img/icones_temperatura/9n.png') no-repeat;
+    }
+
