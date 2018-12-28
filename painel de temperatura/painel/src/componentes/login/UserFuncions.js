@@ -10,7 +10,6 @@ export const login = user => {
             return res.data
           })
           .catch(function (error) {
-            var url_atual = window.location.href;
             window.location = "/?usuario=invalido";
           });
 }

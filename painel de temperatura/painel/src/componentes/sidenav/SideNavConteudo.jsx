@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 import logo2 from '../../img/logo.png';
 
-import jwt_decode from 'jwt-decode'
 
 class Logo extends Component {
   
-    componentDidMount(){
-        const token = localStorage.usertoken
-        const decoded = jwt_decode(token)
-    }
 
   
     sair(e) {

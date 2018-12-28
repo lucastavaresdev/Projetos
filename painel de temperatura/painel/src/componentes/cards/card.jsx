@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './card.scss';
-import imagem from '../../img/teste.jpg'
 class Card extends Component {
     render() {
         return (

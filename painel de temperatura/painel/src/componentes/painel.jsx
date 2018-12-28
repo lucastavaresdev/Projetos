@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Titulo from './navbar/navbar'
 import Tabela from './tabela/tabela'
 import './estilos_paginas/painel.scss'
-import jwt_decode from 'jwt-decode'
 import { LineChart, Line, XAxis, YAxis,  Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import axios from 'axios';
 
@@ -17,8 +16,6 @@ import axios from 'axios';
 
     
     componentDidMount () {
-        const token = localStorage.usertoken
-        const decoded = jwt_decode(token)
         
         //axios
         
@@ -81,7 +78,6 @@ import axios from 'axios';
 
                                         <div className='col-md-5 col-xs-12 mt-3 tamanho text-white text-center' >
                                                 <p className='mt-5'>Temperatura diaria</p>
-                                                {console.log(this.state.temperaturaCidade)}
                                                 <h1 className='titulo_temperatura_media'>{this.state.temperaturaCidade.temperature} °C</h1>
                                                 <div className="row">
                                                     <div className="col-4">

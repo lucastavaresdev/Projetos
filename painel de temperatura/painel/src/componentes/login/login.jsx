@@ -39,7 +39,8 @@ onSubmit(e){
             var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
             vars[key] = value;
             });
-            return vars;
+            return parts;
+            //return vars;
             }
         
         var invalido = getUrlVars()["usuario"];

@@ -5,7 +5,6 @@ import '../scss/style.scss'
 import Botao from './sidenav/botao'
 import LogoSideBar from '../componentes/sidenav/SideNavConteudo'
 import axios from "axios";
-import jwt_decode from 'jwt-decode'
 import { Navbar, NavbarNav, NavItem} from "mdbreact";
 
 
@@ -56,8 +55,6 @@ class Rotas extends React.Component {
   
         });
         
-        const token = localStorage.usertoken
-        const decoded = jwt_decode(token)
     }
 
 
