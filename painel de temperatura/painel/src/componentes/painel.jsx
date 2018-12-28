@@ -86,11 +86,11 @@ import axios from 'axios';
                                                 <div className="row">
                                                     <div className="col-4">
                                                         <p>Sensação</p>
-                                                        <p>{this.state.temperaturaCidade.sensation}</p>
+                                                        <p>{this.state.temperaturaCidade.sensation}°C</p>
                                                     </div>
                                                     <div className="col-4">
                                                         <p>Umidade </p>
-                                                        <p>{this.state.temperaturaCidade.humidity}</p>
+                                                        <p>{this.state.temperaturaCidade.humidity}%</p>
                                                     </div>
                                                     <div className="col-4 mx-auto" >
                                                         <p>{this.state.temperaturaCidade.condition} </p>
