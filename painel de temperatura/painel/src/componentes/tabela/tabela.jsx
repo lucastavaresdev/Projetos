@@ -49,9 +49,7 @@ render(){
         
         <MDBTable responsive striped>
             <MDBTableHead columns={data.columns} />
-           
                 <MDBTableBody rows={this.state.rows} />
-
         </MDBTable>
     );
 

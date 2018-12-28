@@ -97,16 +97,14 @@ import axios from 'axios';
                                         </div>
 
 
-                                    <div className='container-fluid'>
-                                    </div>
                                     <div className="row mt-3">
-                                        <div className='col-md-7 tamanho' >
+                                        <div className='col-md-7 col-sm-12 tamanho' >
                                                 <Tabela macpage={this.props.mac}/>
                                         </div>   
                                         <div className='col-md-5 text-center temperatura_Atual' >
                                             <h1 className='mt-5 '>Temperatura Atual</h1>
                                                 <h3 className=' p-3'>{this.state.temperaturaAtual} °C</h3>
-                                            </div>
+                                        </div>
                                     </div>
                                </div>
                         </div >
