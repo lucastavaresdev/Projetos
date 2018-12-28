@@ -13,11 +13,21 @@
     }
 }
 
-.a2r{
-    width: 100px;
-    height: 66px;
-    margin-top: 6px;
-    background: url('../../img/icones_temperatura/2r.jpg') no-repeat;
-    background-size: cover;
-   
+@mixin icone {
+        width: 100px;
+        height: 66px;
+        margin-top: 6px;
+        background-size: cover;
 }
+
+
+    .a2r{
+        @include icone;
+        background: url('../../img/icones_temperatura/2r.jpg') no-repeat;
+    }
+
+    .a4{
+        background-size:100% 100%;
+        background-size: cover;
+        background: url('../../img/icones_temperatura/4.png') no-repeat;
+    }
