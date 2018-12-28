@@ -27,30 +27,30 @@ import axios from 'axios';
             this.setState({ temperatura : res.data });
         })
 
-        this.tempertaturaAtual();
-        this.tempertaturaCidade();
+        this.temperaturaAtual();
+        this.temperaturaCidade();
         
         this.interval = setInterval(() => {
-          this.tempertaturaAtual();
+          this.temperaturaAtual();
         }, 5000);
 
 
       
-          this.tempertaturaCidade();
+          this.temperaturaCidade();
     }
 
         //o acesso a api esta no email suporte
-        tempertaturaCidade()  {
+        temperaturaCidade()  {
         axios.get(`http://apiadvisor.climatempo.com.br/api/v1/weather/locale/3477/current?token=bd9733ed4b32e51e5761a078d552770c`)
             .then(res => {
                 this.setState({ temperaturaCidade : res.data.data });
             })
         }
         
-        tempertaturaAtual()  {
+        temperaturaAtual()  {
             axios.get(`http://localhost:3001/umdi/temperatura_atual/${this.props.mac}`)
             .then(res => {
-                    this.setState({ temperaturaAtual : res.data[0].temperatura });
+                    this.setState({ temperaturaAtual : res.data[0].temperatura.substr(0, 4) });
             })
         }
     
@@ -107,9 +107,9 @@ import axios from 'axios';
                                         <div className='col-md-7 tamanho' >
                                                 <Tabela macpage={this.props.mac}/>
                                         </div>   
-                                        <div className='col-md-5 text-center tempertatura_Atual' >
+                                        <div className='col-md-5 text-center temperatura_Atual' >
                                             <h1 className='mt-5 '>Temperatura Atual</h1>
-                                                <h3 className=' p-3'>{this.state.temperaturaAtual}</h3>
+                                                <h3 className=' p-3'>{this.state.temperaturaAtual} °C</h3>
                                             </div>
                                     </div>
                                </div>
