@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 import Titulo from './navbar/navbar'
 import Tabela from './tabela/tabela'
 import './estilos_paginas/painel.scss'
-
-
 import jwt_decode from 'jwt-decode'
-
-
 import { LineChart, Line, XAxis, YAxis,  Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import axios from 'axios';
 
@@ -39,20 +35,13 @@ import axios from 'axios';
         }, 5000);
 
 
-        var currentDateSeconds = new Date().getSeconds()
-
-        this.interval = setInterval(() => {
+      
           this.tempertaturaCidade();
-        }, (60 - currentDateSeconds) * 1000);
-
-        import Icone from `../img/icones_temperatura${this.state.temperaturaCidade.icon}`
-
-
     }
 
         //o acesso a api esta no email suporte
         tempertaturaCidade()  {
-        axios.get(`http://apiadvisor.climatempo.com.br/api/v1/weather/locale/3477/current?token=076783c1f233dda416e9157a53762865`)
+        axios.get(`http://apiadvisor.climatempo.com.br/api/v1/weather/locale/3477/current?token=bd9733ed4b32e51e5761a078d552770c`)
             .then(res => {
                 this.setState({ temperaturaCidade : res.data.data });
             })
@@ -61,12 +50,10 @@ import axios from 'axios';
         tempertaturaAtual()  {
             axios.get(`http://localhost:3001/umdi/temperatura_atual/${this.props.mac}`)
             .then(res => {
-            this.setState({ temperaturaAtual : res.data[0].temperatura });
+                    this.setState({ temperaturaAtual : res.data[0].temperatura });
             })
-
-            
         }
-        
+    
 
         componentWillUnmount() {
             clearInterval(this.interval);
@@ -106,9 +93,8 @@ import axios from 'axios';
                                                         <p>{this.state.temperaturaCidade.humidity}</p>
                                                     </div>
                                                     <div className="col-4">
-                                                        <p>{this.state.temperaturaCidade.icon}</p>
-                                                        <img src={Icone} alt="fireSpot"/>
-                                                    </div>
+                                                                <div className={'a'+ this.state.temperaturaCidade.icon}></div>
+                                                       </div>
                                                 </div>
                                             </div>
                                         </div>
