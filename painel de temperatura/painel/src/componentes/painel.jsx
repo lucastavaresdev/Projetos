@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Titulo from './navbar/navbar'
 import Tabela from './tabela/tabela'
 import './estilos_paginas/painel.scss'
-import Temperatura_media from './temperaturas/Temperatura_media'
 
 
 import jwt_decode from 'jwt-decode'
@@ -69,12 +68,12 @@ import axios from 'axios';
                                                         </LineChart>
                                                     </ResponsiveContainer>
                                         </div>
-                                       
-
-
-                                       
+                                        <div className='col-md-5 col-xs-12 mt-3 tamanho text-white text-center' >
+                                                <p className='mt-5'>Temperatura diaria</p>
+                                                <h1 className='titulo_temperatura_media'>23°C</h1>
+                                            </div>
                                         </div>
-                                        <div className='container-fluid'>
+                                    <div className='container-fluid'>
                                     </div>
                                     <div className="row mt-3">
                                         <div className='col-md-7 tamanho' >
