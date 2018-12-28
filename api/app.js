@@ -38,7 +38,7 @@ router.get('/hcor/beacons_temperatura_atual/:mac', (req, res) =>{
 })
 
 
-router.get('/hcor/componente_temperatura_atual/:mac', (req, res) =>{
+router.get('/umdi/temperatura_atual/:mac', (req, res) =>{
 
     var parametro = req.params.mac;
     const $Temperatura_atual = `SELECT b.codigo, b.beacon as mac_beacon , b.temp as temperatura FROM equipamentos as e  inner join beacons as b  inner join setores s where e.serie = b.beacon and e.setor = s.id and b.beacon = "${parametro}"`;
