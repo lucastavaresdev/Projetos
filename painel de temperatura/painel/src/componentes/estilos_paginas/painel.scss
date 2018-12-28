@@ -14,108 +14,92 @@
 }
 
 
-@mixin icone {
-    width: 100px;
-    height: 100px;
-    background-size: 100px 100px;
+@mixin icone($imagem) {
+    margin-left: 36%;
+    width: 50px;
+    height: 50px;
+    background: url('../../img/icones_temperatura/#{$imagem}') no-repeat;
+    background-size: 50px 50px;
 }
 
+
     .a1{
-        @include icone;
-        background: url('../../img/icones_temperatura/1.png') no-repeat;
+        @include icone('1.png');
     }
 
     .a1n{
-        @include icone;
-        background: url('../../img/icones_temperatura/1n.png') no-repeat;
+        @include icone('1n.png');
     }
     .a2{
-        @include icone;
-        background: url('../../img/icones_temperatura/2.png') no-repeat;
+        @include icone('2.png');
     }
     .a2n{
-        @include icone;
-        background: url('../../img/icones_temperatura/2n.png') no-repeat;
+        @include icone('2n.png');
     }
     .a2r{
-        @include icone;
-        background: url('../../img/icones_temperatura/2r.png') no-repeat;
+        @include icone('2r.png');
     }
     .a2rN{
-        @include icone;
-        background: url('../../img/icones_temperatura/2rN.png') no-repeat;
+        @include icone('2rN.png');
     }
     .a3{
-        @include icone;
-        background: url('../../img/icones_temperatura/3.png') no-repeat;
+        @include icone('3.png');
     }
     .a3n{
-        @include icone;
-        background: url('../../img/icones_temperatura/3n.png') no-repeat;
+        @include icone('3n.png');
     }
     .a3TM{
-        @include icone;
-        background: url('../../img/icones_temperatura/3TM.png') no-repeat;
+        @include icone('/3TM.png');
     }
     .a4{
-        width: 100px;
-        height: 100px;
-        background-size: 100px 100px;
-        background: url('../../img/icones_temperatura/4.png') no-repeat;
+        @include icone('/4.png');
     }
     .a4n{
-        @include icone;
-        background: url('../../img/icones_temperatura/4n.png') no-repeat;
+        @include icone('/4n.png');
     }
     .a4r{
-        @include icone;
-        background: url('../../img/icones_temperatura/4r.png') no-repeat;
+        @include icone('/4r.png');
     }
-
+    
     .a4rN{
-        @include icone;
-        background: url('../../img/icones_temperatura/4rN.png') no-repeat;
+        @include icone('/4rN.png');
     }
-
+    .a4tn{
+        @include icone('/4tn.png');
+    }
+    .a4t{
+        @include icone('/4t.png');
+    }
+    
     .a5{
-        @include icone;
-        background: url('../../img/icones_temperatura/5.png') no-repeat;
+        @include icone('/5.png');
     }
-
+    
     .a5n{
-        @include icone;
-        background: url('../../img/icones_temperatura/5n.png') no-repeat;
+        @include icone('/5n.png');
     }
     .a6{
-        @include icone;
-        background: url('../../img/icones_temperatura/6.png') no-repeat;
+        @include icone('/6.png');
     }
     .a6n{
-        @include icone;
-        background: url('../../img/icones_temperatura/6n.png') no-repeat;
+        @include icone('/6n.png');
     }
     .a7{
-        @include icone;
-        background: url('../../img/icones_temperatura/7.png') no-repeat;
+        @include icone('/7.png');
     }
     .a7n{
-        @include icone;
-        background: url('../../img/icones_temperatura/7n.png') no-repeat;
+        @include icone('/7n.png');
     }
     .a8{
-        @include icone;
-        background: url('../../img/icones_temperatura/8.png') no-repeat;
+        @include icone('/8.png');
     }
     .a8n{
-        @include icone;
-        background: url('../../img/icones_temperatura/8n.png') no-repeat;
+        @include icone('/8n.png');
     }
     .a9{
-        @include icone;
-        background: url('../../img/icones_temperatura/9.png') no-repeat;
+        @include icone('/9.png');
     }
     .a9n{
-        @include icone;
-        background: url('../../img/icones_temperatura/9n.png') no-repeat;
+        @include icone('/9n.png');
     }
 

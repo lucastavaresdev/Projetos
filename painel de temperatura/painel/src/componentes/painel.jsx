@@ -92,7 +92,8 @@ import axios from 'axios';
                                                         <p>Umidade </p>
                                                         <p>{this.state.temperaturaCidade.humidity}</p>
                                                     </div>
-                                                    <div className="col-4">
+                                                    <div className="col-4 mx-auto" >
+                                                        <p>{this.state.temperaturaCidade.condition} </p>
                                                                 <div className={'a'+ this.state.temperaturaCidade.icon}></div>
                                                        </div>
                                                 </div>

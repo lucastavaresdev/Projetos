@@ -139,7 +139,7 @@ router.get('/umdi/temperatura_media_hora/:mac', (req, res) =>{
         FROM temperatura_media 
         inner join beacons on temperatura_media.id_beacon = beacons.codigo
         where DATE_FORMAT(data_hora, '%y-%m-%d') = curdate() and beacon = '${parametro}'
-      ) as horas GROUP BY  tempo `;
+      ) as horas GROUP BY  tempo desc limit 8`;
 
     execQuery($Temperatura_media_hora, res);
 })
