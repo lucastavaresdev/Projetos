@@ -14,3 +14,24 @@ export const login = user => {
           });
 }
 
+
+
+
+export const registrar = newUser => {
+  return axios.post('umditemperatura/registrar', {
+    nome: newUser.nome,
+    sexo: newUser.sexo,
+    cadastro: newUser.cadastro,
+    perfil: newUser.perfil,
+    login: newUser.login,
+    senha: newUser.senha,
+    ativo: newUser.ativo,
+    tipoUsuario: newUser.tipoUsuario,
+    crm: newUser.crm,
+  })
+  .then(res => {
+       console.log("Registrado")
+  }).catch(function (error) {
+      console.log(error);
+  });
+}
