@@ -20,7 +20,7 @@ class TablePage extends Component{
         }
 
         componentDidMount () {
-            axios.get(`http://localhost:3001/umdi/temperatura_media_hora/${this.props.macpage}`)
+            axios.get(`http://localhost:5000/umdi/temperatura_media_hora/${this.props.macpage}`)
                     .then(res => {
                     this.setState({ rows : res.data });
             })

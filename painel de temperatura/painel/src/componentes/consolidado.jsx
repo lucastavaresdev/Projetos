@@ -3,10 +3,6 @@ import Card from './cards/card'
 import Titulo from './navbar/navbar'
 import './estilos_paginas/consolidado.scss'
 import axios from 'axios';
-
-
-
-
 class Consolidado extends Component {
   
     state = {
@@ -14,7 +10,7 @@ class Consolidado extends Component {
       }
 
       componentDidMount() {
-        axios.get(`http://localhost:3001/hcor/beacons_temperatura_atual`)
+        axios.get(`http://localhost:5000/hcor/beacons_temperatura_atual`)
           .then(res => {
             const cards = res.data;
             this.setState({ cards });
