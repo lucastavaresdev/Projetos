@@ -58,11 +58,6 @@ class Rotas extends React.Component {
     }
 
 
-    sair(e) {
-        e.preventDefault()
-        localStorage.removeItem('usertoken')
-        this.props.history.push(`/`)
-    }
 
 
     render() {

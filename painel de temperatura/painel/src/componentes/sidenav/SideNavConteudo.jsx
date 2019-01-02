@@ -9,7 +9,8 @@ class Logo extends Component {
     sair(e) {
         e.preventDefault()
         localStorage.removeItem('usertoken')
-        this.props.history.push(`/`)
+        window.location.href = '/'  
+
     }
 
  
