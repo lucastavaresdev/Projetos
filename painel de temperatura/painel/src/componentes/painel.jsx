@@ -19,7 +19,7 @@ import axios from 'axios';
         
         //axios
         
-        axios.get(`http://localhost:5000/umdi/temperatura_media_hora/${this.props.mac}`)
+        axios.get(`http://localhost:3004/umdi/temperatura_media_hora/${this.props.mac}`)
         .then(res => {
             this.setState({ temperatura : res.data });
         })
@@ -45,7 +45,7 @@ import axios from 'axios';
         }
         
         temperaturaAtual()  {
-            axios.get(`http://localhost:5000/umdi/temperatura_atual/${this.props.mac}`)
+            axios.get(`http://localhost:3004/umdi/temperatura_atual/${this.props.mac}`)
             .then(res => {
                     this.setState({ temperaturaAtual : res.data[0].temperatura.substr(0, 4) });
             })
