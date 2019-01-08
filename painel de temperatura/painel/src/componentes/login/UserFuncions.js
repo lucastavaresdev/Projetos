@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const login = user => {
-    return axios.post('umditemperatura/login', {
+    return axios.post('http://localhost:3004/umditemperatura/login', {
             login: user.login,
             senha:user.senha
         })
@@ -10,15 +10,12 @@ export const login = user => {
             return res.data
           })
           .catch(function (error) {
-            window.location = "/?usuario=invalido";
+            window.location = "http://itechflow.cloudapp.net/demos/painel_temperatura?usuario=invalido";
           });
 }
 
-
-
-
 export const registrar = newUser => {
-  return axios.post('umditemperatura/registrar', {
+  return axios.post('http://localhost:3004/umditemperatura/registrar', {
     nome: newUser.nome,
     sexo: newUser.sexo,
     cadastro: newUser.cadastro,
