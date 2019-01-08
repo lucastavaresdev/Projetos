@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { HashRouter as Router, Route} from "react-router-dom";
 import Sidebar from "react-sidebar";
 import '../scss/style.scss'
 import Botao from './sidenav/botao'
