@@ -35,6 +35,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://localhost:3004",
+  "proxy": "http://itechflow.cloudapp.net:3004/:3004",
   "homepage": "./"
 }

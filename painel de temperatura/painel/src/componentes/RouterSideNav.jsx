@@ -44,7 +44,7 @@ class Rotas extends React.Component {
     }
 
     componentDidMount(){
-		axios.get("http://localhost:3004/hcor/beacons_temperatura_atual",{}).then((res)=>{
+		axios.get("http://itechflow.cloudapp.net:3004/hcor/beacons_temperatura_atual",{}).then((res)=>{
 				//on success
 				this.setState({
             userMsg:res.data

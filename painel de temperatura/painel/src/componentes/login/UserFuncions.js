@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const login = user => {
-    return axios.post('http://localhost:3004/umditemperatura/login', {
+    return axios.post('http://itechflow.cloudapp.net:3004/umditemperatura/login', {
             login: user.login,
             senha:user.senha
         })
@@ -15,7 +15,7 @@ export const login = user => {
 }
 
 export const registrar = newUser => {
-  return axios.post('http://localhost:3004/umditemperatura/registrar', {
+  return axios.post('http://itechflow.cloudapp.net:3004/umditemperatura/registrar', {
     nome: newUser.nome,
     sexo: newUser.sexo,
     cadastro: newUser.cadastro,

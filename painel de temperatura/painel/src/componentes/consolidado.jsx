@@ -10,7 +10,7 @@ class Consolidado extends Component {
       }
 
       componentDidMount() {
-        axios.get(`http://localhost:3004/hcor/beacons_temperatura_atual`)
+        axios.get(`http://itechflow.cloudapp.net:3004/hcor/beacons_temperatura_atual`)
           .then(res => {
             const cards = res.data;
             this.setState({ cards });
