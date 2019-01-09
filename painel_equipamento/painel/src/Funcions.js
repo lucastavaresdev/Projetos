@@ -14,7 +14,7 @@ import axios from 'axios'
 
 export const login = user => {
     return axios
-        .post('equipamento/login', {
+        .post('http://localhost:3003/equipamento/login', {
             usuario: user.usuario,
             senha:user.senha
         })

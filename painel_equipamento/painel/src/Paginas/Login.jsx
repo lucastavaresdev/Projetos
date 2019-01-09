@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import {login} from '../Funcions'
+import jwt_decode from 'jwt-decode'
+
 
 class Login extends Component{
     constructor(){
         super()
         this.state = {
-            email: '',
-            password: ''
+            usuario: '',
+            senha: ''
         }
 
     this.onChange = this.onChange.bind(this)
@@ -21,16 +23,22 @@ onSubmit(e){
     e.preventDefault()
 
     const user = {
-        email: this.state.email,
-        password: this.state.password
+      usuario: this.state.usuario,
+      senha: this.state.senha
     }
 
     login(user).then(res => {
         if(res){
-            this.props.history.push('/profile')
+            const decoded = jwt_decode(res)
+            if(decoded.perfil == 0){
+                this.props.history.push('/admin')
+            }else if(decoded.perfil == 1){
+                this.props.history.push('/usuario')
+            }
         }
     })
-    }
+}
+
     render(){
         return(
             <div className="container">
@@ -39,29 +47,26 @@ onSubmit(e){
                         <form noValidate onSubmit={this.onSubmit}>
                             <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                             <div className="form-group">
-                                    <label htmlFor="email">Email Adress</label>
-                                    <input type="email" 
-                                    className="form-control"
-                                    name="email"
-                                    placeholder="Enter Email"
-                                    value={this.state.email}
+                                    <input type="text"     
+                                    name="usuario"
+                                    placeholder="usuario"
+                                    value={this.state.usuario}
                                     onChange={this.onChange}
                                     />
                             </div>
                             <div className="form-group">
-                                    <label htmlFor="password">Password</label>
                                     <input type="password" 
                                     className="form-control"
-                                    name="password"
-                                    placeholder="Enter password"
-                                    value={this.state.password}
+                                    name="senha"
+                                    placeholder="Enter senha"
+                                    value={this.state.senha}
                                     onChange={this.onChange}
                                     />
                             </div>
 
                              <button type="submit"
                                 className="btn btn-lg btn-primary btn-block">
-                                Sign in
+                                Entrar
                             </button>
 
                         </form>
