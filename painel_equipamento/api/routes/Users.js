@@ -9,35 +9,35 @@ users.use(cors())
 
 process.env.SECRET_KEY = 'secret'
 
-users.post('/register', (req, res) => {
-    const today = new Date()
+users.post('/cadastro', (req, res) => {
+    const hoje = new Date()
     const userData = {
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email,
-        password: req.body.password,
-        created: today
+        nome: req.body.nome,
+        usuario: req.body.usuario,
+        senha: req.body.senha,
+        perfil: req.body.perfil,
+        created: hoje
     }
 
     User.findOne({
         where: {
-            email: req.body.email
+            usuario: req.body.usuario
         }
     })
     .then(user => {
         if (!user) {
-            bcrypt.hash(req.body.password, 10, (err, hash) => {
-                userData.password = hash
+            bcrypt.hash(req.body.senha, 10, (err, hash) => {
+                userData.senha = hash
                 User.create(userData)
                     .then(user => {
-                        res.json({ status: user.email + ' registered' })
+                        res.json({ status: user.usuario + ' registrado' })
                     })
                     .catch(err => {
                         res.send('error: ' + err)
                     })
             })
         } else {
-            res.json({ error: "User already exists" })
+            res.json({ error: "Usuario ja existe" })
         }
     })
     .catch(err => {
@@ -48,18 +48,18 @@ users.post('/register', (req, res) => {
 users.post('/login', (req, res) => {
     User.findOne({
         where: {
-            email: req.body.email
+            usuario: req.body.usuario
         }
     })
     .then(user => {
         if(user){
-            if(bcrypt.compareSync(req.body.password, user.password)) {
+            if(bcrypt.compareSync(req.body.senha, user.senha)) {
                 let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
                     expiresIn: 1440
                 })
                 res.send(token)
             }else{
-                res.status(400).json({error: 'User does not exist'})
+                res.status(400).json({error: 'usuario nao existe'})
             }
         }
     })
