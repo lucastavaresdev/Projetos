@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
 import Admin from '../Paginas/Admin'
@@ -10,14 +10,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+            <Route exact path="/" component={Login} />
       <Router>
             <div>
-              <Route path="/" exact component={Login} />
               <Route path="/admin/" component={Admin} />
               <Route path="/usuario/" component={Usuario} />
             </div>
         </Router>
       </div>
+
     );
   }
 }
