@@ -1,11 +1,11 @@
 @import '../scss/variaveis';
 
 body{
-background: #fdfbfb; /* Old browsers */
-background: -moz-linear-gradient(-45deg, #fdfbfb 0%, #ebedee 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(-45deg, #fdfbfb 0%,#ebedee 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(135deg, #fdfbfb 0%,#ebedee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfbfb', endColorstr='#ebedee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background: #fdfbfb; /* Old browsers */
+  background: -webkit-linear-gradient(-45deg, #fdfbfb 0%,#ebedee 100%, 0.5); /* Chrome10-25,Safari5.1-6 */
+  // background: -moz-linear-gradient(-45deg, #fdfbfb 0%, #ebedee 100%); /* FF3.6-15 */
+  // background: linear-gradient(135deg, #fdfbfb 0%,#ebedee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfbfb', endColorstr='#ebedee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 
@@ -43,12 +43,25 @@ form{
 
 input[type="text"], input[type="password"]{
     border: none;
-    border-bottom: 1px solid #D2D2D2;
+    border-bottom: 1px solid $cinza-claro;
     box-shadow: none;
     border-radius: 0;
     &:focus, :hover{
       border: none;
-      border-bottom: 1px solid #D2D2D2;
+      border-bottom: 1px solid $cinza-claro;
       box-shadow: none;
     }
+}
+
+.fas{
+  color: $cinza-claro
+}
+
+.cor-botao{
+  background: $cor;
+  color: #fff;
+  &:hover{
+    background: darken($cor, 8%);
+    color: #fff
+  }
 }
