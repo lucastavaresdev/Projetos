@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './Login.scss';
+import './scss/Login.scss';
 import {login} from '../Funcions'
 import jwt_decode from 'jwt-decode'
-
+import Logo from './../images/logo.png'
 
 class Login extends Component {
   
@@ -49,35 +49,21 @@ onSubmit(e){
       <div className="App">
         <header className="App-header">
          
+          <div className='card card-login'>
+                  <div className="card-header card-topo text-center"> <img src={Logo} /> </div>
 
-         <form noValidate onSubmit={this.onSubmit}>
-                            <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-                            <div className="form-group">
-                            <input type="text"     
-                                    name="usuario"
-                                    placeholder="usuario"
-                                    value={this.state.usuario}
-                                    onChange={this.onChange}
-                                    />
-                            </div>
-                            <div className="form-group">
-                            <input type="password" 
-                                    className="form-control"  
-                                    name="senha"
-                                    placeholder="Enter senha"
-                                    value={this.state.senha}
-                                    onChange={this.onChange}
-                                    />
-                            </div>
-
-                            <button type="submit"
-                                className="btn btn-lg btn-primary btn-block">
-                                Entrar
-                            </button>
-                            </form>
-
-        </header>
-      </div>
+                  <div className='row justify-content-center'>
+                      <div className='col-9'>
+                            <form noValidate onSubmit={this.onSubmit}>
+                                  <input type="text"  className="form-control mb-3" name="usuario" placeholder="Usuario" value={this.state.usuario} onChange={this.onChange} />
+                                  <input type="password" className="form-control mb-3" name="senha" placeholder="Senha" value={this.state.senha} onChange={this.onChange} />
+                                  <button type="submit" className="btn btn-lg btn-primary btn-block">Entrar</button>
+                              </form>
+                        </div>
+                      </div>
+       </div>
+      </header>
+    </div>
     );
   }
 }

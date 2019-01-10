@@ -1,0 +1,54 @@
+@import '../scss/variaveis';
+
+body{
+background: #fdfbfb; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #fdfbfb 0%, #ebedee 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #fdfbfb 0%,#ebedee 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #fdfbfb 0%,#ebedee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfbfb', endColorstr='#ebedee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+
+.App-logo {
+  height: 40vmin;
+  
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.card-login{
+  border: 1px solid #D2D2D2;
+
+  .card-topo{
+      background: $cor;
+      border: none;
+        img{
+            padding: 25px 110px 25px 110px;
+        }
+  }
+}
+
+form{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+input[type="text"], input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #D2D2D2;
+    box-shadow: none;
+    border-radius: 0;
+    &:focus, :hover{
+      border: none;
+      border-bottom: 1px solid #D2D2D2;
+      box-shadow: none;
+    }
+}
