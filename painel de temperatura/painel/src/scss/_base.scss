@@ -51,6 +51,10 @@ $cor:"#00ff00") {
         span{
                 color: $cor
         }
+
+    }
+    .grafico_temperatura_1{
+        margin-top: 150px;
     }
 }
 
@@ -71,12 +75,26 @@ z-index: 50;
         margin-bottom: 6px;
         z-index: 50;
         }
-
-}
-
-@media (max-width: 920px){
-   
-    .tamanho {
-        height: 270px;
+        
     }
+    
+    @media (max-width: 920px){
+        
+        .tamanho {
+            height: 270px;
+        }
+                    .grafico_temperatura_1{
+                        margin-top: 10px !important;
+                    }
+
+                    .bem-vindo{
+                        position: relative;
+                        top: 40%;
+                        transform: translateY(-50%);
+                    }
+
+                    .recharts-surface{
+                        margin-left: 50px;
+                    }
+    
 }
