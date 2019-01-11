@@ -46,7 +46,8 @@ onSubmit(e){
   
   render() {
     return (
-      <div className="App">
+      <div className="bg">
+      <div className="App-Login">
         <header className="App-header">
          
           <div className='card card-login'>
@@ -58,7 +59,7 @@ onSubmit(e){
                             
                       <div className='row'>
                             <div className='col-1'>
-                              <i class="fas fa-user"></i>
+                              <i class="fas fa-user icones_login"></i>
                             </div>
                             <div className='col-11'>
                                   <input type="text"  className="form-control mb-3" name="usuario" placeholder="Usuario" value={this.state.usuario} onChange={this.onChange} />
@@ -66,7 +67,7 @@ onSubmit(e){
                       </div>
                       <div className='row'>
                             <div className='col-1'>
-                            <i class="fas fa-lock"></i>
+                            <i class="fas fa-lock icones_login"></i>
                             </div>
                             <div className='col-11'>
                                   <input type="password" className="form-control mb-3" name="senha" placeholder="Senha" value={this.state.senha} onChange={this.onChange} />
@@ -81,6 +82,7 @@ onSubmit(e){
                       </div>
        </div>
       </header>
+    </div>
     </div>
     );
   }
