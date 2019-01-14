@@ -9,12 +9,10 @@ export default props => {
   return (
       <div>
        <Desktop>
-           <Menu isOpen = { true }>
+           <Menu isOpen = { true }  >
                 <a className="menu-item" href="/">
                     Home
                 </a>
-                <a className="menu-item" href="/laravel">
-                    </a>
             </Menu>
        </Desktop>
        <Mobile>
