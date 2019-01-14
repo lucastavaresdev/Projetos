@@ -1,0 +1,23 @@
+@import '../screens/scss/_variaveis.scss';
+
+.navbar{
+    background: $cor;
+    img{
+        padding: 5px;
+        width: 100px;
+    }
+    a{
+        color: #fff;
+        cursor: pointer;
+        &:hover{
+            text-decoration: none;
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+    }
+    i{
+        padding: 5px;
+        color: #fff
+    }
+}

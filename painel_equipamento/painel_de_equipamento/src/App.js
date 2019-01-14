@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import './base.scss';
 
 import Login from './screens/Login'
 import Admin from './screens/Admin'
@@ -11,7 +12,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route exact path="/" component={Login} />
-          <div className="container">
+          <div className="container-fluid">
            <Route exact path="/admin" component={Admin} />
             <Route exact path="/usuario" component={Usuario} /> 
           </div>
