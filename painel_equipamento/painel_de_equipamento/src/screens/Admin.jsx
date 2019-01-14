@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React , {Component}from 'react';
 import jwt_decode from 'jwt-decode'
 
 class Profile extends Component {
@@ -42,6 +42,7 @@ class Profile extends Component {
                                 <td>Email</td>
                                 <td>{this.state.perfil}</td>
                             </tr>
+                        
                         </tbody>
                     </table>
                 </div>
