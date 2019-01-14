@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './_navbar.scss'
 import Logo from '../images/logo.png'
-import Sidebar from "react-sidebar";
+//import Sidebar from "react-sidebar";
+import SideBar from './sidebar';
 
 class Navbar extends Component {
     
@@ -25,24 +26,18 @@ class Navbar extends Component {
         window.location.href = './'  
     }
 
+ 
     render() {
+
+ 
         return (
             <div>
             <nav class="navbar">
+            
             <img src={Logo} alt="Logo Itechmed soluções medicas" srcset=""/>
                 <a href="" onClick={this.sair.bind(this)}><i class="fas fa-times-circle"></i>Sair </a>
             </nav>
-       
-        <Sidebar sidebar={<b>Sidebar content dsadsadsdsa</b>} 
-            open={this.state.sidebarOpen} 
-            onSetOpen={this.onSetSidebarOpen}  
-            styles={{ sidebar: { background: "white" } }}
-            rootClassName = 'sidebar'
-            >
-
-
-                        <button onClick={() => this.onSetSidebarOpen(true)}> Open sidebar </button>
-         </Sidebar>
+            <SideBar/>
 
       </div>
         );
