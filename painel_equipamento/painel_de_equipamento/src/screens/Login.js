@@ -73,9 +73,11 @@ onSubmit(e){
                                   <input type="password" className="form-control mb-3" name="senha" placeholder="Senha" value={this.state.senha} onChange={this.onChange} />
                             </div>
                       </div>
-                      <div className='text-center mt-4'>
-                                  <button type="submit" className="btn cor-botao col-5">Entrar</button>
-                        </div>
+                      <div className='row'>
+                              <div className='col-12 mt-4'>
+                                   <button type="submit" className="btn  cor-botao col-12">Entrar</button>
+                           </div>
+                      </div>
 
                               </form>
                         </div>
