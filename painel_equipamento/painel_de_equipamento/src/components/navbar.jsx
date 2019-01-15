@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './_navbar.scss'
 import Logo from '../images/logo.png'
-//import Sidebar from "react-sidebar";
 import SideBar from './sidebar';
 
 class Navbar extends Component {
@@ -33,9 +32,10 @@ class Navbar extends Component {
         return (
             <div>
             <nav class="navbar">
-            
-            <img src={Logo} alt="Logo Itechmed soluções medicas" srcset=""/>
-                <a href="" onClick={this.sair.bind(this)}><i class="fas fa-times-circle"></i>Sair </a>
+                <div className="box text-center">
+                    <img src={Logo} alt="Logo Itechmed soluções medicas" srcset=""/>
+                </div>
+                        <a href="" onClick={this.sair.bind(this)}><i class="fas fa-times-circle"></i>Sair </a>
             </nav>
             <SideBar/>
 
