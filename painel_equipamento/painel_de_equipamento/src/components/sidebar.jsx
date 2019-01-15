@@ -1,5 +1,5 @@
 import React from 'react';
-import { slide as Menu } from 'react-burger-menu';
+import { push	 as Menu } from 'react-burger-menu';
 import Responsive from 'react-responsive';
 import IconMenu from '../images/bars-solid.svg'
 import './_sidebar.scss'
@@ -12,7 +12,10 @@ export default props => {
   return (
       <div>
        <Desktop>
-           <Menu isOpen = { true }  customBurgerIcon={ <img class='IconMenu' src={IconMenu}  />  }>
+           <Menu isOpen = { true }  disableOverlayClick 
+                       customBurgerIcon={<img class='IconMenu' src={IconMenu}  
+                       pageWrapId={ "page-wrap" } 
+                       outerContainerId={ "outer-container" }/>  }>
                     <BotoesGroup />
             </Menu>
        </Desktop>

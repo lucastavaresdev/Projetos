@@ -25,7 +25,10 @@ class Profile extends Component {
 
     render () {
         return (
+            <div>
                 <Navbar />
+                 <h1>Dashboard</h1>
+            </div>
         )
     }
 }
