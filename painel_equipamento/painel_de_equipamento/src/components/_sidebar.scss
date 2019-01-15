@@ -15,6 +15,10 @@ body {
   overflow: auto;
 }
 
+.bm-menu-wrap{
+  border-right: 2px solid $cinza-claro2;
+}
+
 .bm-item {
   display: inline-block;
   text-decoration: none;
@@ -65,6 +69,7 @@ body {
 
 .bm-overlay {
   background: rgba(0, 0, 0, 0) !important;
+  transition: none;
 }
 
 

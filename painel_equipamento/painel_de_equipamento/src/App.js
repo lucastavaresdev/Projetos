@@ -5,6 +5,8 @@ import './base.scss';
 import Login from './screens/Login'
 import Admin from './screens/Admin'
 import Usuario from './screens/Usuario'
+import Equipamentos from './screens/equipamentos'
+import Navbar from './components/navbar';
 
 class App extends Component {
   render () {
@@ -13,8 +15,10 @@ class App extends Component {
         <div className="App">
           <Route exact path="/" component={Login} />
           <div className="container-fluid">
-           <Route exact path="/admin" component={Admin} />
+          <Navbar />
+            <Route exact path="/admin" component={Admin} />
             <Route exact path="/usuario" component={Usuario} /> 
+            <Route exact path="/equipamentos" component={Equipamentos} /> 
           </div>
         </div>
       </Router>
