@@ -1,0 +1,37 @@
+@import '../screens/scss/_variaveis.scss';
+
+.box-botao{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        &:hover{
+            background: $cor2;
+            border-left: 8px solid $cor;
+            font-weight: bold;   
+        }
+        i{
+            padding-left: 30px;
+        }
+        a{
+            padding-left: 30px;
+            color: $cor;
+            text-decoration: none;
+            &:hover{
+                font-weight: bold;   
+            }
+        }
+}
+
+@media (max-width: 992px){
+    .box-botao{
+        border-left: 8px solid $cor;
+        &:hover{
+            font-weight: bold;   
+        }
+        .titulodobotao{
+            padding-left: 30px;
+            color: $cor;
+            text-decoration: none;
+        }
+    }
+}
+  

@@ -13,22 +13,17 @@ class Navbar extends Component {
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
       }
 
-
       onSetSidebarOpen(open) {
         this.setState({ sidebarOpen: open });
       }
-
 
     sair(e) {
         e.preventDefault()
         localStorage.removeItem('usertoken')
         window.location.href = './'  
     }
-
  
     render() {
-
- 
         return (
             <div>
             <nav class="navbar">
@@ -38,15 +33,9 @@ class Navbar extends Component {
                         <a href="" onClick={this.sair.bind(this)}><i class="fas fa-times-circle"></i>Sair </a>
             </nav>
             <SideBar/>
-
       </div>
         );
     }
 }
 
 export default Navbar;
-
-
-
-
-

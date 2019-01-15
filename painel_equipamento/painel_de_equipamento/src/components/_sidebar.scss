@@ -1,4 +1,6 @@
 
+@import '../screens/scss/_variaveis.scss';
+
 html,
 body {
   margin: 0;
@@ -35,6 +37,7 @@ body {
 
 .bm-burger-bars {
   background: #fff;
+  border-right: $cinza-claro2;
 }
 
 .bm-cross-button {
@@ -48,7 +51,7 @@ body {
 
 .bm-menu {
   background: #ffffff;
-  padding: 2.5em 1.5em 0;
+  padding: 2.5em 0em 0;
   font-size: 1.15em;
 }
 

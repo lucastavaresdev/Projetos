@@ -3,7 +3,6 @@ import jwt_decode from 'jwt-decode'
 import Navbar from '../components/navbar';
 import './scss/_Admin.scss'
 
-
 class Profile extends Component {
     constructor() {
         super()
