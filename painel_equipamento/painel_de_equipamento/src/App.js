@@ -13,18 +13,27 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" component={Login} />
-          <div className="container-fluid">
-          <Navbar />
-            <Route exact path="/admin" component={Admin} />
-            <Route exact path="/usuario" component={Usuario} /> 
-            <Route exact path="/equipamentos" component={Equipamentos} /> 
+          <div className="Login">
+              <Route exact path="/" component={Login} />
           </div>
+        
+          <div className="container-fluid ">
+            <div className="screens">
+                  <Navbar />
+                  <Route exact path="/admin" component={Admin} />
+                  <Route exact path="/usuario" component={Usuario} /> 
+                  <Route exact path="/equipamentos" component={Equipamentos} /> 
+            </div>
+          </div>
+          
+
         </div>
       </Router>
     );
   }
 }
+
+
 
 export default App;
 

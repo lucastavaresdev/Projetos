@@ -14,7 +14,7 @@ export default props => {
   return (
       <div>
        <Desktop>
-           <Menu isOpen = { true }  disableOverlayClick  customBurgerIcon={<img class='IconMenu' src={IconMenu} pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }/>  }>
+           <Menu isOpen = { true }  disableOverlayClick  customBurgerIcon={<img className='IconMenu' src={IconMenu} pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }/>  }>
                      <BotoesGroup />
             </Menu>
        </Desktop>
@@ -22,7 +22,7 @@ export default props => {
 
 
        <Mobile>
-                    <Menu  customBurgerIcon={ <img class='IconMenu' src={IconMenu} /> }>
+                    <Menu  customBurgerIcon={ <img className='IconMenu' src={IconMenu} /> }>
                             <BotoesGroup />
                     </Menu>
         </Mobile>

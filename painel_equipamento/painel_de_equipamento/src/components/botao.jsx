@@ -7,7 +7,7 @@ class Botao extends Component {
     render() {
         return (
             <div className='box-botao'>
-               <i class={this.props.iconebotao}></i> <NavLink replace to={this.props.link}>{this.props.titulodobotao}</NavLink>
+               <i className={this.props.iconebotao}></i> <NavLink replace to={this.props.link}>{this.props.titulodobotao}</NavLink>
             </div>            
         );
     }

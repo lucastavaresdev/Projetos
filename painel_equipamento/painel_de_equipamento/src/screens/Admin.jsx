@@ -4,24 +4,10 @@ import Navbar from '../components/navbar';
 import './scss/_Admin.scss'
 
 class Profile extends Component {
-    // constructor() {
-    //     super()
-    //     this.state = {
-    //         nome: '',
-    //         usuario: '',
-    //         perfil: ''
-    //     }
-    // }
 
-    // componentDidMount () {
-    //     const token = localStorage.usertoken
-    //     const decoded = jwt_decode(token)
-    //     this.setState({
-    //       nome: decoded.nome,
-    //       usuario: decoded.usuario,
-    //       perfil: decoded.perfil
-    //     })
-   // }
+     componentDidMount(){
+        document.querySelector('.screens').style.display = 'block';
+      }
 
     render () {
         return (

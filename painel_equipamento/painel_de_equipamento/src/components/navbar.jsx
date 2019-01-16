@@ -12,7 +12,6 @@ class Navbar extends Component {
         };
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
       }
-
       onSetSidebarOpen(open) {
         this.setState({ sidebarOpen: open });
       }
@@ -26,11 +25,11 @@ class Navbar extends Component {
     render() {
         return (
             <div>
-            <nav class="navbar">
+            <nav className="navbar">
                 <div className="box text-center">
                     <img src={Logo} alt="Logo Itechmed soluções medicas" srcset=""/>
                 </div>
-                        <a href="" onClick={this.sair.bind(this)}><i class="fas fa-times-circle"></i>Sair </a>
+                        <a href="" onClick={this.sair.bind(this)}><i className="fas fa-times-circle"></i>Sair </a>
             </nav>
             <SideBar/>
       </div>

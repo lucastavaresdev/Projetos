@@ -15,10 +15,16 @@ class Login extends Component {
 
   this.onChange = this.onChange.bind(this)
   this.onSubmit = this.onSubmit.bind(this)
+  this.escode_menu = this.escode_menu.bind(this)
+  this.abre_menu = this.escode_menu.bind(this)
   }
 
   onChange(e){
     this.setState({[e.target.name]: e.target.value})
+  }
+
+  escode_menu(){
+     document.querySelector('.screens').style.display = 'none';
   }
 
 onSubmit(e){
@@ -38,13 +44,22 @@ onSubmit(e){
             if(perfil === 0){
                 this.props.history.push('/admin')
             }else if(perfil === 1){
+            
                 this.props.history.push('/usuario')
             }
         }
     })
 }
+
+componentDidMount(){
+  this.escode_menu()
+}
+ 
+
   
   render() {
+  
+
     return (
       <div className="bg">
       <div className="App-Login">
@@ -59,7 +74,7 @@ onSubmit(e){
                             
                       <div className='row'>
                             <div className='col-1'>
-                              <i class="fas fa-user icones_login"></i>
+                              <i className="fas fa-user icones_login"></i>
                             </div>
                             <div className='col-11'>
                                   <input type="text"  className="form-control mb-3" name="usuario" placeholder="Usuario" value={this.state.usuario} onChange={this.onChange} />
@@ -67,7 +82,7 @@ onSubmit(e){
                       </div>
                       <div className='row'>
                             <div className='col-1'>
-                            <i class="fas fa-lock icones_login"></i>
+                            <i className="fas fa-lock icones_login"></i>
                             </div>
                             <div className='col-11'>
                                   <input type="password" className="form-control mb-3" name="senha" placeholder="Senha" value={this.state.senha} onChange={this.onChange} />
@@ -78,7 +93,6 @@ onSubmit(e){
                                    <button type="submit" className="btn  cor-botao col-12">Entrar</button>
                            </div>
                       </div>
-
                               </form>
                         </div>
                       </div>
