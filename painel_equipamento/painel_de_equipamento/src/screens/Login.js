@@ -58,8 +58,6 @@ componentDidMount(){
 
   
   render() {
-  
-
     return (
       <div className="bg">
       <div className="App-Login">

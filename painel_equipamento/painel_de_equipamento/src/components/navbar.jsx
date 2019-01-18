@@ -29,7 +29,7 @@ class Navbar extends Component {
                 <div className="box text-center">
                     <img src={Logo} alt="Logo Itechmed soluções medicas" srcset=""/>
                 </div>
-                        <a href="" onClick={this.sair.bind(this)}><i className="fas fa-times-circle"></i>Sair </a>
+                        <a className='sair' href="" onClick={this.sair.bind(this)}><i className="fas fa-times-circle"></i>Sair </a>
             </nav>
             <SideBar/>
       </div>

@@ -11,9 +11,21 @@ class Profile extends Component {
 
     render () {
         return (
-            <div>
-                 <h1>Dashboard</h1>
+            <div className='Container'>
+                <div className="row">
+                    <div className="col-md-4">
+                        <p>1</p>
+                    </div>
+                    <div className="col-md-4">
+                        <p>2</p>
+                    </div>
+                    <div className="col-md-4">
+                        <p>3</p>
+                    </div>
               
+
+
+                </div>
             </div>
         )
     }
