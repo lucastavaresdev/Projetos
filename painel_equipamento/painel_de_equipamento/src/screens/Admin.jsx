@@ -2,8 +2,9 @@ import React , {Component}from 'react';
 import jwt_decode from 'jwt-decode'
 import Navbar from '../components/navbar';
 import './scss/_Admin.scss'
+import Modal2 from '../components/Modal'
 
-class Profile extends Component {
+class Admin extends Component {
 
      componentDidMount(){
         document.querySelector('.screens').style.display = 'block';
@@ -14,7 +15,7 @@ class Profile extends Component {
             <div className='Container'>
                 <div className="row">
                     <div className="col-md-4">
-                        <p>1</p>
+                        <Modal2 />
                     </div>
                     <div className="col-md-4">
                         <p>2</p>
@@ -31,4 +32,4 @@ class Profile extends Component {
     }
 }
 
-export default Profile
+export default Admin
