@@ -15,6 +15,19 @@ $cinza: darken( #e1e2e6, 30%);
         display: block;
     }
 }
+.ReactModal__Content {
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.modal_imagem{
+    background: url('../images/bg_equipamentos.jpg');
+    background-size: cover;
+}
+
+.icone_fechar{
+    cursor: pointer;
+}
 
 @media (max-width: 992px){
 
@@ -25,8 +38,8 @@ $cinza: darken( #e1e2e6, 30%);
 }
     
 .ReactModal__Content {
-            height: 100%;
-            margin-top: 20%;
-            width: 93%;
+    height: 83%;
+    width: 93%;
     }
 }
+

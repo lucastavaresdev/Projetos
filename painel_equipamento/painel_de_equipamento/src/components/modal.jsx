@@ -39,13 +39,14 @@ class Modal2 extends Component {
             <section >
                             <div onClick={this.openModal}><i class="fas fa-plus-circle fa-3x"></i></div> 
                                 <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento">
-                                        <div className="col-md-10 modal_equipamentos">
-                                            <div className="row">
-                                                    <div className="col-11 col-sm-10">
+                                        <div className="row">
+                                        <div className="col-md-10 modal_equipamentos p-4">
+                                            <div className="row ">
+                                                    <div className="col-md-11 col-sm-10">
                                                         <h2 className='text-center' >Cadastro de Equipamentos</h2>
                                                     </div>
                                                     <div className="col-1">
-                                                        <div  onClick={this.closeModal}><i className="fas fa-times"></i>
+                                                        <div className='icone_fechar'  onClick={this.closeModal}><i className=" fas fa-times"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,8 +95,12 @@ class Modal2 extends Component {
                                                 </div>
 
                                             </form>
+                                         </div>
 
-                                 </div>
+                                            <div className="col-md-2 modal_imagem">
+                                            
+                                            </div>
+                                         </div>
                                 </Modal>
                 </section>
         );
