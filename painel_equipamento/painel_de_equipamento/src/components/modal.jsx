@@ -75,14 +75,29 @@ class Modal2 extends Component {
                                                 <p className='col-12' >Dados para o beacon</p>
 
                                                 <label className="col-md-4 col-sm-12">   Ronda:
-                                                    <input  className="col-12" type="text" name="nome" />
+                                                        <input  className="col-12" type="number" name="ronda" placeholder='Qtd. de Dias'/>
                                                 </label>
                                                 <label className="col-md-4 col-sm-12">  Calibração:
-                                                    <input  className="col-12" type="text" name="nome" />
+                                                        <input  className="col-12" type="number" name="calibracao" placeholder='Qtd. de Dias'/>
                                                 </label>
+
+                                            
+                                                
+                                              
                                                 <label className="col-md-4 col-sm-12">   Situação:
-                                                    <input  className="col-12" type="text" name="nome" />
+                                                        <select className='col-12'>
+                                                            <option value="0">Disponivel</option>
+                                                            <option value="1">Utilizado</option>
+                                                            <option value="2">Necessita Manutenção</option>
+                                                            <option value="3">Necessita Higienizar</option>
+                                                            <option value="4">Reservado</option>
+                                                            <option value="5">Em Higienização</option>
+                                                            <option value="6">Em Manutenção</option>
+                                                            <option value="7">Não Encontrado</option>
+                                                        </select>
                                                 </label>
+
+
                                                 <label className="col-md-4 col-sm-12">  Ativo:
                                                     <input  className="col-12" type="text" name="nome" />
                                                 </label>
@@ -91,7 +106,7 @@ class Modal2 extends Component {
                                                 </label>
 
                                                 <div className="col-12 mt-2">
-                                                    <input  className="offset-md-10 col-md-2 col-sm-12" type="submit" value="Enviar" />
+                                                    <input  className="offset-md-10 col-md-2 col-sm-12" type="submit" value="Cadastrar" />
                                                 </div>
 
                                             </form>
