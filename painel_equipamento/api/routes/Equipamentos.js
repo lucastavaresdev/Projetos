@@ -1,15 +1,11 @@
 const express = require("express")
 const equipamentos = express.Router()
 const cors = require('cors')
-const jwt = require("jsonwebtoken")
-const bcrypt = require('bcrypt')
 
 const Equipamento = require("../models/Equipamento")
 equipamentos.use(cors())
 
-process.env.SECRET_KEY = 'secret'
-
-equipamentos.post('/cadastro', (req, res) => {
+equipamentos.post('/cadastro_de_equipamento', (req, res) => {
     const hoje = new Date()
     const userData = {
         nome: req.body.nome,
@@ -24,30 +20,23 @@ equipamentos.post('/cadastro', (req, res) => {
         setor: req.body.setor,
         data_de_criacao: hoje
     }
-
-    User.findOne({
+    Equipamento.findOne({
         where: {
-            usuario: req.body.usuario
+            serie: req.body.serie
         }
     })
-    .then(user => {
-        if (!user) {
-            bcrypt.hash(req.body.senha, 10, (err, hash) => {
-                userData.senha = hash
-                User.create(userData)
-                    .then(user => {
-                        res.json({ status: user.usuario + ' registrado' })
+    .then(equipamento => {
+        if (!equipamento) {
+            Equipamento.create(userData)
+                    .then(equi => {
+                        res.json({ status:  equi.nome + 'serie' + equi.serie + ' registrado' })
                     })
                     .catch(err => {
                         res.send('error: ' + err)
                     })
-            })
         } else {
-            res.json({ error: "Usuario ja existe" })
+            res.json({ error: "Equipamento ja existe" })
         }
-    })
-    .catch(err => {
-        res.send('error: ' + err)
     })
 })
 
