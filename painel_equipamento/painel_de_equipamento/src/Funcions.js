@@ -29,7 +29,8 @@ export const Inserir_Equipamento = equipamento => {
         setor: equipamento.setor,
     })
     .then(res => {
-         console.log("Registrado")
+        console.log("Registrado")
+        return res
     }).catch(function (error) {
         console.log(error);
     });

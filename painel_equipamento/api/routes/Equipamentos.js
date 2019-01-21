@@ -29,13 +29,19 @@ equipamentos.post('/cadastro_de_equipamento', (req, res) => {
         if (!equipamento) {
             Equipamento.create(userData)
                     .then(equi => {
-                        res.json({ status:  equi.nome + 'serie' + equi.serie + ' registrado' })
+                        res.json({
+                            status:  equi.nome + ' serie ' + equi.serie + ' registrado',
+                            cod: 0
+                        })
                     })
                     .catch(err => {
                         res.send('error: ' + err)
                     })
         } else {
-            res.json({ error: "Equipamento ja existe" })
+            res.json({ 
+                error: "Equipamento ja existe",
+                cod: 1
+            })
         }
     })
 })

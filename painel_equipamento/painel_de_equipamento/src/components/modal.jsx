@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal'
 import {Inserir_Equipamento} from '../Funcions'
+import { Alert, AlertContainer } from "react-bs-notifier";
+
 import './_modal.scss'
 
 
@@ -31,6 +33,7 @@ class Modal2 extends Component {
             situacao:  ' ',
             ativo: ' ',
             setor: 0,
+            cod: 3
           };
      
         this.openModal = this.openModal.bind(this);
@@ -70,7 +73,19 @@ class Modal2 extends Component {
 
          
         Inserir_Equipamento(equipamento).then(res => {
-                this.closeModal();
+           const codigo  = parseInt(res.data.cod)
+            if(codigo === 1){
+                return (
+                        <div>
+                            <AlertContainer>
+                                <Alert type="info">Hello, world</Alert>
+                                <Alert type="success">Oh, hai</Alert>
+                            </AlertContainer>
+                        </div>
+                );
+            }else{
+                //this.closeModal();
+            }
         })
     }
 
@@ -78,6 +93,7 @@ class Modal2 extends Component {
     render() {
         return (
             <section >
+                
                             <div onClick={this.openModal}><i class="fas fa-plus-circle fa-3x"></i></div> 
                                 <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento">
                                         <div className="row">
