@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal'
+import './_modal.scss'
+
 
 const customStyles = {
     content : {
@@ -34,29 +36,68 @@ class Modal2 extends Component {
 
     render() {
         return (
-            <div>
-                 <div onClick={this.openModal}><i class="fas fa-plus-circle fa-3x"></i></div> 
-                    <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento">
-                    <div className="container-fluid">
-                                <div className="col-11">
-                                    <h2 className='text-center' >Inserir Equipamentos</h2>
-                                </div>
-                                <div className="col-1">
-                                    <div  onClick={this.closeModal}><i className="fas fa-times"></i></div>
+            <section >
+                            <div onClick={this.openModal}><i class="fas fa-plus-circle fa-3x"></i></div> 
+                                <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento">
+                                        <div className="col-md-10 modal_equipamentos">
+                                            <div className="row">
+                                                    <div className="col-11 col-sm-10">
+                                                        <h2 className='text-center' >Cadastro de Equipamentos</h2>
+                                                    </div>
+                                                    <div className="col-1">
+                                                        <div  onClick={this.closeModal}><i className="fas fa-times"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                         <form className='formulario_cadastro_equipamento'>
+                                            <p className='col-12' >Dados do Equipamento</p>
 
-                            <div className="row">
-                                
-                                <form>
-                                    First name:
-                                    <input type="text" name="firstname" />
-                                </form>
-                                
-                           </div>
-                           </div>
+                                                <label className="col-md-9 col-sm-12">Nome do Equipamento:
+                                                    <input  className="col-12" type="text" name="nome" />
+                                                </label>
+                                                <label className="col-md-3 col-sm-12">Marca:
+                                                    <input  className="col-12" type="text" name="nome" />
+                                                </label>
 
-                        </div>
-                    </Modal>
-                </div>
+                                                <label className="col-md-4 col-sm-12"> Modelo:
+                                                    <input className="col-12" type="text" name="nome" />
+                                                </label>
+                                                <label className="col-md-4 col-sm-12"> serie:
+                                                    <input  className="col-12" type="text" name="nome" />
+                                                </label>
+                                                <label className="col-md-4 col-sm-12">   Patrimonio:
+                                                    <input  className="col-12" type="text" name="nome" />
+                                                </label>
+
+                                                <hr/>
+
+                                                <p className='col-12' >Dados para o beacon</p>
+
+                                                <label className="col-md-4 col-sm-12">   Ronda:
+                                                    <input  className="col-12" type="text" name="nome" />
+                                                </label>
+                                                <label className="col-md-4 col-sm-12">  Calibração:
+                                                    <input  className="col-12" type="text" name="nome" />
+                                                </label>
+                                                <label className="col-md-4 col-sm-12">   Situação:
+                                                    <input  className="col-12" type="text" name="nome" />
+                                                </label>
+                                                <label className="col-md-4 col-sm-12">  Ativo:
+                                                    <input  className="col-12" type="text" name="nome" />
+                                                </label>
+                                                <label className="col-md-4 col-sm-12"> Setor:
+                                                    <input  className="col-12" type="text" name="nome" />
+                                                </label>
+
+                                                <div className="col-12 mt-2">
+                                                    <input  className="offset-md-10 col-md-2 col-sm-12" type="submit" value="Enviar" />
+                                                </div>
+
+                                            </form>
+
+                                 </div>
+                                </Modal>
+                </section>
         );
     }
 }

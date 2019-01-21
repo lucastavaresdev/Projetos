@@ -66,3 +66,21 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+                                     
+                                <div className="col-12">
+                                
+                                </div>
+                                
+                                <div className="col-12">
+                              
+                                </div>
+
+                                    {/* 
+                            
+
+                                  
+
+                                </form>
