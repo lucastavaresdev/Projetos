@@ -2,7 +2,7 @@ const mysql = require('mysql');
 
 function execQuery(query, res){
  
-  
+   
   
     connection.query(query, function(error, results, fields){
         if(error) 
