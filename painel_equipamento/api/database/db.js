@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize")
 const db = {}
+
     dialect: 'mysql',
     operatorsAliases: false,
 
