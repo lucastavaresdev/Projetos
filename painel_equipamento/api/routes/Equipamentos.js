@@ -47,4 +47,14 @@ equipamentos.post('/cadastro_de_equipamento', (req, res) => {
 })
 
 
+
+const execQuery = require ('./ExecuteQuery');
+
+
+equipamentos.get('/listar', (req, res) =>{
+    const $Temperatura_atual = 'SELECT * FROM hfcp.equipamentos';
+    execQuery($Temperatura_atual, res);
+})
+
+
 module.exports = equipamentos

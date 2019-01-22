@@ -2,8 +2,11 @@
 
 ./database/db.js
 ./database
+/routes/Equipamentos.js
 painel_equipamento/api/database/db.js
 ./painel_equipamento/api/database/db.js
+painel_equipamento/api/routes/Equipamentos.js
+
 
 
 # dependencies
