@@ -2,7 +2,7 @@ const Sequelize = require("sequelize")
 const db = require("../database/db")
 
 module.exports = db.sequelize.define(
-    'pe_equipamentos',
+    'equipamentos',
     {
         id: {
             type: Sequelize.INTEGER,
