@@ -1,7 +1,5 @@
 const Sequelize = require("sequelize")
 const db = {}
-const sequelize = new Sequelize("painel_equipamentos", "itechflow@itechbd", "Itechm@ster_2018", {
-    host: 'itechbd.mysql.database.azure.com',
     dialect: 'mysql',
     operatorsAliases: false,
 
