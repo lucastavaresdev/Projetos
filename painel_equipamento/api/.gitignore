@@ -3,11 +3,12 @@
 ./database/db.js
 ./database
 
-/routes/Equipamentos.js
+/routes/ExecuteQuery.js
 
 painel_equipamento/api/database/db.js
 ./painel_equipamento/api/database/db.js
-painel_equipamento/api/routes/Equipamentos.js
+
+painel_equipamento/api/routes/ExecuteQuery.js
 
 
 
