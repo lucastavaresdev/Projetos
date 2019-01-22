@@ -35,3 +35,8 @@ export const Inserir_Equipamento = equipamento => {
         console.log(error);
     });
   }
+
+  
+export const tracking_equipamentos = equipamento => {
+    return axios.get('http://localhost:3003/equipamento/tracking_equipamentos')
+}
