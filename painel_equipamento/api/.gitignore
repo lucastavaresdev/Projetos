@@ -4,11 +4,12 @@
 ./database
 
 /routes/ExecuteQuery.js
+painel_equipamento/api/routes/ExecuteQuery.js
 
 painel_equipamento/api/database/db.js
 ./painel_equipamento/api/database/db.js
 
-painel_equipamento/api/routes/ExecuteQuery.js
+
 
 
 
