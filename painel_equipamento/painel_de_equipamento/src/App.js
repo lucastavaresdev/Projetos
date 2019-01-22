@@ -5,7 +5,7 @@ import './base.scss';
 import Login from './screens/Login'
 import Admin from './screens/Admin'
 import Usuario from './screens/Usuario'
-import Equipamentos from './screens/equipamentos'
+import Equipamentos from './screens/Equipamentos'
 import Navbar from './components/navbar';
 
 class App extends Component {
@@ -16,7 +16,6 @@ class App extends Component {
           <div className="Login">
               <Route exact path="/" component={Login} />
           </div>
-        
           <div className="container-fluid ">
             <div className="screens">
                   <Navbar />
