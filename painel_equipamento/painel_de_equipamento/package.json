@@ -5,8 +5,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "jwt-decode": "^2.2.0",
-    "material-table": "^1.13.0",
     "react": "^16.7.0",
+    "react-bootstrap-table-next": "^2.1.0",
+    "react-bootstrap-table2-toolkit": "^1.2.0",
     "react-bs-notifier": "^5.0.0",
     "react-burger-menu": "^2.6.1",
     "react-dom": "^16.7.0",

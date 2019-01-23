@@ -53,7 +53,8 @@ const execQuery = require ('./ExecuteQuery');
 
 equipamentos.get('/tracking_equipamentos', (req, res) =>{
     const $query = 'select t.id, t.id_gateway, g.nome as gateway, g.mac, t.id_setor, s.nome as setor, t.id_beacon, e.nome, e.marca, e.modelo, e.serie, e.patrimonio, b.minor, t.rssi, t.checkin, t.checkout, timediff(checkout, checkin) as tempo from tracking t left join setores s on s.id = t.id_setor left join gateways g on g.id = t.id_gateway left join beacons b on b.id = t.id_beacon left join equipamentos e on e.id = b.id_equipamento where (fechado is null and t.id_usuario is null and t.id_equipamento is not null) ';
-    execQuery($query, res);
+  execQuery($query, res);
+   console.log('dsa')
 })
 
 
