@@ -5,8 +5,6 @@ import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import './scss/_base.scss'
 
-
-
 class Equipamento extends Component {
   constructor(){
     super() 
@@ -20,59 +18,63 @@ class Equipamento extends Component {
   }
 
   componentDidMount(){
-    this.listar()
+      this.listar()
+      this.interval = setInterval(() => {
+        this.listar();
+      }, 50000 );
   }
 
-  render() {
-    
-   
+  componentWillUnmount() {
+    clearInterval(this.interval);
+}
 
+  render() {
     const { SearchBar } = Search;
     const columns = [
-                                    {
-                                      dataField: 'nome',
-                                      text: 'Equipamento',
-                                      sort: true,
-                                      sortCaret: (order, column) => {
-                                        if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                                        else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                                        else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
-                                        return null;
-                                      }
-                                    },
-                                    {
-                                      dataField: 'setor',
-                                      text: 'Localizacao',
-                                      sort: true,
-                                      sortCaret: (order, column) => {
-                                        if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                                        else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                                        else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
-                                        return null;
-                                      }
-                                    },
-                                    {
-                                      dataField: 'checkout',
-                                      text: 'checkout',
-                                      sort: true,
-                                      sortCaret: (order, column) => {
-                                        if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                                        else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                                        else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
-                                        return null;
-                                      }
-                                    },
-                                    {
-                                      dataField: 'tempo',
-                                      text: 'tempo',
-                                      sort: true,
-                                      sortCaret: (order, column) => {
-                                        if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                                        else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                                        else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
-                                        return null;
-                                      }
-                                    },
+                          {
+                            dataField: 'nome',
+                            text: 'Equipamento',
+                            sort: true,
+                            sortCaret: (order, column) => {
+                              if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
+                              return null;
+                            }
+                          },
+                          {
+                            dataField: 'setor',
+                            text: 'Localizacao',
+                            sort: true,
+                            sortCaret: (order, column) => {
+                              if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
+                              return null;
+                            }
+                          },
+                          {
+                            dataField: 'checkout',
+                            text: 'Visto por Ultimo',
+                            sort: true,
+                            sortCaret: (order, column) => {
+                              if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
+                              return null;
+                            }
+                          },
+                          {
+                            dataField: 'tempo',
+                            text: 'Tempo',
+                            sort: true,
+                            sortCaret: (order, column) => {
+                              if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
+                              return null;
+                            }
+                          },
   ];
     
   const pageButtonRenderer = ({
@@ -107,7 +109,7 @@ class Equipamento extends Component {
             <a href="#" onClick={ handleClick } style={ activeStyle }>{ page }</a>
           </li>
         );
-      };
+  };
 
 
   const expandRow = {
@@ -153,8 +155,6 @@ class Equipamento extends Component {
             backgroundColor: '#FFFFFF',
             borderBottom : '1px solid #EBEFF2' };
 
-
-
     const options = {
       paginationSize: 5,
       pageStartIndex: 0,
@@ -171,13 +171,11 @@ class Equipamento extends Component {
       }, {
         text: '10', value: 10
       }, {
-      
       }] 
-      
     };
   
-  return (
     
+  return (
     <div className='container-fluid p-5 espaco-top'>
           <ToolkitProvider keyField="id" data={  this.state.data } columns={ columns } search >
             {
