@@ -1,3 +1,5 @@
+@import './variaveis';
+
 .titulo_das_paginas{
     margin-bottom: 2%;
     color: darken(#aeb0c2, 30%);
@@ -35,4 +37,12 @@ border-radius: 50px;
 .react-bootstrap-table-pagination-list{
     margin-left: -7%;
     margin-top: 1.5%;
+}
+
+.info_Table{
+    color: $cor;
+    font-weight: 600;
+}
+.expanding-row{
+    background:  lighten($cinza-claro2, 2%);
 }

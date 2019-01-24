@@ -4,7 +4,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import './scss/_base.scss'
-import './scss/_variaveis.scss'
+
 
 
 class Equipamento extends Component {
@@ -89,13 +89,20 @@ class Equipamento extends Component {
   const expandRow = {
     renderer: row => (
       <div>
-        <p>  {row.marca}</p>
-        <p>serie:  {row.serie}</p>
-        <p>patrimonio  {row.patrimonio}</p>
-        <p>Minor  {row.minor}</p>
-        <p>Minor  {row.checkin}</p>
-        <p>Minor  {row.gateway}</p>
-    
+        <div className="row">
+          <div className="col-md-4 col-sm-12">
+              <p>Marca: <span className='info_Table'>{row.marca}</span></p>
+              <p>Minor:  <span className='info_Table'>{row.minor}</span>  </p>
+          </div>
+          <div className="col-md-4 col-sm-12">
+              <p>Serie: <span className='info_Table'>{row.serie}</span></p>
+              <p>Patrimonio  <span className='info_Table'>{row.patrimonio}</span></p>
+          </div>
+          <div className="col-md-4 col-sm-12">
+              <p>Antena:  <span className='info_Table'>{row.gateway}</span></p>
+              <p>Checkin  <span className='info_Table'>{row.checkin}</span></p>
+          </div>
+        </div>
       </div>
     ),
     showExpandColumn: true,
