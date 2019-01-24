@@ -100,16 +100,14 @@ class Equipamento extends Component {
   
   return (
     
-    <div className='container-fluid p-5'>
+    <div className='container-fluid p-5 espaco-top'>
           <ToolkitProvider keyField="id" data={  this.state.data } columns={ columns } search >
             {
               props => (
                 <div>
                    <h3 className='titulo_das_paginas'>Localizar Equipamento</h3>
-                 <SearchBar { ...props.searchProps } placeholder="Buscar"/>
-                 
+                    <SearchBar { ...props.searchProps } placeholder="Buscar"/>
                   <hr />
-                  
                       <div className="table-responsive-sm table-responsive-md  tabela">
                           <table className="table ">
                                         <BootstrapTable 

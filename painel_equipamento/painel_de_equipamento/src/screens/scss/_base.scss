@@ -1,9 +1,12 @@
 .titulo_das_paginas{
-    margin-bottom: 2.3%;
+    margin-bottom: 2%;
     color: darken(#aeb0c2, 30%);
-    font-size: 28px
+    font-size: 25px;
+    font-weight: 600;
 }
-
+.espaco-top{
+    padding-top: 5% !important;
+}
 .react-bootstrap-table{
 border-radius: 50px;
 }
