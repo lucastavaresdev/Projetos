@@ -32,22 +32,46 @@ class Equipamento extends Component {
                                     {
                                       dataField: 'nome',
                                       text: 'Equipamento',
-                                      sort: true
+                                      sort: true,
+                                      sortCaret: (order, column) => {
+                                        if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                                        else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                                        else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
+                                        return null;
+                                      }
                                     },
                                     {
                                       dataField: 'setor',
                                       text: 'Localizacao',
-                                      sort: true
+                                      sort: true,
+                                      sortCaret: (order, column) => {
+                                        if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                                        else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                                        else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
+                                        return null;
+                                      }
                                     },
                                     {
                                       dataField: 'checkout',
                                       text: 'checkout',
-                                      sort: true
+                                      sort: true,
+                                      sortCaret: (order, column) => {
+                                        if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                                        else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                                        else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
+                                        return null;
+                                      }
                                     },
                                     {
                                       dataField: 'tempo',
                                       text: 'tempo',
-                                      sort: true
+                                      sort: true,
+                                      sortCaret: (order, column) => {
+                                        if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                                        else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
+                                        else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
+                                        return null;
+                                      }
                                     },
   ];
     
