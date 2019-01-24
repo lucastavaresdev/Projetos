@@ -99,7 +99,23 @@ class Equipamento extends Component {
       </div>
     ),
     showExpandColumn: true,
-    expandColumnPosition: 'right'
+    expandColumnPosition: 'right',
+    expandHeaderColumnRenderer: ({ isAnyExpands }) => {
+      if (isAnyExpands) {
+        return <b>-</b>;
+      }
+      return <b>+</b>;
+    },
+    expandColumnRenderer: ({ expanded }) => {
+      if (expanded) {
+        return (
+          <b><i class="fas fa-chevron-up"></i></b>
+        );
+      }
+      return (
+        <b><i class="fas fa-chevron-down"></i></b>
+      );
+    }
   };  
 
   const rowStyle = { 
