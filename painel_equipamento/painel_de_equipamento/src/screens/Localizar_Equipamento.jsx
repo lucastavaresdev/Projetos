@@ -28,19 +28,15 @@ class Equipamento extends Component {
    
 
     const { SearchBar } = Search;
-    const columns = [{
-                                      dataField: 'gateway',
-                                      text: 'Antena',
+    const columns = [
+                                    {
+                                      dataField: 'nome',
+                                      text: 'Equipamento',
                                       sort: true
                                     },
                                     {
                                       dataField: 'setor',
                                       text: 'Localizacao',
-                                      sort: true
-                                    },
-                                    {
-                                      dataField: 'nome',
-                                      text: 'Equipamento',
                                       sort: true
                                     },
                                     {
@@ -98,6 +94,7 @@ class Equipamento extends Component {
         <p>patrimonio  {row.patrimonio}</p>
         <p>Minor  {row.minor}</p>
         <p>Minor  {row.checkin}</p>
+        <p>Minor  {row.gateway}</p>
     
       </div>
     ),
