@@ -33,12 +33,19 @@ class Admin extends Component {
                 })
         }
 
+        equipamentos = (param) => {
+                console.log(param);
+        }
+
+        
+
      componentDidMount(){
         document.querySelector('.screens').style.display = 'block';
         this.exibir_quantidade_de_equipamento()
       }
 
-    render () {
+      render () {
+  
         return (
                 <div className="container-fluid">
                         <div className="row ">
@@ -47,17 +54,21 @@ class Admin extends Component {
                                 </div>
                         </div>
                         
+                        
                         <div className="row mt-2">
-                                <div className="col-md-4 col-sm-12">
-                                        <Card  nome='Equipamentos' qtd={this.state.quantidade_de_equipamento} icone='tools'/>
+                                <div className="col-md-4 col-sm-12"  onClick={this.equipamentos('Equipamento')}>
+                                        <Card  nome='Equipamentos' qtd={this.state.quantidade_de_equipamento} icone='tools' click='click'/>
                                 </div>
                                 <div className="col-md-4 col-sm-12">
-                                        <Card  nome='Em manutenção' qtd={this.state.em_manutencao} icone='exclamation-triangle'/>
+                                        <Card  nome='Rondas' qtd={this.state.em_manutencao} icone='retweet'/>
                                 </div>
                                 <div className="col-md-4 col-sm-12">
-                                        <Card  nome='Total de Verificados' qtd={this.state.varificados} icone='check'/>
+                                        <Card  nome='Calibração' qtd={this.state.varificados} icone='cog'/>
                                 </div>
                         </div>
+
+
+
 
                         <div className="row mt-5">
                                 <div className="col-md-8 col-sm-12">
@@ -68,7 +79,13 @@ class Admin extends Component {
                                                         </div>
                                                         <div className="row pt-5">
                                                                 <div className="col-md-5">
-                                                                        <ResponsiveContainer aspect={1.5}>
+
+
+
+
+
+
+                                                                        {/* <ResponsiveContainer aspect={1.5}>
                                                                                 <LineChart data={data}>
                                                                                 <XAxis dataKey="name"/>
                                                                                 <YAxis/>
@@ -78,7 +95,7 @@ class Admin extends Component {
                                                                                 <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{r: 8}}/>
                                                                                 <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
                                                                                 </LineChart>
-                                                                        </ResponsiveContainer>
+                                                                        </ResponsiveContainer> */}
                                                                 </div>
                                                         </div>
                                                 </div>
