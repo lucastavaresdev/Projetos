@@ -23,10 +23,10 @@ class Admin extends Component {
                                               <Card  nome='Equipamentos' qtd='100' icone='tools'/>
                                         </div>
                                         <div className="col-md-4 col-sm-12">
-                                              <Card  nome='Em manutenção' qtd='3'/>
+                                              <Card  nome='Em manutenção' qtd='3' icone='exclamation-triangle'/>
                                         </div>
                                         <div className="col-md-4 col-sm-12">
-                                              <Card  nome='Total de Verificados' qtd='20'/>
+                                              <Card  nome='Total de Verificados' qtd='20' icone='check'/>
                                         </div>
                                 </div>
                         </div>
