@@ -39,5 +39,8 @@ export const Inserir_Equipamento = equipamento => {
   
 export const tracking_equipamentos = equipamento => {
     return axios.get('http://localhost:3003/equipamento/tracking_equipamentos')
-      
+}
+
+export const quantidade_de_equipamento = equipamento => {
+    return axios.get('http://localhost:3003/equipamento/quantidade_de_equipamento')
 }
