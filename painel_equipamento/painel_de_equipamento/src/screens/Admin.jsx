@@ -14,16 +14,20 @@ class Admin extends Component {
                 <div>   
                         <div className="container-fluid">
                                 <div className="row ">
-                                        <div className="col-md-4 col-sm-12 mt-70">
+                                        <div className="col-md-12">
+                                        <h1 className='mt-70 titulo_das_paginas titulo_left ' >Dashboard</h1>
+                                        </div>
+                                </div>
+                                <div className="row mt-2">
+                                        <div className="col-md-4 col-sm-12">
                                               <Card  nome='Equipamentos' qtd='100' icone='tools'/>
                                         </div>
-                                        <div className="col-md-4 col-sm-12 mt-70">
+                                        <div className="col-md-4 col-sm-12">
                                               <Card  nome='Em manutenção' qtd='3'/>
                                         </div>
-                                        <div className="col-md-4 col-sm-12 mt-70">
+                                        <div className="col-md-4 col-sm-12">
                                               <Card  nome='Total de Verificados' qtd='20'/>
                                         </div>
-
                                 </div>
                         </div>
                 </div>
