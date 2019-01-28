@@ -56,5 +56,12 @@ equipamentos.get('/tracking_equipamentos', (req, res) =>{
     execQuery($query, res);
 })
 
+equipamentos.get('/quantidade_de_equipamento', (req, res) =>{
+    const $query = 'SELECT count(serie) as quantidade_de_equipamentos FROM equipamentos;';
+    execQuery($query, res);
+})
+
+
+
 
 module.exports = equipamentos
