@@ -12,4 +12,10 @@
 .box-card{
     border: none;
     border-radius: 10px;
+    &:hover{
+        background: $cor;
+        p{
+            color: #FFFFFF;
+        }
+    }
 }
