@@ -50,21 +50,30 @@ class Admin extends Component {
         ComponenteEquipamentos = () => {
                 if (!this.state.equipamento_visivel) return null;
                 return (
-                <h1>Equipamentos</h1>
+                <div class="card-body">
+                        <h5 class="card-title">Equipamentos</h5>
+
+                        
+                </div>
                 );
         }
 
         ComponenteRonda = () => {
                 if (!this.state.ronda_visivel) return null;
                 return (
-                        <h1>Ronda</h1>
+                 <div class="card-body">
+                        <h5 class="card-title">Rondas</h5>
+                </div>
                 );
         }
                 
         ComponenteCalibracao = () => {
                 if (!this.state.calibracao_visivel) return null;
                 return (
-                        <h1>Calibração</h1>
+                <div class="card-body">
+                        <h5 class="card-title">Calibração</h5>
+                </div>
+                        
                 );
         }
                 
@@ -94,9 +103,7 @@ class Admin extends Component {
                                 <div className="col-md-8 col-sm-12">
                                         <div className="col-md-11 titulo_left">
                                                 <div class="card">
-                                                        <div class="card-body">
-                                                                <h5 class="card-title">Equipamentos verificados</h5>
-                                                        </div>
+                                                     
                                                         <div className="row pt-5">
                                                                 <div className="col-md-5">
                                                                 {this.ComponenteCalibracao()}
