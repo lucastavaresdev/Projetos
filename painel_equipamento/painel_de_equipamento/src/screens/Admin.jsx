@@ -92,7 +92,7 @@ class Admin extends Component {
 
                         <div className="row mt-5">
                                 <div className="col-md-8 col-sm-12">
-                                        <div className="col-md-11 titulo_left  box-card">
+                                        <div className="col-md-11 titulo_left">
                                                 <div class="card">
                                                         <div class="card-body">
                                                                 <h5 class="card-title">Equipamentos verificados</h5>
