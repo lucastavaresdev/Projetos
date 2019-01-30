@@ -44,3 +44,7 @@ export const tracking_equipamentos = equipamento => {
 export const quantidade_de_equipamento = equipamento => {
     return axios.get('http://localhost:3003/equipamento/quantidade_de_equipamento')
 }
+
+export const quantidade_de_calibracoes = equipamento => {
+    return axios.get('http://localhost:3003/equipamento/qtd_calibracoes')
+}

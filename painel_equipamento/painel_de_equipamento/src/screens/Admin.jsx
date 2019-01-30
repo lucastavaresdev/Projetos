@@ -2,31 +2,8 @@ import React , {Component}from 'react';
 import './scss/_Admin.scss'
 import '../components/_card.scss'
 import Card from '../components/card'
-import { quantidade_de_equipamento } from '../Funcions'
+import { quantidade_de_equipamento, quantidade_de_calibracoes } from '../Funcions'
 import { Doughnut } from 'react-chartjs-2'
-
-
-const data = {
-	labels: [
-		'Red',
-		'Green',
-		'Yellow'
-	],
-	datasets: [{
-		data: [300, 50, 100],
-		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		],
-		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		]
-	}],
-  text: '23%'
-};
 
 class Admin extends Component {
         constructor(){
@@ -37,13 +14,31 @@ class Admin extends Component {
                         varificados  : 0,
                         equipamento_visivel: false,
                         ronda_visivel: false,
-                        calibracao_visivel: false
+                        calibracao_visivel: false,
+                        quantidade_de_calibracoes: {
+                                datasets: [{
+                                  data: [10, 20, 30]
+                                }],
+                                labels: [
+                                  'Red',
+                                  'Yellow',
+                                  'Blue'
+                                ]
+                              }
+
                 };
         }
 
         componentDidMount(){
                 document.querySelector('.screens').style.display = 'block';
                 this.exibir_quantidade_de_equipamento()
+                this.exibir_quantidade_de_calibracoes()
+        }
+
+        exibir_quantidade_de_calibracoes() {
+                quantidade_de_calibracoes().then(json => {
+                       this.setState({ quantidade_de_equipamento: json.data})
+                })
         }
 
         exibir_quantidade_de_equipamento() {
@@ -51,7 +46,6 @@ class Admin extends Component {
                         this.setState({ quantidade_de_equipamento: json.data[0].quantidade_de_equipamentos})
                 })
         }
-
 
         ExibirEquipamento = () => {
                 (this.state.equipamento_visivel === false) ? 
@@ -67,15 +61,12 @@ class Admin extends Component {
                 (this.state.calibracao_visivel === false) ? 
                         this.setState({calibracao_visivel: true ,ronda_visivel: false, equipamento_visivel: false}) : this.setState({calibracao_visivel: false });
         }
-
         
         ComponenteEquipamentos = () => {
                 if (!this.state.equipamento_visivel) return null;
                 return (
                 <div class="card-body">
                         <h5 class="card-title">Equipamentos</h5>
-
-                        
                 </div>
                 );
         }
@@ -94,7 +85,12 @@ class Admin extends Component {
                 return (
                 <div class="card-body">
                         <h5 class="card-title">Calibração</h5>
-                        <Doughnut data={data} />
+                        <Doughnut data={this.state.quantidade_de_calibracoes}
+                                options={{
+                                        responsive: true,
+                                        maintainAspectRatio: true,
+                                }}
+                        />
                 </div>
                         
                 );
