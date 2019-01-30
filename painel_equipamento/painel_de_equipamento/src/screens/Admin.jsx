@@ -3,9 +3,31 @@ import './scss/_Admin.scss'
 import '../components/_card.scss'
 import Card from '../components/card'
 import { quantidade_de_equipamento } from '../Funcions'
+import { Doughnut } from 'react-chartjs-2'
 
 
-      
+const data = {
+	labels: [
+		'Red',
+		'Green',
+		'Yellow'
+	],
+	datasets: [{
+		data: [300, 50, 100],
+		backgroundColor: [
+		'#FF6384',
+		'#36A2EB',
+		'#FFCE56'
+		],
+		hoverBackgroundColor: [
+		'#FF6384',
+		'#36A2EB',
+		'#FFCE56'
+		]
+	}],
+  text: '23%'
+};
+
 class Admin extends Component {
         constructor(){
                 super()
@@ -72,6 +94,7 @@ class Admin extends Component {
                 return (
                 <div class="card-body">
                         <h5 class="card-title">Calibração</h5>
+                        <Doughnut data={data} />
                 </div>
                         
                 );
@@ -81,7 +104,7 @@ class Admin extends Component {
       render () {
         return (
                 <div className="container-fluid">
-                        <div className="row ">
+                        <div className="row">
                                 <div className="col-md-12">
                                 <h1 className='mt-70 titulo_das_paginas titulo_left '>Dashboard</h1>
                                 </div>
