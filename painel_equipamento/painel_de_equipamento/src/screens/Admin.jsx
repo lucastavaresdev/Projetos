@@ -3,9 +3,14 @@ import './scss/_Admin.scss'
 import '../components/_card.scss'
 import Card from '../components/card'
 import { quantidade_de_equipamento, quantidade_de_calibracoes } from '../Funcions'
-import { Bar ,Doughnut } from 'react-chartjs-2'
+import { Bar  } from 'react-chartjs-2'
 
 
+const options={
+        legend: {
+                position: 'bottom',
+        },
+    };
 
 class Admin extends Component {
         constructor(){
@@ -41,8 +46,7 @@ class Admin extends Component {
                                         data.push(element.quantidade);
                           });
 
-                          console.log(labels[1])
-                          console.log(labels[1])
+                         
                           this.setState({
                                 quantidade_de_calibracoes: {
                                               datasets: [
@@ -97,7 +101,6 @@ class Admin extends Component {
                                                     ]
                                 }
                               });
-                       //this.setState({ tsa : json.data})
                 })
                
         }
@@ -126,8 +129,8 @@ class Admin extends Component {
         ComponenteEquipamentos = () => {
                 if (!this.state.equipamento_visivel) return null;
                 return (
-                <div class="card-body">
-                        <h5 class="card-title">Equipamentos</h5>
+                <div className="card-body">
+                        <h5 className="card-title">Equipamentos</h5>
                 </div>
                 );
         }
@@ -135,8 +138,8 @@ class Admin extends Component {
         ComponenteRonda = () => {
                 if (!this.state.ronda_visivel) return null;
                 return (
-                 <div class="card-body">
-                        <h5 class="card-title">Rondas</h5>
+                 <div className="card-body">
+                        <h5 className="card-title">Rondas</h5>
                 </div>
                 );
         }
@@ -144,15 +147,21 @@ class Admin extends Component {
         ComponenteCalibracao = () => {
                 if (!this.state.calibracao_visivel) return null;
                 return (
-                <div class="card-body">
-                        <h5 class="card-title">Calibração</h5>
-                        {Object.keys(this.state.quantidade_de_calibracoes).length &&
-                                        <Bar
-                                        data={this.state.quantidade_de_calibracoes}
-                        ></Bar>
+                // <div className="card-body">
+                        // 
+                        <div>
+                                <p>Calibração</p>
+                                {Object.keys(this.state.quantidade_de_calibracoes).length &&
+                                        <Bar 
+                                                data={this.state.quantidade_de_calibracoes} 
+                                                options={options}
+                                                height={300}
+                                                width={1000}
+                                                maintainAspectRatio={false}
+                                                >
+                                        </Bar>
                                 }
-                </div>
-                        
+                                </div>
                 );
         }
                 
@@ -181,10 +190,10 @@ class Admin extends Component {
                         <div className="row mt-5">
                                 <div className="col-md-8 col-sm-12">
                                         <div className="col-md-11 titulo_left">
-                                                <div class="card">
+                                                <div className="card">
                                                      
                                                         <div className="row pt-5">
-                                                                <div className="col-md-5">
+                                                                <div className="col-md-12">
                                                                 {this.ComponenteCalibracao()}
                                                                 {this.ComponenteEquipamentos()}
                                                                 {this.ComponenteRonda()}
@@ -193,8 +202,18 @@ class Admin extends Component {
                                                 </div>
                                         </div>
                                 </div>
-                        </div>
 
+                                <div className="col-md-4 col-sm-12">
+                                        <div className="col-md-11">
+                                                <div className="card">
+                                                                <p>Equipamentos fora do Antena</p>
+                                               </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <script>
+                        
+                        </script>
                 </div>
         )
     }

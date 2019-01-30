@@ -36,9 +36,9 @@ class Equipamento extends Component {
                             text: 'Equipamento',
                             sort: true,
                             sortCaret: (order, column) => {
-                              if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                              else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                              else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
+                              if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
                               return null;
                             }
                           },
@@ -47,9 +47,9 @@ class Equipamento extends Component {
                             text: 'Localizacao',
                             sort: true,
                             sortCaret: (order, column) => {
-                              if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                              else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                              else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
+                              if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
                               return null;
                             }
                           },
@@ -58,9 +58,9 @@ class Equipamento extends Component {
                             text: 'Visto por Ultimo',
                             sort: true,
                             sortCaret: (order, column) => {
-                              if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                              else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                              else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
+                              if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
                               return null;
                             }
                           },
@@ -69,9 +69,9 @@ class Equipamento extends Component {
                             text: 'Tempo',
                             sort: true,
                             sortCaret: (order, column) => {
-                              if (!order) return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                              else if (order === 'asc') return (<span><i class="setas fas fa-chevron-up"></i></span>);
-                              else if (order === 'desc') return (<span><i class="setas fas fa-chevron-down"></i></span>);
+                              if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                              else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
                               return null;
                             }
                           },
@@ -142,11 +142,11 @@ class Equipamento extends Component {
     expandColumnRenderer: ({ expanded }) => {
       if (expanded) {
         return (
-          <b><i class="fas fa-chevron-up"></i></b>
+          <b><i className="fas fa-chevron-up"></i></b>
         );
       }
       return (
-        <b><i class="fas fa-chevron-down"></i></b>
+        <b><i className="fas fa-chevron-down"></i></b>
       );
     }
   };  
