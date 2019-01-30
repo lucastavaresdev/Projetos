@@ -25,20 +25,37 @@ class Admin extends Component {
                                   'Blue'
                                 ]
                               }
-
                 };
         }
+
+     
 
         componentDidMount(){
                 document.querySelector('.screens').style.display = 'block';
                 this.exibir_quantidade_de_equipamento()
                 this.exibir_quantidade_de_calibracoes()
+        
         }
 
         exibir_quantidade_de_calibracoes() {
                 quantidade_de_calibracoes().then(json => {
-                       this.setState({ quantidade_de_equipamento: json.data})
+
+                        let a = JSON.parse(JSON.stringify(this.state.quantidade_de_calibracoes))
+
+
+
+                        a.datasets[0].data = 
+                                this.setState({
+                                        quantidade_de_calibracoes: [1,2,3]
+                        }) 
+
+                        console.log(a)
+                        //console.log(this.state.quantidade_de_calibracoes.data);
+                        //console.log(this.state.quantidade_de_calibracoes.datasets);
+
+                       //this.setState({ tsa : json.data})
                 })
+               
         }
 
         exibir_quantidade_de_equipamento() {
