@@ -3,7 +3,9 @@ import './scss/_Admin.scss'
 import '../components/_card.scss'
 import Card from '../components/card'
 import { quantidade_de_equipamento, quantidade_de_calibracoes } from '../Funcions'
-import { Doughnut } from 'react-chartjs-2'
+import { Bar ,Doughnut } from 'react-chartjs-2'
+
+
 
 class Admin extends Component {
         constructor(){
@@ -15,16 +17,7 @@ class Admin extends Component {
                         equipamento_visivel: false,
                         ronda_visivel: false,
                         calibracao_visivel: false,
-                        quantidade_de_calibracoes: {
-                                datasets: [{
-                                  data: [10, 20, 30]
-                                }],
-                                labels: [
-                                  'Red',
-                                  'Yellow',
-                                  'Blue'
-                                ]
-                              }
+                        quantidade_de_calibracoes: {}
                 };
         }
 
@@ -40,19 +33,70 @@ class Admin extends Component {
         exibir_quantidade_de_calibracoes() {
                 quantidade_de_calibracoes().then(json => {
 
-                        let a = JSON.parse(JSON.stringify(this.state.quantidade_de_calibracoes))
+                        const equipamentojson = json.data;
+                                let labels = [];
+                                let data = [];
+                                equipamentojson.forEach(element => {
+                                        labels.push(element.nome_situacoes);
+                                        data.push(element.quantidade);
+                          });
 
-
-
-                        a.datasets[0].data = 
-                                this.setState({
-                                        quantidade_de_calibracoes: [1,2,3]
-                        }) 
-
-                        console.log(a)
-                        //console.log(this.state.quantidade_de_calibracoes.data);
-                        //console.log(this.state.quantidade_de_calibracoes.datasets);
-
+                          console.log(labels[1])
+                          console.log(labels[1])
+                          this.setState({
+                                quantidade_de_calibracoes: {
+                                              datasets: [
+                                                {
+                                                        label: labels[0],
+                                                        data: [data[0]],
+                                                        backgroundColor: "rgba(245, 74, 85, 0.5)",
+                                                        borderWidth: 1
+                                                      },
+                                                      {
+                                                        label: labels[1],
+                                                        data: [data[1]],
+                                                        backgroundColor: "rgba(90, 173, 246, 0.5)",
+                                                        borderWidth: 1
+                                                      },
+                                                      {
+                                                        label: labels[2],
+                                                        data: [data[2]],
+                                                        backgroundColor: "rgba(245, 192, 50, 0.5)",
+                                                        borderWidth: 1
+                                                      },
+                                                      {
+                                                        label: labels[3],
+                                                        data: [data[3]],
+                                                        backgroundColor: "rgba(245, 192, 50, 0.5)",
+                                                        borderWidth: 1
+                                                      },
+                                                      {
+                                                        label: labels[4],
+                                                        data: [data[4]],
+                                                        backgroundColor: "rgba(245, 192, 50, 0.5)",
+                                                        borderWidth: 1
+                                                      },
+                                                      {
+                                                        label: labels[5],
+                                                        data: [data[5]],
+                                                        backgroundColor: "rgba(245, 192, 50, 0.5)",
+                                                        borderWidth: 1
+                                                      },
+                                                      {
+                                                        label: labels[6],
+                                                        data: [data[6]],
+                                                        backgroundColor: "rgba(245, 192, 50, 0.5)",
+                                                        borderWidth: 1
+                                                      },
+                                                      {
+                                                        label: labels[7],
+                                                        data: [data[7]],
+                                                        backgroundColor: "rgba(245, 192, 50, 0.5)",
+                                                        borderWidth: 1
+                                                      },
+                                                    ]
+                                }
+                              });
                        //this.setState({ tsa : json.data})
                 })
                
@@ -102,12 +146,11 @@ class Admin extends Component {
                 return (
                 <div class="card-body">
                         <h5 class="card-title">Calibração</h5>
-                        <Doughnut data={this.state.quantidade_de_calibracoes}
-                                options={{
-                                        responsive: true,
-                                        maintainAspectRatio: true,
-                                }}
-                        />
+                        {Object.keys(this.state.quantidade_de_calibracoes).length &&
+                                        <Bar
+                                        data={this.state.quantidade_de_calibracoes}
+                        ></Bar>
+                                }
                 </div>
                         
                 );
