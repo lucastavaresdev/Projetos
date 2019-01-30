@@ -61,6 +61,11 @@ equipamentos.get('/quantidade_de_equipamento', (req, res) =>{
     execQuery($query, res);
 })
 
+equipamentos.get('/qtd_calibracoes', (req, res) =>{
+    const $query = 'SELECT distinct (situacoes.nome_situacoes)  ,count(rondas.situacao) as quantidade FROM situacoes left join rondas  ON situacoes.nome_situacoes =  rondas.situacao group by situacoes.nome_situacoes order by quantidade desc;';
+    execQuery($query, res);
+})
+
 
 
 
