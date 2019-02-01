@@ -4,6 +4,7 @@ import '../components/_card.scss'
 import Card from '../components/card'
 import { quantidade_de_equipamento, quantidade_de_calibracoes } from '../Funcions'
 import { Bar  } from 'react-chartjs-2'
+import Rondas from '../components/rondas';
 
 
 const options={
@@ -138,19 +139,16 @@ class Admin extends Component {
         ComponenteRonda = () => {
                 if (!this.state.ronda_visivel) return null;
                 return (
-                 <div className="card-body">
-                        <h5 className="card-title">Rondas</h5>
-                </div>
+                        <Rondas />
                 );
         }
                 
         ComponenteCalibracao = () => {
                 if (!this.state.calibracao_visivel) return null;
                 return (
-                // <div className="card-body">
-                        // 
                         <div>
-                                <p>Calibração</p>
+                                <p>Calibração</p> 
+
                                 {Object.keys(this.state.quantidade_de_calibracoes).length &&
                                         <Bar 
                                                 data={this.state.quantidade_de_calibracoes} 
