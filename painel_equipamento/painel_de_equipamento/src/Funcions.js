@@ -54,5 +54,5 @@ export const quantidade_de_rondas = equipamento => {
 }
 
 export const quantidade_de_equipamentos = equipamento => {
-    return axios.get('http://localhost:3003/equipamento/rondas_status')
+    return axios.get('http://localhost:3003/equipamento/qtd_equipamentos')
 }

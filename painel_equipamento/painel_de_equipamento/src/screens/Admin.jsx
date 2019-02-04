@@ -5,6 +5,7 @@ import Card from '../components/card'
 import { quantidade_de_equipamento, quantidade_de_calibracoes } from '../Funcions'
 import { Bar  } from 'react-chartjs-2'
 import Rondas from '../components/rondas';
+import Equipamentos from '../components/equipamentos';
 
 
 const options={
@@ -130,9 +131,7 @@ class Admin extends Component {
         ComponenteEquipamentos = () => {
                 if (!this.state.equipamento_visivel) return null;
                 return (
-                <div className="card-body">
-                        <h5 className="card-title">Equipamentos</h5>
-                </div>
+                        <Equipamentos />
                 );
         }
 
