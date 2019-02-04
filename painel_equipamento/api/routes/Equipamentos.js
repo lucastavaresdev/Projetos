@@ -67,7 +67,7 @@ equipamentos.get('/qtd_calibracoes', (req, res) =>{
 })
 
 equipamentos.get('/rondas_status', (req, res) =>{
-    const $query = 'select situacoes.nome_situacoes, count(situacao) as qtd_status from (select id_equipamento, situacao, ronda_ultima from (SELECT MAX(ronda_ultima) as reg_recente FROM rondas GROUP BY id_equipamento) reg left join rondas on rondas.ronda_ultima = reg.reg_recente group by id_equipamento ) r right join situacoes on situacoes.nome_situacoes = r.situacao group by situacoes.nome_situacoes;';
+    const $query = 'select situacoes.nome_situacoes, count(situacao) as qtd from ( select id_equipamento, situacao, ronda_ultima from ( SELECT MAX(ronda_ultima) as reg_recente FROM rondas GROUP BY id_equipamento) reg left join rondas on rondas.ronda_ultima = reg.reg_recente group by id_equipamento) r right join situacoes on situacoes.nome_situacoes = r.situacao group by situacoes.nome_situacoes';
     execQuery($query, res);
 })
 

@@ -100,7 +100,7 @@ class Admin extends Component {
                                                         borderWidth: 1
                                                       },
                                                     ]
-                                }
+                                        }
                               });
                 })
                
