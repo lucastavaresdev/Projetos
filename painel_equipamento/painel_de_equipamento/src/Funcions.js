@@ -52,3 +52,7 @@ export const quantidade_de_calibracoes = equipamento => {
 export const quantidade_de_rondas = equipamento => {
     return axios.get('http://localhost:3003/equipamento/rondas_status')
 }
+
+export const quantidade_de_equipamentos = equipamento => {
+    return axios.get('http://localhost:3003/equipamento/rondas_status')
+}
