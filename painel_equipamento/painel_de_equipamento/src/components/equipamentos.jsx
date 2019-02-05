@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { quantidade_de_rondas } from '../Funcions'
+import { quantidade_de_equipamentos } from '../Funcions'
 import { Doughnut,Chart  } from 'react-chartjs-2'
 
 const options={
@@ -13,14 +13,59 @@ class Rondas extends Component {
     constructor(){
         super()
         this.state = { 
-                quantidade_de_rondas: {}
+                quantidade_de_equipamentos: {},
+                soma: 0
         };
     }
-
-
-
     
 
+    exibir_quantidade_de_equipamentos() {
+        quantidade_de_equipamentos().then(json => {
+                const equipamentojson = json.data;
+                        let labels = [];
+                        let data = [];
+
+                        equipamentojson.forEach(element => {
+                            element.nome !== null ?  labels.push(element.nome): labels.push('Setor não informado')
+                            data.push(element.contagem);
+                        });
+
+                        var result = 0
+                        for (var k =0; k < data.length; k++){
+                               result += parseInt(data[k]);
+                        }  
+
+                        console.log(result)
+                        this.setState({soma: result})
+
+                        var hexadecimais = '0123456789ABCDEF';
+                        var cor = '#';
+                        var arr = [];
+                        for(var j = 0; j < data.length;j++){
+                            for (var i = 0; i < 6 ; i++ ) {
+                                cor += hexadecimais[Math.floor(Math.random() * 16)];
+                            }
+                            arr.push(cor)    
+                            cor = '#';
+                        }
+                        
+                    this.setState({
+                        quantidade_de_equipamentos: {
+                            labels: labels,
+                            datasets: [{
+                                data: data,
+                                backgroundColor: arr,
+                                hoverBackgroundColor: arr
+                            }],
+                            text: this.state.soma
+                        }
+                });
+        })
+}
+
+componentDidMount(){
+    this.exibir_quantidade_de_equipamentos()
+}
 
     render() {
         var originalDoughnutDraw = Chart.controllers.doughnut.prototype.draw;
@@ -33,7 +78,7 @@ class Rondas extends Component {
             var width = chart.width;
             var height = chart.height;
         
-            var fontSize = (height / 114).toFixed(2);
+            var fontSize = (height / 100).toFixed(2);
             ctx.font = fontSize + "em Verdana";
             ctx.textBaseline = "middle";
         
@@ -45,36 +90,14 @@ class Rondas extends Component {
           }
         });
 
-        const data = {
-          labels: [
-            'Red',
-            'Green',
-            'Yellow'
-          ],
-          datasets: [{
-            data: [300, 50, 100],
-            backgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56'
-            ],
-            hoverBackgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56'
-            ]
-          }],
-          text: '10'
-        };
-        
         return (
             <div>
-                <div className='row'>
-                <div className='col-md-5'>
-                    <p>Equipamentos</p>
-                    <Doughnut data={data} />
-                </div>
-                </div>
+                <p>Equipamentos</p>
+                <div className="row justify-content-center">
+                    <div className="col-md-8 ">
+                        <Doughnut data={this.state.quantidade_de_equipamentos} />
+                    </div>
+                 </div>
             </div>
         );
     }
