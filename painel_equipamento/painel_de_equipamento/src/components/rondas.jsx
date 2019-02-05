@@ -20,7 +20,6 @@ class Rondas extends Component {
     exibir_quantidade_de_rondas() {
             quantidade_de_rondas().then(json => {
                     const equipamentojson = json.data;
-                    console.log(json.data)
                             let labels = [];
                             let data = [];
                             equipamentojson.forEach(element => {

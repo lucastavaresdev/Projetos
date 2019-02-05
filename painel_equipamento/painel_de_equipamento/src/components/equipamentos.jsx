@@ -33,7 +33,6 @@ class Rondas extends Component {
                                result += parseInt(data[k]);
                         }  
 
-                        console.log(result)
                         this.setState({soma: result})
 
                         var hexadecimais = '0123456789ABCDEF';
