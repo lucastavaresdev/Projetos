@@ -94,7 +94,8 @@ class Modal2 extends Component {
         return (
             <section >
                 
-                            <div onClick={this.openModal}><i className="fas fa-plus-circle fa-3x"></i></div> 
+                            <div onClick={this.openModal}><i className="abrirCad fas fa-plus-circle fa-3x"></i></div> 
+
                                 <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento">
                                         <div className="row">
                                         <div className="col-md-10 modal_equipamentos p-4">

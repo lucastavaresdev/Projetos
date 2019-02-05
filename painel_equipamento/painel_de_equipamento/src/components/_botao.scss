@@ -19,6 +19,19 @@
                 font-weight: bold;   
             }
         }
+    }
+
+.abrirCad{
+    cursor: pointer;
+    position: absolute;
+    float: right;
+    bottom: 20px;
+    right: 50px;
+    z-index: 10000;
+    color: $cor;
+    &:hover{
+        color: darken($cor, 10%);
+    }
 }
 
 @media (max-width: 992px){

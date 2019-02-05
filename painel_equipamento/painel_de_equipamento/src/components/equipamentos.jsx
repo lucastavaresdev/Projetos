@@ -8,7 +8,6 @@ const options={
     },
 };
 
-
 class Rondas extends Component {
     constructor(){
         super()
@@ -17,7 +16,6 @@ class Rondas extends Component {
                 soma: 0
         };
     }
-    
 
     exibir_quantidade_de_equipamentos() {
         quantidade_de_equipamentos().then(json => {
@@ -95,12 +93,16 @@ componentDidMount(){
                 <p>Equipamentos</p>
                 <div className="row justify-content-center">
                     <div className="col-md-8 ">
+                    {Object.keys(this.state.quantidade_de_equipamentos).length &&
                         <Doughnut data={this.state.quantidade_de_equipamentos} />
+                    }
                     </div>
                  </div>
             </div>
         );
     }
 }
+
+
 
 export default Rondas;
