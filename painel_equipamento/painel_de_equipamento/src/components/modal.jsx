@@ -39,9 +39,9 @@ class Modal2 extends Component {
         this.closeModal = this.closeModal.bind(this);
         this.onChange = this.onChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
-      }
+    }
 
-     
+  
     openModal() {
       this.setState({modalIsOpen: true});
     }
@@ -96,13 +96,14 @@ class Modal2 extends Component {
     render() {
         return (
             <section >
-                            <div onClick={this.openModal}><i className="abrirCad fas fa-plus-circle fa-3x"></i></div> 
+                            <div onClick={this.openModal}><i className="abrirCad"></i>{this.props.iconeAbrir}</div> 
+
                                 <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento">
                                         <div className="row">
                                         <div className="col-md-10 modal_equipamentos p-4">
                                             <div className="row ">
                                                     <div className="col-md-11 col-sm-10">
-                                                        <h2 className='text-center' >Cadastro de Equipamentos</h2>
+                                                        <h2 className='text-center' >{this.props.tituloModal}</h2>
                                                     </div>
                                                     <div className="col-1">
                                                         <div className='icone_fechar'  onClick={this.closeModal}><i className=" fas fa-times"></i>
@@ -110,7 +111,7 @@ class Modal2 extends Component {
                                                 </div>
                                             </div>
                                          <form className='formulario_cadastro_equipamento' onSubmit={this.onSubmit}>
-                                            <p className='col-12' >Dados do Equipamento</p>
+                                            <p className='col-12' >Dados do Equipamento </p>
 
                                                 <label className="col-md-9 col-sm-12">Nome do Equipamento:
                                                     <input  className="col-12" type="text" name="nome" value={this.state.nome}  onChange={this.onChange} required/>
@@ -164,7 +165,7 @@ class Modal2 extends Component {
                                                 </label>
 
                                                 <div className="col-12 mt-2">
-                                                    <input   type="submit" className="offset-md-10 col-md-2 col-sm-12 cadastrar" value="Cadastrar" />
+                                                    <input   type="submit" className="offset-md-10 col-md-2 col-sm-12 cadastrar" value={this.props.nomeBotao} />
                                                 </div>
 
                                             </form>

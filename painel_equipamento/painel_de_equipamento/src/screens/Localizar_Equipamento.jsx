@@ -185,7 +185,7 @@ class Equipamento extends Component {
                    <h3 className='titulo_das_paginas'>Localizar Equipamento</h3>
                     <SearchBar { ...props.searchProps } placeholder="Buscar"/>
                   <hr />
-                      <div className="table-responsive-sm table-responsive-md  tabela">
+                      <div className="table-responsive-sm table-responsive-md  tabela click">
                           <table className="table ">
                               <BootstrapTable classes="tabela" rowStyle={ rowStyle } pagination={ paginationFactory(options) } expandRow={ expandRow }  { ...props.baseProps }  />
                       </table>

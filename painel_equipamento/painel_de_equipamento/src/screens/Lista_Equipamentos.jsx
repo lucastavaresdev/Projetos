@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
 import Tabela from '../components/Tabelas'
 import {lista_de_equipamentos} from '../Funcions'
+import Acoes from '../components/acoes_tabela'
+import Modal from '../components/Modal'
 
 class Lista_Equipamentos extends Component {
 
     constructor(){
         super() 
-        this.state = { data: [] };
+        this.state = { 
+            data: [],
+            nome: 'teste de editar'
+        };
+        
     }
     
     listar() {
@@ -15,6 +21,8 @@ class Lista_Equipamentos extends Component {
         })
     }
     
+    actionsFormatter = (cell, row) => <Acoes nome_equipamento={row.nome} />;
+
     componentDidMount(){
           this.listar()
           this.interval = setInterval(() => {
@@ -145,17 +153,13 @@ class Lista_Equipamentos extends Component {
                             return null;
                      }
                 },
-               {
-                    dataField: 'icon',
-                    text: 'icon',
-                    sort: true,
-                    sortCaret: (order, column) => {
-                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
-                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
-                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
-                            return null;
-                     }
-                },
+                {
+                    dataField: 'ações',
+                    text: 'Ações',
+                    isDummyField: true,
+                    csvExport: false,
+                    formatter: this.actionsFormatter,
+                  },
             ];
  
 
