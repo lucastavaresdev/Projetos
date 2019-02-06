@@ -75,6 +75,10 @@ equipamentos.get('/qtd_equipamentos', (req, res) =>{
     const $query = 'SELECT setores.nome, count(equipamentos.setor IS NULL) as contagem FROM equipamentos left join setores on equipamentos.setor = setores.id group by equipamentos.setor;';
     execQuery($query, res);
 })
+equipamentos.get('/lista_equipamentos', (req, res) =>{
+    const $query = 'SELECT * FROM equipamentos;';
+    execQuery($query, res);
+})
 
 
 
