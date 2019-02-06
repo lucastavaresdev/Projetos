@@ -5,6 +5,7 @@ import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import './scss/_base.scss'
 
+
 class Equipamento extends Component {
   constructor(){
     super() 
@@ -186,18 +187,14 @@ class Equipamento extends Component {
                   <hr />
                       <div className="table-responsive-sm table-responsive-md  tabela">
                           <table className="table ">
-                                        <BootstrapTable 
-                                          classes="tabela"
-                                          rowStyle={ rowStyle }
-                                          pagination={ paginationFactory(options) }
-                                          expandRow={ expandRow }
-                                          { ...props.baseProps }  />
+                              <BootstrapTable classes="tabela" rowStyle={ rowStyle } pagination={ paginationFactory(options) } expandRow={ expandRow }  { ...props.baseProps }  />
                       </table>
                   </div>
                 </div>
               )
             }
           </ToolkitProvider>
+
     </div>
     );
   }

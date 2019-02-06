@@ -6,6 +6,7 @@ import Login from './screens/Login'
 import Admin from './screens/Admin'
 import Usuario from './screens/Usuario'
 import Localizar_Equipamento from './screens/Localizar_Equipamento'
+import Listar_Equipamento from './screens/Lista_Equipamentos'
 import Navbar from './components/navbar';
 
 class App extends Component {
@@ -21,7 +22,8 @@ class App extends Component {
                   <Navbar />
                   <Route exact path="/admin" component={Admin} />
                   <Route exact path="/usuario" component={Usuario} /> 
-                  <Route exact path="/equipamentos" component={Localizar_Equipamento} /> 
+                  <Route exact path="/localizarequipamentos" component={Localizar_Equipamento} /> 
+                  <Route exact path="/listarequipamentos" component={Listar_Equipamento} /> 
             </div>
           </div>
 
