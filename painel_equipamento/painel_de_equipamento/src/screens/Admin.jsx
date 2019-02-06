@@ -22,16 +22,12 @@ class Admin extends Component {
                 };
         }
 
-
-
         componentDidMount(){
                 document.querySelector('.screens').style.display = 'block';
                 this.exibir_quantidade_de_equipamento()
                 this.exibir_quantidade_de_rondas()
                 this.exibir_quantidade_de_calibracoes()
         }
-
-        
 
         exibir_quantidade_de_rondas() {
                 quantidade_de_rondas().then(json => {
@@ -51,6 +47,7 @@ class Admin extends Component {
 
                 })
         }
+
         exibir_quantidade_de_calibracoes() {
                 quantidade_de_calibracoes().then(json => {
                         const calibracaojson = json.data;
@@ -69,8 +66,6 @@ class Admin extends Component {
 
                 })
         }
-
-
 
         exibir_quantidade_de_equipamento() {
                 quantidade_de_equipamento().then(json => {

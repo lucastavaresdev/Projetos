@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Tabela from '../components/Tabelas'
-import {tracking_equipamentos} from '../Funcions'
+import {lista_de_equipamentos} from '../Funcions'
 
 class Lista_Equipamentos extends Component {
 
@@ -10,7 +10,7 @@ class Lista_Equipamentos extends Component {
     }
     
     listar() {
-        tracking_equipamentos().then(json => {
+        lista_de_equipamentos().then(json => {
             this.setState({ data: json.data})
         })
     }
@@ -24,20 +24,9 @@ class Lista_Equipamentos extends Component {
 
     render() {
         const columns = [
-            {
-                dataField: 'nome',
-                text: 'teste',
-                sort: true,
-                sortCaret: (order, column) => {
-                    if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
-                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
-                        else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
-                        return null;
-                    }
-                },
                {
-                    dataField: 'setor',
-                    text: 'Localizacao',
+                    dataField: 'id',
+                    text: 'id',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
@@ -45,39 +34,135 @@ class Lista_Equipamentos extends Component {
                             else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
                             return null;
                      }
-                }
-            ];
-
-            const expandRow = {
-                renderer: row => (
-                  <div>
-                        <h1>teste</h1>
-                  </div>
-                ),
-                showExpandColumn: true,
-                expandColumnPosition: 'right',
-                expandHeaderColumnRenderer: ({ isAnyExpands }) => {
-                  if (isAnyExpands) {
-                    return <b>-</b>;
-                  }
-                  return <b>+</b>;
                 },
-                expandColumnRenderer: ({ expanded }) => {
-                  if (expanded) {
-                    return (
-                      <b><i className="fas fa-chevron-up"></i></b>
-                    );
-                  }
-                  return (
-                    <b><i className="fas fa-chevron-down"></i></b>
-                  );
-                }
-              };  
+               {
+                    dataField: 'nome',
+                    text: 'nome',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'marca',
+                    text: 'marca',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'modelo',
+                    text: 'modelo',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'serie',
+                    text: 'serie',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'patrimonio',
+                    text: 'patrimonio',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'ronda',
+                    text: 'ronda',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'calibracao',
+                    text: 'calibracao',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'situacao',
+                    text: 'situacao',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'ativo',
+                    text: 'ativo',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'setor',
+                    text: 'setor',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'icon',
+                    text: 'icon',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+            ];
+ 
 
 
         return (
             <div>
-                <Tabela titulo_pagina={'Listar Equipamentos'} colunas={columns} dados_extras={expandRow} data={this.state.data}/>
+                <Tabela titulo_pagina={'Listar Equipamentos'} colunas={columns} data={this.state.data}/>
             </div>
         );
     }
