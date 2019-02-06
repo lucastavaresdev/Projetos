@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal'
 import {Inserir_Equipamento} from '../Funcions'
-import { Alert, AlertContainer } from "react-bs-notifier";
-
+import JSAlert from 'js-alert' 
 import './_modal.scss'
 
 
 const customStyles = {
     content : {
-      top                   : '50%',
-      left                  : '50%',
-      right                 : 'auto',
-      bottom                : 'auto',
-      marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
+      top : '50%',
+      left : '50%',
+      right : 'auto',
+      bottom : 'auto',
+      marginRight : '-50%',
+      transform : 'translate(-50%, -50%)'
     }
   };
 
@@ -50,7 +49,8 @@ class Modal2 extends Component {
     closeModal() {
         this.setState({modalIsOpen: false});
     }
-      
+
+
     onChange (e) {
         this.setState({ [e.target.name]: e.target.value })
     }
@@ -71,20 +71,23 @@ class Modal2 extends Component {
             setor: this.state.setor,
         }
 
+        
          
         Inserir_Equipamento(equipamento).then(res => {
            const codigo  = parseInt(res.data.cod)
             if(codigo === 1){
                 return (
                         <div>
-                            <AlertContainer>
-                                <Alert type="info">Hello, world</Alert>
-                                <Alert type="success">Oh, hai</Alert>
-                            </AlertContainer>
+                            {JSAlert.alert('Número de serie ja cadastrado')}
                         </div>
                 );
             }else{
-                //this.closeModal();
+                return(
+                        <div>
+                             {JSAlert.alert('Cadastro realizado com sucesso')}
+                             {this.closeModal()}
+                        </div>
+                )
             }
         })
     }
@@ -93,9 +96,7 @@ class Modal2 extends Component {
     render() {
         return (
             <section >
-                
                             <div onClick={this.openModal}><i className="abrirCad fas fa-plus-circle fa-3x"></i></div> 
-
                                 <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento">
                                         <div className="row">
                                         <div className="col-md-10 modal_equipamentos p-4">
@@ -163,7 +164,7 @@ class Modal2 extends Component {
                                                 </label>
 
                                                 <div className="col-12 mt-2">
-                                                    <input   type="submit" className="offset-md-10 col-md-2 col-sm-12" value="Cadastrar" />
+                                                    <input   type="submit" className="offset-md-10 col-md-2 col-sm-12 cadastrar" value="Cadastrar" />
                                                 </div>
 
                                             </form>
@@ -171,6 +172,7 @@ class Modal2 extends Component {
                                          <div className="col-md-2 modal_imagem"></div>
                                          </div>
                                 </Modal>
+                              
                 </section>
         );
     }
