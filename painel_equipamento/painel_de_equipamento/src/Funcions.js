@@ -36,6 +36,27 @@ export const Inserir_Equipamento = equipamento => {
     });
   }
 
+export const Atualizar_Equipamento = equipamento => {
+    return axios.post('http://localhost:3003/equipamento/cadastro_de_equipamento', {
+        nome: equipamento.nome,
+        marca: equipamento.marca,
+        modelo: equipamento.modelo,
+        serie: equipamento.serie,
+        patrimonio: equipamento.patrimonio,
+        ronda: equipamento.ronda,
+        calibracao: equipamento.calibracao,
+        situacao: equipamento.situacao,
+        ativo: equipamento.ativo,
+        setor: equipamento.setor,
+    })
+    .then(res => {
+        console.log("Registrado")
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    });
+  }
+
   
 export const tracking_equipamentos = equipamento => {
     return axios.get('http://localhost:3003/equipamento/tracking_equipamentos')

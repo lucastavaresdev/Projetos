@@ -75,10 +75,51 @@ equipamentos.get('/qtd_equipamentos', (req, res) =>{
     const $query = 'SELECT setores.nome, count(equipamentos.setor IS NULL) as contagem FROM equipamentos left join setores on equipamentos.setor = setores.id group by equipamentos.setor;';
     execQuery($query, res);
 })
+
 equipamentos.get('/lista_equipamentos', (req, res) =>{
     const $query = 'SELECT e.id ,e.nome, e.marca, e.serie, e.patrimonio, e.ronda, e.calibracao, e.situacao, e.ativo, s.nome as setor FROM equipamentos  as e left join setores as s on s.id = e.setor;';
     execQuery($query, res);
 })
+
+
+
+equipamentos.put('/atualizar_equipamento/:id', function (req, res) {
+
+    const hoje = new Date()
+    console.log(hoje)
+
+    var dados = {
+        nome: req.body.nome,
+        marca: req.body.marca,
+        modelo: req.body.modelo,
+        serie: req.body.serie,
+        patrimonio: req.body.patrimonio,
+        ronda: req.body.ronda,
+        calibracao: req.body.calibracao,
+        situacao: req.body.situacao,
+        ativo: req.body.ativo,
+        setor: req.body.setor,
+        data_de_edicao: hoje
+    }
+
+
+  const $query = `UPDATE equipamentos SET  nome="${dados.nome}",
+    marca="${dados.marca}",
+    modelo="${dados.modelo}",
+    patrimonio="${dados.patrimonio}",
+    ronda="${dados.ronda}",
+    calibracao="${dados.calibracao}",
+    situacao="${dados.situacao}",
+    ativo="${dados.ativo}",
+    setor="${dados.setor}",
+    data_de_edicao="${dados.data_de_edicao}"
+    WHERE id="${req.params.id}"`;
+    
+    console.log($query)
+    execQuery($query, res);
+
+});
+
 
 
 

@@ -4,6 +4,7 @@ var bodyParser = require("body-parser")
 var app = express()
 var port = process.env.PORT || 3003
 
+
 app.use(bodyParser.json())
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -17,3 +18,8 @@ app.use('/equipamento', Equipamentos)
 app.listen(port, () => {
     console.log("Server is running on port: " + port)
 })
+
+
+const execQuery = require ('./routes/ExecuteQuery');
+
+
