@@ -1,25 +1,27 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
-import { Inserir_Equipamento } from "../Funcions";
+import { Inserir_Equipamento,Atualizar_Equipamento } from "../Funcions";
 import JSAlert from "js-alert";
 import "./_modal.scss";
 
+
 class Modal2 extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       modalIsOpen: false,
-      nome: " ",
-      marca: " ",
-      modelo: " ",
-      serie: 0,
-      patrimonio: "",
-      ronda: "",
-      calibracao: 0,
-      situacao: " ",
-      ativo: " ",
-      setor: 0,
-      cod: 3
+      nome: this.props.nome_do_equipamento,
+      marca: this.props.marca_do_equipamento,
+      modelo:this.props.modelo_do_equipamento,
+      serie: this.props.serie_do_equipamento,
+      patrimonio:  this.props.patrimonio_do_equipamento,
+      ronda: this.props.ronda_do_equipamento,
+      calibracao: this.props.calibracao_do_equipamento,
+      situacao: this.props.situacao_do_equipamento,
+      ativo:  this.props.ativo_do_equipamento,
+      setor:   this.props.setor_do_equipamento,
+      cod: 3,
+      tipo_de_envio: 0,
     };
 
     this.openModal = this.openModal.bind(this);
@@ -40,10 +42,11 @@ class Modal2 extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+
   onSubmit(e) {
     e.preventDefault();
-
     const equipamento = {
+      tipo_de_envio: this.state.tipo_de_envio,
       nome: this.state.nome,
       marca: this.state.marca,
       modelo: this.state.modelo,
@@ -53,31 +56,46 @@ class Modal2 extends Component {
       calibracao: this.state.calibracao,
       situacao: this.state.situacao,
       ativo: this.state.ativo,
-      setor: this.state.setor
+      setor: this.state.setor,
     };
 
+    console.log(equipamento)
+    const tipo_de_envio = this.props.tipo_de_envio
+    const id = this.props.id_do_equipamento
 
 
+    if(tipo_de_envio === 1  && tipo_de_envio != ""){
+      
+      Atualizar_Equipamento(equipamento, id).then(res => {
+        {JSAlert.alert("Atualizado com sucesso")}
+     
+      });
 
-    Inserir_Equipamento(equipamento).then(res => {
-      const codigo = parseInt(res.data.cod);
-      if (codigo === 1) {
-        return <div>{JSAlert.alert("Número de serie ja cadastrado")}</div>;
-      } else {
-        return (
-          <div>
-            {JSAlert.alert("Cadastro realizado com sucesso")}
-            {this.closeModal()}
-          </div>
-        );
-      }
-    });
+    } else {
+      Inserir_Equipamento(equipamento).then(res => {
+        const codigo = parseInt(res.data.cod);
+        if (codigo === 1) {
+          return <div>{JSAlert.alert("Número de serie ja cadastrado")}</div>;
+        } else {
+          return (
+            <div>
+              {JSAlert.alert("Cadastro realizado com sucesso")}
+              {this.closeModal()}
+            </div>
+          );
+        }
+      });
+    }
   }
   
+
+
+
 
   render() {
     return (
       <section>
+        
         <div onClick={this.openModal}> <i className="abrirCad" /> {this.props.iconeAbrir}  </div>
 
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento">
@@ -97,14 +115,11 @@ class Modal2 extends Component {
                 className="formulario_cadastro_equipamento"
                 onSubmit={this.onSubmit}
               >
-
-
                 <p className="col-12">Dados do Equipamento </p>
 
-                
                 <label className="col-md-9 col-sm-12">
                   Nome do Equipamento:
-                  <input  className="col-12" type="text" name="nome" value={this.props.nome_equipamento}  onChange={this.onChange}  required />
+                  <input  className="col-12" type="text" name="nome" Value={this.state.nome}  onChange={this.onChange}   required />
                 </label>
 
                 <label className="col-md-3 col-sm-12">
@@ -120,8 +135,7 @@ class Modal2 extends Component {
                 </label>
 
                 <label className="col-md-4 col-sm-12">
-                  {" "}
-                  Modelo:
+                    Modelo:
                   <input
                     className="col-12"
                     type="text"
@@ -133,14 +147,14 @@ class Modal2 extends Component {
                 </label>
 
                 <label className="col-md-4 col-sm-12">
-                  {" "}
-                  serie:
+                    serie:
                   <input
                     className="col-12"
                     type="text"
                     name="serie"
-                    value={this.state.serie}
+                    defaultValue={this.state.serie}
                     onChange={this.onChange}
+                    disabled = {this.props.disabled}
                     required
                   />
                 </label>
@@ -210,7 +224,6 @@ class Modal2 extends Component {
                 </label>
 
                 <label className="col-md-4 col-sm-12">
-                  {" "}
                   Ativo:
                   <input
                     className="col-12"
@@ -222,7 +235,6 @@ class Modal2 extends Component {
                   />
                 </label>
                 <label className="col-md-4 col-sm-12">
-                  {" "}
                   Setor:
                   <input
                     className="col-12"

@@ -36,8 +36,8 @@ export const Inserir_Equipamento = equipamento => {
     });
   }
 
-export const Atualizar_Equipamento = equipamento => {
-    return axios.post('http://localhost:3003/equipamento/cadastro_de_equipamento', {
+export const Atualizar_Equipamento = (equipamento, id) => {
+    return axios.put(`http://localhost:3003/equipamento/atualizar_equipamento/${id}`, {
         nome: equipamento.nome,
         marca: equipamento.marca,
         modelo: equipamento.modelo,
@@ -50,7 +50,7 @@ export const Atualizar_Equipamento = equipamento => {
         setor: equipamento.setor,
     })
     .then(res => {
-        console.log("Registrado")
+        console.log("Atualizado")
         return res
     }).catch(function (error) {
         console.log(error);

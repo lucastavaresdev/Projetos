@@ -77,14 +77,15 @@ equipamentos.get('/qtd_equipamentos', (req, res) =>{
 })
 
 equipamentos.get('/lista_equipamentos', (req, res) =>{
-    const $query = 'SELECT e.id ,e.nome, e.marca, e.serie, e.patrimonio, e.ronda, e.calibracao, e.situacao, e.ativo, s.nome as setor FROM equipamentos  as e left join setores as s on s.id = e.setor;';
+    const $query = 'SELECT e.id ,e.nome, e.marca, e.modelo,e.serie, e.patrimonio, e.ronda, e.calibracao, e.situacao, e.ativo, s.nome as setor FROM equipamentos  as e left join setores as s on s.id = e.setor;';
     execQuery($query, res);
 })
 
 
 
 equipamentos.put('/atualizar_equipamento/:id', function (req, res) {
-
+    console.log(res)
+    console.log(req)
     const hoje = new Date()
     console.log(hoje)
 

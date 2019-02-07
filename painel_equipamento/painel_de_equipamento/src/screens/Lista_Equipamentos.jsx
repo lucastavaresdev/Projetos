@@ -21,7 +21,9 @@ class Lista_Equipamentos extends Component {
         })
     }
     
-    actionsFormatter = (cell, row) => <Acoes nome_equipamento={row.nome} />;
+    actionsFormatter = (cell, row) => <Acoes id={row.id} nome={row.nome} serie={row.serie}  
+    marca={row.marca} modelo={row.modelo} serie={row.serie} patrimonio={row.patrimonio}
+    ronda={row.ronda} calibracao={row.calibracao} situacao={row.situacao} ativo={row.ativo} setor={row.setor}/>;
 
     componentDidMount(){
           this.listar()
