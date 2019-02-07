@@ -22,6 +22,7 @@ class Modal2 extends Component {
       setor:   this.props.setor_do_equipamento,
       cod: 3,
       tipo_de_envio: 0,
+      re: this.props.re,
     };
 
     this.openModal = this.openModal.bind(this);
@@ -68,7 +69,7 @@ class Modal2 extends Component {
       
       Atualizar_Equipamento(equipamento, id).then(res => {
         {JSAlert.alert("Atualizado com sucesso")}
-     
+        {this.closeModal()}
       });
 
     } else {
@@ -87,10 +88,6 @@ class Modal2 extends Component {
       });
     }
   }
-  
-
-
-
 
   render() {
     return (

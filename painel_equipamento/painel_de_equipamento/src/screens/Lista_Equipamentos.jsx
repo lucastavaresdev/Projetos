@@ -10,7 +10,7 @@ class Lista_Equipamentos extends Component {
         super() 
         this.state = { 
             data: [],
-            nome: 'teste de editar'
+            nome: 'teste de editar',
         };
         
     }
