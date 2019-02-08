@@ -226,36 +226,24 @@ class Modal2 extends Component {
                 </label>
 
                 <label className="col-md-4 col-sm-12">
-                  Ativo:
-                  <input
+                Status:
+                  <select
                     className="col-12"
-                    type="text"
                     name="ativo"
                     value={this.state.ativo}
                     onChange={this.onChange}
-                    required
-                  />
-                </label>
+                  >
+                    <option value="1">Ativo</option>
+                    <option value="0">Inativo</option>
+                  </select>
 
-                
-                {/* <label className="col-md-4 col-sm-12">
-                Setor:
-                  <input
-                    className="col-12"
-                    type="text"
-                    name="setor"
-                    value={this.state.setor}
-                    onChange={this.onChange}
-                    required
-                  />
-                </label> */}
+                </label>
 
                 <label className="col-md-4 col-sm-12">
                 Setor:
-                  <select className="col-12" name="situacao" value={this.state.setor} onChange={this.onChange}>
+                  <select className="col-12" name="setor" value={this.state.setor} onChange={this.onChange}>
+                   
                       <option value="0" selected disabled>Selecionar...</option>
-                      {/* <option value="1">Disponivel</option> */}
-                        
                         {
                           this.state.setores.map(function(index, e) {
                             console.log(index)

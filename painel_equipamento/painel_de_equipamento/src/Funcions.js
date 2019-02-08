@@ -58,7 +58,7 @@ export const Atualizar_Equipamento = (equipamento, id) => {
   }
 
 export const Ocultar_Equipamento = (id) => {
-    return axios.put(`http://localhost:3003/equipamento/atualizar_equipamento/${id}`)
+    return axios.put(`http://localhost:3003/equipamento/ocultar_equipamento/${id}`)
     .then(res => {
         console.log("Ocultado com sucesso")
         return res
