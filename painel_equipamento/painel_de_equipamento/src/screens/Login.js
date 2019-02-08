@@ -74,7 +74,7 @@ componentDidMount(){
                             <div className='col-1'>
                               <i className="fas fa-user icones_login"></i>
                             </div>
-                            <div className='col-11'>
+                            <div className='col-10'>
                                   <input type="text"  className="form-control mb-3" name="usuario" placeholder="Usuario" value={this.state.usuario} onChange={this.onChange} />
                             </div>
                       </div>
@@ -82,7 +82,7 @@ componentDidMount(){
                             <div className='col-1'>
                             <i className="fas fa-lock icones_login"></i>
                             </div>
-                            <div className='col-11'>
+                            <div className='col-10'>
                                   <input type="password" className="form-control mb-3" name="senha" placeholder="Senha" value={this.state.senha} onChange={this.onChange} />
                             </div>
                       </div>
