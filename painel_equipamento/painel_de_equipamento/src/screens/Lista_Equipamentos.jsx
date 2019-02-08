@@ -21,15 +21,12 @@ class Lista_Equipamentos extends Component {
     }
     
 
-    actionsFormatter = (cell, row) => <Acoes id={row.id} nome={row.nome} serie={row.serie}  
+    acoes = (cell, row) => <Acoes id={row.id} nome={row.nome} serie={row.serie}  
     marca={row.marca} modelo={row.modelo} serie={row.serie} patrimonio={row.patrimonio}
     ronda={row.ronda} calibracao={row.calibracao} situacao={row.situacao} ativo={row.ativo} setor={row.setor} />;
 
     componentDidMount(){
           this.listar()
-          this.interval = setInterval(() => {
-            this.listar();
-        }, 50000 );
     }
 
     componentDidUpdate(){
@@ -153,7 +150,7 @@ class Lista_Equipamentos extends Component {
                     text: 'Ações',
                     isDummyField: true,
                     csvExport: false,
-                    formatter: this.actionsFormatter,
+                    formatter: this.acoes,
                   },
             ];
 

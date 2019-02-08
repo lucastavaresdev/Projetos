@@ -57,6 +57,16 @@ export const Atualizar_Equipamento = (equipamento, id) => {
     });
   }
 
+export const Ocultar_Equipamento = (id) => {
+    return axios.put(`http://localhost:3003/equipamento/atualizar_equipamento/${id}`)
+    .then(res => {
+        console.log("Ocultado com sucesso")
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    });
+  }
+
   
 export const tracking_equipamentos = equipamento => {
     return axios.get('http://localhost:3003/equipamento/tracking_equipamentos')

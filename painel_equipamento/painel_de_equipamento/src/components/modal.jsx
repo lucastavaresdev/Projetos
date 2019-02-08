@@ -3,7 +3,6 @@ import Modal from "react-modal";
 import { Inserir_Equipamento,Atualizar_Equipamento } from "../Funcions";
 import JSAlert from "js-alert";
 import "./_modal.scss";
-import Lista_de_Equipamentos from '../screens/Lista_Equipamentos'
 
 class Modal2 extends Component {
   constructor(props) {
@@ -22,7 +21,6 @@ class Modal2 extends Component {
       setor:   this.props.setor_do_equipamento,
       cod: 3,
       tipo_de_envio: 0,
-      re: this.props.re,
     };
 
     this.openModal = this.openModal.bind(this);
