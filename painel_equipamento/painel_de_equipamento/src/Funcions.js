@@ -81,3 +81,4 @@ export const quantidade_de_equipamentos = equipamento => {
 export const lista_de_equipamentos = equipamento => {
     return axios.get('http://localhost:3003/equipamento/lista_equipamentos')
 }
+

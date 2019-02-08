@@ -84,10 +84,8 @@ equipamentos.get('/lista_equipamentos', (req, res) =>{
 
 
 equipamentos.put('/atualizar_equipamento/:id', function (req, res) {
-    console.log(res)
-    console.log(req)
+
     const hoje = new Date()
-    console.log(hoje)
 
     var dados = {
         nome: req.body.nome,
@@ -116,7 +114,6 @@ equipamentos.put('/atualizar_equipamento/:id', function (req, res) {
     data_de_edicao="${dados.data_de_edicao}"
     WHERE id="${req.params.id}"`;
     
-    console.log($query)
     execQuery($query, res);
 
 });

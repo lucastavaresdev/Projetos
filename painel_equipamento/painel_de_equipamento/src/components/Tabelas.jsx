@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {tracking_equipamentos} from '../Funcions'
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 import paginationFactory from 'react-bootstrap-table2-paginator';

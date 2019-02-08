@@ -3,8 +3,11 @@ import Modal from '../components/Modal'
 import './_acoes.tabela.scss'
 
 
-class ActionsFormatter extends Component {
+class Acoes_Tabela extends Component {
     state = {  }
+
+
+
     render() {
         return (
             <div className='row'>
@@ -31,4 +34,4 @@ class ActionsFormatter extends Component {
 }
 
 
-export default ActionsFormatter;
+export default Acoes_Tabela;

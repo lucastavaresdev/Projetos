@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Tabela from '../components/Tabelas'
 import {lista_de_equipamentos} from '../Funcions'
 import Acoes from '../components/acoes_tabela'
-import Modal from '../components/Modal'
 
 class Lista_Equipamentos extends Component {
 
@@ -21,9 +20,10 @@ class Lista_Equipamentos extends Component {
         })
     }
     
+
     actionsFormatter = (cell, row) => <Acoes id={row.id} nome={row.nome} serie={row.serie}  
     marca={row.marca} modelo={row.modelo} serie={row.serie} patrimonio={row.patrimonio}
-    ronda={row.ronda} calibracao={row.calibracao} situacao={row.situacao} ativo={row.ativo} setor={row.setor}/>;
+    ronda={row.ronda} calibracao={row.calibracao} situacao={row.situacao} ativo={row.ativo} setor={row.setor} />;
 
     componentDidMount(){
           this.listar()
@@ -32,6 +32,10 @@ class Lista_Equipamentos extends Component {
         }, 50000 );
     }
 
+    componentDidUpdate(){
+        this.listar()
+    }
+    
     render() {
         const columns = [
                {
@@ -163,7 +167,6 @@ class Lista_Equipamentos extends Component {
                     formatter: this.actionsFormatter,
                   },
             ];
- 
 
 
         return (

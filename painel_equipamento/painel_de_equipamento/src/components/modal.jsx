@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { Inserir_Equipamento,Atualizar_Equipamento } from "../Funcions";
 import JSAlert from "js-alert";
 import "./_modal.scss";
-
+import Lista_de_Equipamentos from '../screens/Lista_Equipamentos'
 
 class Modal2 extends Component {
   constructor(props) {
@@ -174,7 +174,6 @@ class Modal2 extends Component {
                 <p className="col-12">Dados para o beacon</p>
 
                 <label className="col-md-4 col-sm-12">
-                  {" "}
                   Ronda:
                   <input
                     className="col-12"
@@ -187,7 +186,6 @@ class Modal2 extends Component {
                   />
                 </label>
                 <label className="col-md-4 col-sm-12">
-                  {" "}
                   Calibração:
                   <input
                     className="col-12"
@@ -201,7 +199,6 @@ class Modal2 extends Component {
                 </label>
 
                 <label className="col-md-4 col-sm-12">
-                  {" "}
                   Situação:
                   <select
                     className="col-12"
@@ -209,6 +206,7 @@ class Modal2 extends Component {
                     value={this.state.situacao}
                     onChange={this.onChange}
                   >
+                    <option value="" selected disabled>Selecionar...</option>
                     <option value="0">Disponivel</option>
                     <option value="1">Utilizado</option>
                     <option value="2">Necessita Manutenção</option>
@@ -242,7 +240,6 @@ class Modal2 extends Component {
                     required
                   />
                 </label>
-
                 <div className="col-12 mt-2">
                   <input
                     type="submit"
