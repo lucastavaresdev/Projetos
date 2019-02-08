@@ -77,7 +77,7 @@ equipamentos.get('/qtd_equipamentos', (req, res) =>{
 })
 
 equipamentos.get('/lista_equipamentos', (req, res) =>{
-    const $query = 'SELECT e.id ,e.nome, e.marca, e.modelo,e.serie, e.patrimonio, e.ronda, e.calibracao, e.situacao, e.ativo, s.nome as setor FROM equipamentos  as e left join setores as s on s.id = e.setor;';
+    const $query = 'SELECT e.id ,e.nome, e.marca, e.modelo,e.serie, e.patrimonio, e.ronda, e.calibracao, sit.nome_situacoes as situacao, e.ativo, s.nome as setor FROM equipamentos  as e left join setores as s on s.id = e.setor inner join pe_situacoes as sit on sit.id = e.situacao where e.ativo = 1';
     execQuery($query, res);
 })
 

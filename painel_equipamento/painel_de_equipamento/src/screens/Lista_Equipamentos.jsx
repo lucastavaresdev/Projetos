@@ -138,17 +138,6 @@ class Lista_Equipamentos extends Component {
                      }
                 },
                {
-                    dataField: 'ativo',
-                    text: 'ativo',
-                    sort: true,
-                    sortCaret: (order, column) => {
-                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
-                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
-                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
-                            return null;
-                     }
-                },
-               {
                     dataField: 'setor',
                     text: 'setor',
                     sort: true,

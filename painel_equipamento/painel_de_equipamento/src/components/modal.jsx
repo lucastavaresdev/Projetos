@@ -206,15 +206,15 @@ class Modal2 extends Component {
                     value={this.state.situacao}
                     onChange={this.onChange}
                   >
-                    <option value="" selected disabled>Selecionar...</option>
-                    <option value="0">Disponivel</option>
-                    <option value="1">Utilizado</option>
-                    <option value="2">Necessita Manutenção</option>
-                    <option value="3">Necessita Higienizar</option>
-                    <option value="4">Reservado</option>
+                    <option value="0" selected disabled>Selecionar...</option>
+                    <option value="1">Disponivel</option>
+                    <option value="2">Utilizado</option>
+                    <option value="3">Reservado</option>
+                    <option value="4">Necessita Higienizar</option>
                     <option value="5">Em Higienização</option>
-                    <option value="6">Em Manutenção</option>
-                    <option value="7">Não Encontrado</option>
+                    <option value="6">Necessita Manutenção</option>
+                    <option value="7">Em Manutenção</option>
+                    <option value="8">Não Encontrado</option>
                   </select>
                 </label>
 
