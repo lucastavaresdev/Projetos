@@ -81,7 +81,7 @@ equipamentos.get('/lista_equipamentos', (req, res) =>{
     execQuery($query, res);
 })
 equipamentos.get('/lista_setores', (req, res) =>{
-    const $query = 'SELECT nome FROM setores;';
+    const $query = 'SELECT id,nome FROM setores order by id';
     execQuery($query, res);
 })
 

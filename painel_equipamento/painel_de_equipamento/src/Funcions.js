@@ -92,3 +92,7 @@ export const lista_de_equipamentos = equipamento => {
     return axios.get('http://localhost:3003/equipamento/lista_equipamentos')
 }
 
+export const Lista_Setores = equipamento => {
+    return axios.get('http://localhost:3003/equipamento/lista_setores')
+}
+

@@ -44,10 +44,9 @@ class Acoes_Tabela extends Component {
         />
 
         <div>
-          <i  className="click cinza fas fa-trash-alt fa-2x"  onClick={this.ocultar} >
-        </i>
-          
+          <i  className="click cinza fas fa-trash-alt fa-2x"  onClick={this.ocultar} >  </i>
         </div>
+
       </div>
     );
   }

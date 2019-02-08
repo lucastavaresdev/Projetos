@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
-import { Inserir_Equipamento,Atualizar_Equipamento } from "../Funcions";
+import { Inserir_Equipamento,Atualizar_Equipamento, Lista_Setores } from "../Funcions";
 import JSAlert from "js-alert";
 import "./_modal.scss";
 
@@ -21,6 +21,7 @@ class Modal2 extends Component {
       setor:   this.props.setor_do_equipamento,
       cod: 3,
       tipo_de_envio: 0,
+      setores: []
     };
 
     this.openModal = this.openModal.bind(this);
@@ -41,7 +42,6 @@ class Modal2 extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-
   onSubmit(e) {
     e.preventDefault();
     const equipamento = {
@@ -58,7 +58,6 @@ class Modal2 extends Component {
       setor: this.state.setor,
     };
 
-    console.log(equipamento)
     const tipo_de_envio = this.props.tipo_de_envio
     const id = this.props.id_do_equipamento
 
@@ -87,12 +86,23 @@ class Modal2 extends Component {
     }
   }
 
+  
+  componentDidMount(){
+    this.listar_setores()
+}
+
+
+  listar_setores() {    
+    Lista_Setores().then(res => {
+      this.setState({setores: res.data});
+    });
+    console.log(this.state.setores)
+  }
+
   render() {
     return (
       <section>
-        
         <div onClick={this.openModal}> <i className="abrirCad" /> {this.props.iconeAbrir}  </div>
-
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento">
           <div className="row">
             <div className="col-md-10 modal_equipamentos p-4">
@@ -155,7 +165,6 @@ class Modal2 extends Component {
                 </label>
 
                 <label className="col-md-4 col-sm-12">
-                  {" "}
                   Patrimonio:
                   <input
                     className="col-12"
@@ -227,8 +236,10 @@ class Modal2 extends Component {
                     required
                   />
                 </label>
-                <label className="col-md-4 col-sm-12">
-                  Setor:
+
+                
+                {/* <label className="col-md-4 col-sm-12">
+                Setor:
                   <input
                     className="col-12"
                     type="text"
@@ -237,7 +248,41 @@ class Modal2 extends Component {
                     onChange={this.onChange}
                     required
                   />
+                </label> */}
+
+                <label className="col-md-4 col-sm-12">
+                Setor:
+                  <select className="col-12" name="situacao" value={this.state.setor} onChange={this.onChange}>
+                      <option value="0" selected disabled>Selecionar...</option>
+                      {/* <option value="1">Disponivel</option> */}
+                        
+                        {
+                          this.state.setores.map(function(index, e) {
+                            console.log(index)
+                           return <option key={index.id} value={index.id}>{index.nome}</option>
+                          })
+                        }
+
+                  </select>
                 </label>
+
+
+
+
+
+
+                
+             
+        
+
+
+
+
+
+
+
+
+
                 <div className="col-12 mt-2">
                   <input
                     type="submit"

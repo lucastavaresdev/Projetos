@@ -30,7 +30,7 @@ class Lista_Equipamentos extends Component {
     }
 
     componentDidUpdate(){
-        this.listar()
+       
     }
     
     render() {
