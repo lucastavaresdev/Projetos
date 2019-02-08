@@ -117,6 +117,12 @@ equipamentos.put('/atualizar_equipamento/:id', function (req, res) {
     execQuery($query, res);
 
 });
+equipamentos.put('/ocultar_equipamento/:id', function (req, res) {
+
+    const $query = `UPDATE equipamentos SET  ativo="0"   WHERE id="${req.params.id}"`; 
+    execQuery($query, res);
+    
+});
 
 
 
