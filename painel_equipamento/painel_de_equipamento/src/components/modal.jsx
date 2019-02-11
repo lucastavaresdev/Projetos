@@ -4,6 +4,7 @@ import { Inserir_Equipamento,Atualizar_Equipamento, Lista_Setores } from "../Fun
 import JSAlert from "js-alert";
 import "./_modal.scss";
 
+
 class Modal2 extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +22,7 @@ class Modal2 extends Component {
       setor:   this.props.setor_do_equipamento,
       cod: 3,
       tipo_de_envio: 0,
-      setores: []
+      setores: [],
     };
 
     this.openModal = this.openModal.bind(this);
@@ -67,6 +68,7 @@ class Modal2 extends Component {
       Atualizar_Equipamento(equipamento, id).then(res => {
         {JSAlert.alert("Atualizado com sucesso")}
         {this.closeModal()}
+        
       });
 
     } else {
@@ -96,12 +98,12 @@ class Modal2 extends Component {
     Lista_Setores().then(res => {
       this.setState({setores: res.data});
     });
-    console.log(this.state.setores)
   }
 
   render() {
     return (
       <section>
+
         <div onClick={this.openModal}> <i className="abrirCad" /> {this.props.iconeAbrir}  </div>
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento">
           <div className="row">
@@ -226,57 +228,26 @@ class Modal2 extends Component {
                 </label>
 
                 <label className="col-md-4 col-sm-12">
-                Status:
-                  <select
-                    className="col-12"
-                    name="ativo"
-                    value={this.state.ativo}
-                    onChange={this.onChange}
-                  >
+                  Status:
+                  <select className="col-12" name="ativo" value={this.state.ativo} onChange={this.onChange} >
                     <option value="1">Ativo</option>
                     <option value="0">Inativo</option>
                   </select>
-
                 </label>
 
                 <label className="col-md-4 col-sm-12">
                 Setor:
-                  <select className="col-12" name="setor" value={this.state.setor} onChange={this.onChange}>
-                   
+                <select className="col-12" name="setor" value={this.state.setor} onChange={this.onChange}>
                       <option value="0" selected disabled>Selecionar...</option>
                         {
                           this.state.setores.map(function(index, e) {
-                            console.log(index)
                            return <option key={index.id} value={index.id}>{index.nome}</option>
                           })
                         }
-
                   </select>
                 </label>
-
-
-
-
-
-
-                
-             
-        
-
-
-
-
-
-
-
-
-
-                <div className="col-12 mt-2">
-                  <input
-                    type="submit"
-                    className="offset-md-10 col-md-2 col-sm-12 cadastrar"
-                    value={this.props.nomeBotao}
-                  />
+                <div className="col-12 mt-2 ">
+                  <input  type="submit" className="offset-md-10 col-md-2 col-sm-12 cadastrar" value={this.props.nomeBotao}/>
                 </div>
               </form>
             </div>

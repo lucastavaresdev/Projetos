@@ -9,30 +9,31 @@ class Lista_Equipamentos extends Component {
         super() 
         this.state = { 
             data: [],
-            nome: 'teste de editar',
         };
-        
+
+        this.listar = this.listar.bind(this);
     }
     
-    listar() {
+  listar() {
         lista_de_equipamentos().then(json => {
             this.setState({ data: json.data})
         })
     }
+
+ 
     
 
     acoes = (cell, row) => <Acoes id={row.id} nome={row.nome} serie={row.serie}  
     marca={row.marca} modelo={row.modelo} serie={row.serie} patrimonio={row.patrimonio}
-    ronda={row.ronda} calibracao={row.calibracao} situacao={row.situacao} ativo={row.ativo} setor={row.setor} />;
+    ronda={row.ronda} calibracao={row.calibracao} situacao={row.situacao} ativo={row.ativo} setor={row.setor}  onChange={this.onChange} cli={this.listar()} />;
 
     componentDidMount(){
           this.listar()
+          document.addEventListener('submit', this.listar);
     }
 
-    componentDidUpdate(){
-       
-    }
-    
+
+
     render() {
         const columns = [
                {

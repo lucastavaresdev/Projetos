@@ -7,16 +7,15 @@ import '../screens/scss/_base.scss'
 
 
 class Tabelas extends Component {
-
+  
     componentWillUnmount() {
         clearInterval(this.interval);
     }
-
+  
     render() {
         const { SearchBar } = Search;
-      
         
-      const pageButtonRenderer = ({
+        const pageButtonRenderer = ({
             page,
             active,
             disable,
@@ -50,7 +49,6 @@ class Tabelas extends Component {
             );
       };
     
-    
       const expandRow = {
         renderer: row => (
           <div>
@@ -70,7 +68,7 @@ class Tabelas extends Component {
             </div>
           </div>
         ),
-         showExpandColumn: true,
+        showExpandColumn: true,
         expandColumnPosition: 'right',
         expandHeaderColumnRenderer: ({ isAnyExpands }) => {
           if (isAnyExpands) {
@@ -113,7 +111,6 @@ class Tabelas extends Component {
           }] 
         };
 
-
         return (
            <div className='container-fluid p-5 espaco-top'>
            <ToolkitProvider keyField="id" data={  this.props.data } columns={ this.props.colunas } search >
@@ -124,7 +121,7 @@ class Tabelas extends Component {
                   < hr />
                     <div className="table-responsive-sm table-responsive-md  tabela">
 
-                    <table className="table ">
+                    <table className="table " >
                         <BootstrapTable classes="tabela" rowStyle={ rowStyle } pagination={ paginationFactory(options) } expandRow={ this.props.dados_extras }  { ...props.baseProps }  />
                     </table>
 
