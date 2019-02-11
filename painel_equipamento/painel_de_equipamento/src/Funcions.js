@@ -96,3 +96,5 @@ export const Lista_Setores = equipamento => {
     return axios.get('http://localhost:3003/equipamento/lista_setores')
 }
 
+
+

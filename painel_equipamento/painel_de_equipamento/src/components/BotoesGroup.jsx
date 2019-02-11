@@ -7,6 +7,7 @@ const BotoesGroup = () => {
             <BotaoMenu iconebotao='fas fa-home' titulodobotao='Dashboard' link={'./admin'}/>
             <BotaoMenu iconebotao='fas fa-map-marker-alt'  titulodobotao='Localizar Equipamento'  link={'./localizarequipamentos'}/>
             <BotaoMenu iconebotao='fas fa-list'  titulodobotao='Listar Equipamentos'  link={'./listarequipamentos'}/>
+            <BotaoMenu iconebotao='fas fa-cubes'  titulodobotao='Cadastro de setores'  link={'./cadastrosetores'}/>
         </div>
     );
 }

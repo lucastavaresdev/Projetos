@@ -8,6 +8,7 @@ import Usuario from './screens/Usuario'
 import Localizar_Equipamento from './screens/Localizar_Equipamento'
 import Listar_Equipamento from './screens/Lista_Equipamentos'
 import Navbar from './components/navbar';
+import Cadastro_setores from './screens/Cadastro_setores';
 
 class App extends Component {
   render () {
@@ -24,6 +25,7 @@ class App extends Component {
                   <Route exact path="/usuario" component={Usuario} /> 
                   <Route exact path="/localizarequipamentos" component={Localizar_Equipamento} /> 
                   <Route exact path="/listarequipamentos" component={Listar_Equipamento} /> 
+                  <Route exact path="/cadastrosetores" component={Cadastro_setores} /> 
             </div>
           </div>
 
