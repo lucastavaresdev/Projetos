@@ -10,7 +10,6 @@ class Lista_Equipamentos extends Component {
         this.state = { 
             data: [],
         };
-
         this.listar = this.listar.bind(this);
     }
     
@@ -20,19 +19,17 @@ class Lista_Equipamentos extends Component {
         })
     }
 
- 
-    
-
     acoes = (cell, row) => <Acoes id={row.id} nome={row.nome} serie={row.serie}  
     marca={row.marca} modelo={row.modelo} serie={row.serie} patrimonio={row.patrimonio}
-    ronda={row.ronda} calibracao={row.calibracao} situacao={row.situacao} ativo={row.ativo} setor={row.setor}  onChange={this.onChange} cli={this.listar()} />;
+    ronda={row.ronda} calibracao={row.calibracao} situacao={row.id_situacao} ativo={row.ativo} setor={row.setor}    />;
 
     componentDidMount(){
           this.listar()
-          document.addEventListener('submit', this.listar);
     }
-
-
+        
+    componentDidUpdate(){
+            document.addEventListener('submit', this.listar);
+    }
 
     render() {
         const columns = [
@@ -136,7 +133,7 @@ class Lista_Equipamentos extends Component {
                      }
                 },
                {
-                    dataField: 'ativo',
+                    dataField: 'nome_status',
                     text: 'Status',
                     sort: true,
                     sortCaret: (order, column) => {

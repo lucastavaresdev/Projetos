@@ -3,12 +3,10 @@ import Modal from "../components/Modal";
 import "./_acoes.tabela.scss";
 import { Ocultar_Equipamento } from "../Funcions";
 import JSAlert from "js-alert";
-import Tabela from '../components/Tabelas'
 
 class Acoes_Tabela extends Component {
 
-
-    // botao deletar só que ele nao deleta e sim faz um updade e oculta
+  // botao deletar só que ele nao deleta e sim faz um updade e oculta
   ocultar = () => {
     var alert = new JSAlert(`Voce deseja deletar o ${this.props.nome}`, ``);
     var id = this.props.id;
@@ -48,6 +46,7 @@ class Acoes_Tabela extends Component {
           situacao_do_equipamento={this.props.situacao}
           ativo_do_equipamento={this.props.ativo}
           setor_do_equipamento={this.props.setor}
+          setor_do_equipamento_id={this.props.setor_id}
         />
 
         <div >

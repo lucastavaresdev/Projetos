@@ -59,6 +59,10 @@ class Modal2 extends Component {
       setor: this.state.setor,
     };
 
+
+    console.log(equipamento)
+debugger
+
     const tipo_de_envio = this.props.tipo_de_envio
     const id = this.props.id_do_equipamento
 
