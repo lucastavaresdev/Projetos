@@ -128,42 +128,7 @@ equipamentos.put('/ocultar_equipamento/:id', function (req, res) {
 });
 
 
-equipamentos.post('/cadastro_de_setor', (req, res) => {
-    const userData = {
-        nome: req.body.nome,
-        marca: req.body.sigla,
-        modelo: req.body.andar,
-        serie: req.body.capacidade,
-        patrimonio: req.body.permanencia,
-        ronda: req.body.tracking,
-        calibracao: req.body.ativo,
-        situacao: req.body.atendimentos,
-    }
-    Equipamento.findOne({
-        where: {
-            serie: req.body.nome
-        }
-    })
-    .then(equipamento => {
-        if (!equipamento) {
-            Equipamento.create(userData)
-                    .then(setor => {
-                        res.json({
-                            status:  setor.nome,
-                            cod: 0
-                        })
-                    })
-                    .catch(err => {
-                        res.send('error: ' + err)
-                    })
-        } else {
-            res.json({ 
-                error: "Setor ja existe",
-                cod: 1
-            })
-        }
-    })
-})
+
 
 
 module.exports = equipamentos
