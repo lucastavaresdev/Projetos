@@ -51,6 +51,19 @@ class Modal_cadastro_setores extends Component {
       atendimentos: this.state.atendimentos
     };
 
+   
+   
+
+    if(tipo_de_envio === 1  && tipo_de_envio != ""){
+      
+      Atualizar_Equipamento(equipamento, id).then(res => {
+        {JSAlert.alert("Atualizado com sucesso")}
+        {this.closeModal()}
+        
+      });
+
+    } else {
+      
     Inserir_Setores(setor).then(res => {
       const codigo = parseInt(res.data.cod);
       if (codigo === 1) {
@@ -65,6 +78,7 @@ class Modal_cadastro_setores extends Component {
       }
     });
   }
+
 
   render() {
     return (
@@ -157,7 +171,6 @@ class Modal_cadastro_setores extends Component {
                   />
                 </label>
 
-             
 
                 <p className="col-12"></p>
 

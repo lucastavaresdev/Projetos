@@ -59,5 +59,34 @@ setores.put('/ocultar/:id/:tabela', function (req, res) {
 });
 
 
+setores.put('/atualizar_setores/:id', function (req, res) {
+
+    var dados = {
+        nome: req.body.nome,
+        sigla: req.body.sigla,
+        andar: req.body.andar,
+        capacidade: req.body.capacidade,
+        permanencia: req.body.permanencia,
+        tracking: req.body.tracking,
+        ativo: req.body.ativo,
+        atendimentos: req.body.atendimentos,
+    }
+
+  const $query = `UPDATE setores SET  nome="${dados.nome}", 
+    sigla="${dados.sigla}",
+    andar="${dados.andar}",
+    capacidade="${dados.capacidade}",
+    permanencia="${dados.permanencia}",
+    tracking="${dados.tracking}", 
+    atendimentos="${dados.atendimentos}",
+    ativo="${dados.ativo}"
+    WHERE id="${req.params.id}"`; 
+ 
+  console.log($query)
+   execQuery($query, res);
+
+});
+
+
 
 module.exports = setores
