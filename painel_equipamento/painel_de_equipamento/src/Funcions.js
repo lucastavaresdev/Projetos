@@ -57,15 +57,7 @@ export const Atualizar_Equipamento = (equipamento, id) => {
     });
   }
 
-export const Ocultar_Equipamento = (id) => {
-    return axios.put(`http://localhost:3003/equipamento/ocultar_equipamento/${id}`)
-    .then(res => {
-        console.log("Ocultado com sucesso")
-        return res
-    }).catch(function (error) {
-        console.log(error);
-    });
-  }
+
 
   
 export const tracking_equipamentos = equipamento => {
@@ -115,11 +107,34 @@ export const Inserir_Setores= setores => {
     }).catch(function (error) {
         console.log(error);
     });
-  }
+}
+
 
   export const Lista_Setores = setores => {
     return axios.get('http://localhost:3003/setores/lista_setores')
 }
+
+
+export const Atualizar_Setor = (setores, id) => {
+    return axios.put(`http://localhost:3003/setores/atualizar_setores/${id}`, {
+        nome: setores.nome,
+        sigla: setores.sigla,
+        andar: setores.andar,
+        capacidade: setores.capacidade,
+        permanencia: setores.permanencia,
+        tracking: setores.tracking,
+        ativo: setores.ativo,
+        atendimentos: setores.atendimentos,
+    })
+    .then(res => {
+        console.log("Atualizado Setor")
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    })
+}
+
+/* -------------------------------------- Geral -------------------------------------**/
 
 export const Ocultar_Linha_Tabela = (id, tabela) => {
     return axios.put(`http://localhost:3003/geral/ocultar/${id}/${tabela}`)

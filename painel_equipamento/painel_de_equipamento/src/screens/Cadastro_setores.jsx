@@ -22,13 +22,17 @@ class Cadastro_setores extends Component {
     }
 
     acoes = (cell, row) => <Acoes  tipo_de_modal={1} id={row.id} nome={row.nome}  sigla={row.sigla} andar={row.andar} capacidade={row.capacidade}  permanencia={row.permanencia}
-    tracking={row.tracking} ativo={row.ativo} atendimentos={row.atendimentos} tabela_que_ira_ocultar={'setores'}/>;
+    tracking={row.id_tracking} ativo={row.id_ativo} atendimentos={row.atendimentos} tabela_que_ira_ocultar={'setores'}/>;
 
    
     componentDidMount(){
           this.listar()
     }
         
+    componentDidUpdate(){
+        document.addEventListener('submit', this.listar);
+    }
+
 
     render() {
         const columns = [

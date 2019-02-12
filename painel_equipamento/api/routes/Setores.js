@@ -49,7 +49,7 @@ setores.post('/cadastro_de_setor', (req, res) => {
 
 
 setores.get('/lista_setores', (req, res) =>{
-    const $query = 'SELECT s.id, s.nome, s.sigla, s.andar, s.capacidade, s.permanencia, tt.nome_tipo_de_tracking as tracking, s.atendimentos, aio.nome_status as ativo FROM setores as s inner join pe_ativo_inativo as aio on s.ativo = aio.id inner join pe_tipo_de_tracking as tt on s.tracking = tt.id where s.ativo = 0 or s.ativo = 1 order by id';  
+    const $query = 'SELECT s.id, s.nome, s.sigla, s.andar, s.capacidade, s.permanencia, tt.nome_tipo_de_tracking as tracking, tt.id as id_tracking,s.atendimentos, aio.nome_status as ativo, aio.id as id_ativo FROM setores as s inner join pe_ativo_inativo as aio on s.ativo = aio.id inner join pe_tipo_de_tracking as tt on s.tracking = tt.id where s.ativo = 0 or s.ativo = 1 order by id';  
     execQuery($query, res);
 })
 
@@ -68,8 +68,8 @@ setores.put('/atualizar_setores/:id', function (req, res) {
         capacidade: req.body.capacidade,
         permanencia: req.body.permanencia,
         tracking: req.body.tracking,
-        ativo: req.body.ativo,
         atendimentos: req.body.atendimentos,
+        ativo: req.body.ativo,
     }
 
   const $query = `UPDATE setores SET  nome="${dados.nome}", 

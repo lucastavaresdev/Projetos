@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
-import { Inserir_Setores } from "../Funcions";
+import { Inserir_Setores, Atualizar_Setor } from "../Funcions";
 import JSAlert from "js-alert";
 import "./_modal.scss";
 
@@ -40,7 +40,6 @@ class Modal_cadastro_setores extends Component {
   onSubmit(e) {
     e.preventDefault();
     const setor = {
-      tipo_de_envio: this.state.tipo_de_envio,
       nome: this.state.nome,
       sigla: this.state.sigla,
       andar: this.state.andar,
@@ -51,12 +50,14 @@ class Modal_cadastro_setores extends Component {
       atendimentos: this.state.atendimentos
     };
 
-   
+
+    const tipo_de_envio = this.props.tipo_de_envio
+    const id = this.props.id_do_setor
    
 
     if(tipo_de_envio === 1  && tipo_de_envio != ""){
       
-      Atualizar_Equipamento(equipamento, id).then(res => {
+      Atualizar_Setor(setor, id).then(res => {
         {JSAlert.alert("Atualizado com sucesso")}
         {this.closeModal()}
         
@@ -64,19 +65,20 @@ class Modal_cadastro_setores extends Component {
 
     } else {
       
-    Inserir_Setores(setor).then(res => {
-      const codigo = parseInt(res.data.cod);
-      if (codigo === 1) {
-        return <div>{JSAlert.alert("Setor ou Sigla ja cadastrado")}</div>;
-      } else {
-        return (
-          <div>
-            {JSAlert.alert("Cadastro realizado com sucesso")}
-            {this.closeModal()}
-          </div>
-        );
-      }
-    });
+      Inserir_Setores(setor).then(res => {
+        const codigo = parseInt(res.data.cod);
+        if (codigo === 1) {
+          return <div>{JSAlert.alert("Setor ou Sigla ja cadastrado")}</div>;
+        } else {
+          return (
+            <div>
+              {JSAlert.alert("Cadastro realizado com sucesso")}
+              {this.closeModal()}
+            </div>
+          );
+        }
+      });
+    }
   }
 
 
@@ -84,15 +86,9 @@ class Modal_cadastro_setores extends Component {
     return (
       <section>
         <div onClick={this.openModal}>
-          {" "}
-          <i className="abrirCad" /> {this.props.iconeAbrir}{" "}
+          <i className="abrirCad" /> {this.props.iconeAbrir}
         </div>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Inserir Equipamento"
-        >
+        <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento" >
           <div className="row">
             <div className="col-md-10 modal_equipamentos p-4">
               <div className="row ">
@@ -105,10 +101,8 @@ class Modal_cadastro_setores extends Component {
                   </div>
                 </div>
               </div>
-              <form
-                className="formulario_cadastro_equipamento"
-                onSubmit={this.onSubmit}
-              >
+              <form className="formulario_cadastro_equipamento" onSubmit={this.onSubmit}>
+                
                 <p className="col-12">Cadastrar Setor</p>
 
                 <label className="col-md-9 col-sm-12">

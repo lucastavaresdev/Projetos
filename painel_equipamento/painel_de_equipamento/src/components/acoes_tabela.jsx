@@ -39,7 +39,9 @@ class Acoes_Tabela extends Component {
         <div className="row">
           <Modal_cadastro_setores
             iconeAbrir={<i className="click azul mr-2 fas fa-pen-square fa-2x" />}
+            tipo_de_envio={1}
             tituloModal="Cadastrar Setor"
+            id_do_setor={this.props.id}
             nome_do_setor={this.props.nome}
             sigla_do_setor={this.props.sigla}
             andar_do_setor={this.props.andar}
