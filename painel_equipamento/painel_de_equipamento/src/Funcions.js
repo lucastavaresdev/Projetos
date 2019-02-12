@@ -92,9 +92,41 @@ export const lista_de_equipamentos = equipamento => {
     return axios.get('http://localhost:3003/equipamento/lista_equipamentos')
 }
 
-export const Lista_Setores = equipamento => {
-    return axios.get('http://localhost:3003/equipamento/lista_setores')
+
+
+
+/* ------------------------------- Cadastrar Setores-------------------------------------**/
+
+
+export const Inserir_Setores= setores => {
+    return axios.post('http://localhost:3003/setores/cadastro_de_setor', {
+        nome: setores.nome,
+        sigla: setores.sigla,
+        andar: setores.andar,
+        capacidade: setores.capacidade,
+        permanencia: setores.permanencia,
+        tracking: setores.tracking,
+        ativo: setores.ativo,
+        atendimentos: setores.atendimentos,
+    })
+    .then(res => {
+        console.log("Registrado Setor")
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    });
+  }
+
+  export const Lista_Setores = setores => {
+    return axios.get('http://localhost:3003/setores/lista_setores')
 }
 
-
-
+export const Ocultar_Linha_Tabela = (id, tabela) => {
+    return axios.put(`http://localhost:3003/geral/ocultar/${id}/${tabela}`)
+    .then(res => {
+        console.log("Ocultado com sucesso")
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    });
+  }

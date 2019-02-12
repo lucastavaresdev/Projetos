@@ -80,10 +80,7 @@ equipamentos.get('/lista_equipamentos', (req, res) =>{
     const $query = 'SELECT e.id ,e.nome, e.marca, e.modelo,e.serie, e.patrimonio, e.ronda, e.calibracao, sit.nome_situacoes as situacao, e.situacao as id_situacao , e.ativo, s.nome as setor, ai.nome_status, e.setor as setor_id FROM equipamentos  as e left join setores as s on s.id = e.setor inner join pe_situacoes as sit on sit.id = e.situacao inner join pe_ativo_inativo as ai on e.ativo = ai.id where e.ativo = 1 or e.ativo = 0';
     execQuery($query, res);
 })
-equipamentos.get('/lista_setores', (req, res) =>{
-    const $query = 'SELECT id,nome FROM setores order by id';
-    execQuery($query, res);
-})
+
 
 
 
@@ -122,10 +119,9 @@ equipamentos.put('/atualizar_equipamento/:id', function (req, res) {
     execQuery($query, res);
 
 });
-equipamentos.put('/ocultar_equipamento/:id', function (req, res) {
-    const $query = `UPDATE equipamentos SET  ativo=3   WHERE id=${req.params.id}`; 
-    execQuery($query, res);
-});
+
+
+
 
 
 

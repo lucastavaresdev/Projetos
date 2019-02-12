@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Tabela from '../components/Tabelas'
 import Modal_cadastro_setores from '../components/Modal_cadastro_setores'
 import {Lista_Setores} from '../Funcions'
+import Acoes from '../components/acoes_tabela'
 
 class Cadastro_setores extends Component {
 
@@ -20,6 +21,9 @@ class Cadastro_setores extends Component {
         })
     }
 
+    acoes = (cell, row) => <Acoes  tipo_de_modal={1} id={row.id} nome={row.nome}  sigla={row.sigla} andar={row.andar} capacidade={row.capacidade}  permanencia={row.permanencia}
+    tracking={row.tracking} ativo={row.ativo} atendimentos={row.atendimentos} tabela_que_ira_ocultar={'setores'}/>;
+
    
     componentDidMount(){
           this.listar()
@@ -30,7 +34,7 @@ class Cadastro_setores extends Component {
         const columns = [
                {
                     dataField: 'id',
-                    text: 'id',
+                    text: 'Id',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
@@ -41,7 +45,7 @@ class Cadastro_setores extends Component {
                 },
                {
                     dataField: 'nome',
-                    text: 'nome',
+                    text: 'Nome',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
@@ -50,6 +54,90 @@ class Cadastro_setores extends Component {
                             return null;
                      }
                 },
+               {
+                    dataField: 'sigla',
+                    text: 'Sigla',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'andar',
+                    text: 'Andar',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'capacidade',
+                    text: 'Capacidade',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'permanencia',
+                    text: 'Permanencia',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                    dataField: 'tracking',
+                    text: 'Tracking',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+               {
+                dataField: 'ativo',
+                text: 'Status',
+                sort: true,
+                sortCaret: (order, column) => {
+                    if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                    else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                        return null;
+                 }
+                },
+               {
+                    dataField: 'atendimentos',
+                    text: 'Atendimentos',
+                    sort: true,
+                    sortCaret: (order, column) => {
+                        if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                        else if (order === 'asc') return (<span><i className="setas fas fa-chevron-up"></i></span>);
+                            else if (order === 'desc') return (<span><i className="setas fas fa-chevron-down"></i></span>);
+                            return null;
+                     }
+                },
+                {
+                    dataField: 'ações',
+                    text: 'Ações',
+                    isDummyField: true,
+                    csvExport: false,
+                    formatter: this.acoes,
+                  },
             ];
 
 
