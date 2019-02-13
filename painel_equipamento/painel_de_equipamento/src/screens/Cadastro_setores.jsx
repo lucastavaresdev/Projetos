@@ -150,8 +150,8 @@ class Cadastro_setores extends Component {
 
         return (
             <div>
-                <div className="row pt-5">
-                <Tabela titulo_pagina={'Cadastro de Equipamento'} colunas={columns} data={this.state.data}/>
+                <div className="row">
+                <Tabela titulo_pagina={'Cadastro de Setores'} colunas={columns} data={this.state.data}/>
                                 <Modal_cadastro_setores iconeAbrir={<i class="fas fa-plus-circle fa-3x"></i>}  tituloModal='Cadastrar Setor' />
                         </div>
                 </div>
