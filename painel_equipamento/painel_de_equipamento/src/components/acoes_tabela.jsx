@@ -5,6 +5,9 @@ import JSAlert from "js-alert";
 
 import Modal from "../components/Modal";
 import Modal_cadastro_setores from "../components/Modal_cadastro_setores";
+import { Link } from 'react-router-dom'
+
+
 
 class Acoes_Tabela extends Component {
  
@@ -60,6 +63,11 @@ class Acoes_Tabela extends Component {
     } else {
       return (
         <div className="row">
+
+          <div>
+              <Link to="/ronda_calibracao"><i class="click mr-2 fas fa-cog fa-2x"></i></Link>
+          </div>
+
           <Modal
             iconeAbrir={
               <i className="click azul mr-2 fas fa-pen-square fa-2x" />

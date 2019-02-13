@@ -145,9 +145,6 @@ class Cadastro_setores extends Component {
             ];
 
 
-
-
-
         return (
             <div>
                 <div className="row">
