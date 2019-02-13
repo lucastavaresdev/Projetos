@@ -1,8 +1,57 @@
 import React, { Component } from 'react'
 import './scss/Ronda_Calibracao.scss'
+import date from 'date-and-time';
+
+
+const now = new Date();
 
 class Ronda_Calibracao extends Component {
-    state = {  }
+    constructor(props) {
+        super(props);
+            this.state = {
+                    data_e_hora: date.format(now, 'DD/MM/YYYY HH:mm')
+            }
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+
+    onSubmit(e) {
+        e.preventDefault();
+        const equipamento = {
+          tipo_de_envio: this.state.tipo_de_envio,
+          nome: this.state.nome,
+          marca: this.state.marca,
+          modelo: this.state.modelo,
+          serie: this.state.serie,
+          patrimonio: this.state.patrimonio,
+          ronda: this.state.ronda,
+          calibracao: this.state.calibracao,
+          situacao: this.state.situacao,
+          ativo: this.state.ativo,
+          setor: this.state.setor,
+        };
+    
+        //const tipo_de_envio = this.props.tipo_de_envio
+        //const id = this.props.id_do_equipamento
+    
+    
+          
+        Inserir_Equipamento(equipamento).then(res => {
+            const codigo = parseInt(res.data.cod);
+            if (codigo === 1) {
+              return <div>{JSAlert.alert("Número de serie ja cadastrado")}</div>;
+            } else {
+              return (
+                <div>
+                  {JSAlert.alert("Cadastro realizado com sucesso")}
+                  {this.closeModal()}
+                </div>
+              );
+            }
+          });
+        }
+
+
     render() {
         return (
         <div>
@@ -14,12 +63,14 @@ class Ronda_Calibracao extends Component {
                                 <div class="card-body">
                                     <h5 class="card-title">Ronda</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Ronda periodica realizar</h6>
+                                         
+                                           
                                    
                                     <form className="formulario_cadastro_equipamento" onSubmit={this.onSubmit} >
 
                                             <label className="col-md-8 col-sm-12">
                                             Data/Hora:
-                                             <input  className="col-12" type="text" name="nome" Value={this.state.nome}  onChange={this.onChange} disabled/>
+                                             <input  className="col-12" type="text" name="data_e_hora" Value={this.state.data_e_hora}  onChange={this.onChange} disabled/>
                                             </label>
 
                                             <label className="col-md-4 col-sm-12">
