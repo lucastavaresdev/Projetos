@@ -134,6 +134,23 @@ export const Atualizar_Setor = (setores, id) => {
     })
 }
 
+/* ------------------------------- Cadastrar Setores-------------------------------------**/
+
+export const Atualizar_Ronda_Calibracao = rondacalibracao => {
+    return axios.post('http://localhost:3003/rondascalibracao/rondas/', {
+        id_equipamento: rondacalibracao.id_equipamento,
+        ronda_ultima: rondacalibracao.ronda_ultima,
+        situacao: rondacalibracao.situacao,
+        observacao: rondacalibracao.observacao,
+    })
+    .then(res => {
+        console.log("Registrado Ronda ou Calibracao")
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    });
+  }
+
 /* -------------------------------------- Geral -------------------------------------**/
 
 export const Ocultar_Linha_Tabela = (id, tabela) => {
