@@ -6,7 +6,9 @@ class Ronda_Calibracao extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id_equipamento: ""
+      id_equipamento: "",
+      ronda: '',
+      calibracao: '',
     };
   }
 
@@ -16,9 +18,39 @@ class Ronda_Calibracao extends Component {
 
   pegar_id_do_equipamento() {
     try {
-      this.setState({ id_equipamento: this.props.location.query.idx });
+      this.setState({ id_equipamento: this.props.location.query.idx, ronda: this.props.location.query.ronda, calibracao: this.props.location.query.calibracao  });
     } catch {
       window.location.href = "/listarequipamentos";
+    }
+  }
+
+  // <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Ronda'} />
+  // <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Calibracao'} />
+
+  tipo_de_formulario_ira_aprentar_para_atualizar() {
+ 
+
+    const ronda = this.state.ronda;
+    const calibracao = this.state.calibracao;
+    
+
+
+    if ( ronda && calibracao === 0) {
+      console.log('ronda')
+      return( <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Ronda'} />)
+    }else if(calibracao && ronda === 0){
+      console.log('Calibracao')
+      return(<Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Calibracao'} />)
+    }else if(calibracao === ronda){
+      return(
+      <div className='row'>
+         <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Ronda'} />
+        <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Calibracao'} />
+      </div>)
+    }else if(calibracao > ronda){
+      return(<h1>Exibi a ronda</h1>)
+    }else { 
+      return(<h1>Exibi a Calibracao</h1>)
     }
   }
 
@@ -28,9 +60,8 @@ class Ronda_Calibracao extends Component {
         <div class="container  pt-20">
           <div class="row">
 
-                <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Calibracao'}/>
-                <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Ronda'}/>
-
+        {this.tipo_de_formulario_ira_aprentar_para_atualizar()}
+             
                 
           </div>
 

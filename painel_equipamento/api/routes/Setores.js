@@ -45,9 +45,6 @@ setores.post('/cadastro_de_setor', (req, res) => {
     })
 })
 
-
-
-
 setores.get('/lista_setores', (req, res) =>{
     const $query = 'SELECT s.id, s.nome, s.sigla, s.andar, s.capacidade, s.permanencia, tt.nome_tipo_de_tracking as tracking, tt.id as id_tracking,s.atendimentos, aio.nome_status as ativo, aio.id as id_ativo FROM setores as s inner join pe_ativo_inativo as aio on s.ativo = aio.id inner join pe_tipo_de_tracking as tt on s.tracking = tt.id where s.ativo = 0 or s.ativo = 1 order by id';  
     execQuery($query, res);
@@ -57,7 +54,6 @@ setores.put('/ocultar/:id/:tabela', function (req, res) {
     const $query = `UPDATE ${req.params.tabela} SET  ativo=2  WHERE id=${req.params.id}`; 
     execQuery($query, res);
 });
-
 
 setores.put('/atualizar_setores/:id', function (req, res) {
 
@@ -86,7 +82,6 @@ setores.put('/atualizar_setores/:id', function (req, res) {
    execQuery($query, res);
 
 });
-
 
 
 module.exports = setores

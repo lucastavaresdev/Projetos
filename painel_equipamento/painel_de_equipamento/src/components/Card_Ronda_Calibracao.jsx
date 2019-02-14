@@ -36,8 +36,10 @@ class Card_Ronda_Calibracao extends Component {
          observacao: this.state.observacao,
         };
     
+        var tabela='rondas'
+        var coluna='ronda_ultima'
         
-        Atualizar_Ronda_Calibracao(rondacalibracao).then(res => {
+        Atualizar_Ronda_Calibracao(rondacalibracao, tabela, coluna).then(res => {
                 {JSAlert.alert("Cadastro realizado com sucesso").then(function(res) {
                         window.location.href = "/listarequipamentos";
                 });

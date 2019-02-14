@@ -66,10 +66,8 @@ class Acoes_Tabela extends Component {
         <div className="row">
 
           <div>
-              {/* <Link to="/ronda_calibracao/" ><i class="click mr-2 fas fa-cog fa-2x"></i></Link> */}
-              {/* <Link   to={'/ronda_calibracao?id_equipamento='+ this.props.id } ><i class="click mr-2 fas fa-cog fa-2x"></i></Link> */}
 
-              <Link to={{ pathname: '/ronda_calibracao', query: { idx: this.props.id } }} > <i class="click mr-2 fas fa-cog fa-2x"></i></Link>
+              <Link to={{ pathname: '/ronda_calibracao', query: { idx: this.props.id, ronda:this.props.ronda, calibracao: this.props.calibracao  } }} > <i class="click mr-2 fas fa-cog fa-2x"></i></Link>
 
           </div>
 
