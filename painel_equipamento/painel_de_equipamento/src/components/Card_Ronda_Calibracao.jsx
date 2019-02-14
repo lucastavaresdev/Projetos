@@ -1,16 +1,59 @@
 import React, { Component } from "react";
+import date from 'date-and-time';
+import { Atualizar_Ronda_Calibracao } from "../Funcions";
+import JSAlert from "js-alert";
+
+
+
+const now = new Date();
 
 class Card_Ronda_Calibracao extends Component {
-  state = {};
+    constructor(props) {
+        super(props);
+            this.state = {
+                    data_e_hora: date.format(now, 'DD/MM/YYYY HH:mm'),
+                    data_e_hora_no_banco: date.format(now, 'YYYY-MM-DD HH:mm:ss'),
+                    id_equipamento: '' ,
+                    situacao: 1,
+                    observacao: '',
+            }
+        this.onSubmit = this.onSubmit.bind(this);
+        this.onChange = this.onChange.bind(this);
+    }
+
+    onChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+
+    onSubmit(e) {
+
+        e.preventDefault();
+        const rondacalibracao = {
+         id_equipamento: this.props.id_do_equipamento_selecionado,
+         ronda_ultima: this.state.data_e_hora_no_banco,
+         situacao: this.state.situacao,
+         observacao: this.state.observacao,
+        };
+    
+        
+        Atualizar_Ronda_Calibracao(rondacalibracao).then(res => {
+                {JSAlert.alert("Cadastro realizado com sucesso").then(function(res) {
+                        window.location.href = "/listarequipamentos";
+                });
+                }
+           });
+         }
+
   render() {
     return (
       <div class="col-6 mx-auto">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Ronda</h5>
+            <h5 class="card-title">{this.props.nome_do_campo}</h5>
 
             <h6 class="card-subtitle mb-2 text-muted">
-              Ronda periodica realizar {this.state.data_e_hora}
+             {this.props.nome_do_campo} periódica realizar em {this.state.data_e_hora}
             </h6>
             <form
               className="formulario_cadastro_equipamento"
@@ -61,6 +104,7 @@ class Card_Ronda_Calibracao extends Component {
                   className="offset-md-10 col-md-2 col-sm-12 cadastrar"
                   value="Inserir"
                 />
+                
               </div>
             </form>
           </div>
