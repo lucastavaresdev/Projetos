@@ -18,7 +18,9 @@ class Card_Ronda_Calibracao extends Component {
                     situacao: 1,
                     observacao: '',
                     tabela: this.props.tabela_no_banco,
-                    coluna: this.props.coluna_no_banco
+                    coluna: this.props.coluna_no_banco,
+                    reflesh_ronda: this.props.reflesh_ronda,
+                    reflesh_calibracao: this.props.reflesh_calibracao
 
             }
         this.onSubmit = this.onSubmit.bind(this);
@@ -38,13 +40,23 @@ class Card_Ronda_Calibracao extends Component {
          situacao: this.state.situacao,
          observacao: this.state.observacao,
         };
-    
+        
         var tabela =this.state.tabela
         var coluna = this.state.coluna
+
+
+        if(this.state.reflesh_calibracao === 1 || this.state.reflesh_ronda === 1){
+            var reflesh = 1
+        }
         
-        Atualizar_Ronda_Calibracao(rondacalibracao, tabela, coluna).then(res => {
+        Atualizar_Ronda_Calibracao(rondacalibracao, tabela, coluna, reflesh).then(res => {
+          console.log(reflesh)
                 {JSAlert.alert("Atualizado com sucesso").then(function(res) {
-                        window.location.href = "/listarequipamentos";
+                        if(reflesh === 1 ){
+                            console.log('tes')
+                          }else{
+                            window.location.href = "/listarequipamentos"
+                        }
                 });
                 }
            });
@@ -114,10 +126,6 @@ class Card_Ronda_Calibracao extends Component {
              <div className="col-12 mt-2 ">
                 <div className='row'>
                
-
-                     
-                 
-                 
                   <div className="col-md-12 btn_card_ronda_calibracao">
                       <button type="submit" className="btn btn-primary botao_atualizar cadastrar col-12" >Atualizar</button>
                   </div>

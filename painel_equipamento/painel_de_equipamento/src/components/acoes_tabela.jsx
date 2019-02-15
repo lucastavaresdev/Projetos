@@ -6,8 +6,6 @@ import JSAlert from "js-alert";
 import Modal from "../components/Modal";
 import Modal_cadastro_setores from "../components/Modal_cadastro_setores";
 import { Link } from 'react-router-dom'
-import Ronda_Calibracao from "../screens/Ronda_Calibracao";
-
 
 
 class Acoes_Tabela extends Component {
@@ -27,7 +25,6 @@ class Acoes_Tabela extends Component {
           window.location.reload();
         });
       });
-
       
     });
 
@@ -36,6 +33,19 @@ class Acoes_Tabela extends Component {
     });
     alert.show();
   };
+
+
+  exibir_botao_calibracao_ronda = () =>{
+   if (this.props.ronda === 0 && this.props.calibracao === 0){
+    return(
+      <i class="mr-2 fas fa-cog fa-2x "></i>
+      )
+    }else{
+      return(
+        <Link to={{ pathname: '/ronda_calibracao', query: { idx: this.props.id, ronda:this.props.ronda, calibracao: this.props.calibracao  } }} > <i class="click mr-2 fas fa-cog fa-2x cinza-escuro"></i></Link>
+      )
+   }
+ }
 
   decide_tipo_modal_dependo_da_pagina() {
     if (this.props.tipo_de_modal === 1) {
@@ -66,8 +76,8 @@ class Acoes_Tabela extends Component {
         <div className="row">
 
           <div>
-
-              <Link to={{ pathname: '/ronda_calibracao', query: { idx: this.props.id, ronda:this.props.ronda, calibracao: this.props.calibracao  } }} > <i class="click mr-2 fas fa-cog fa-2x"></i></Link>
+          
+          {this.exibir_botao_calibracao_ronda()}
 
           </div>
 

@@ -33,7 +33,6 @@ class Ronda_Calibracao extends Component {
     const calibracao = this.state.calibracao;
 
     if (ronda && calibracao === 0) {
-      console.log("ronda");
       return (
         <Card_Ronda_Calibracao
           id_do_equipamento_selecionado={this.state.id_equipamento}
@@ -63,12 +62,14 @@ class Ronda_Calibracao extends Component {
             nome_do_campo={"Ronda"}
             tabela_no_banco={"rondas"}
             coluna_no_banco={"ronda_ultima"}
+            reflesh_ronda={1}
           />
           <Card_Ronda_Calibracao
             id_do_equipamento_selecionado={this.state.id_equipamento}
             nome_do_campo={"Calibracao"}
             tabela_no_banco={"calibracoes"}
             coluna_no_banco={"calibracao_ultima"}
+            reflesh_calibracao={1}
           />
         </div>
       );
