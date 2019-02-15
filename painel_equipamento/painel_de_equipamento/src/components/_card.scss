@@ -19,3 +19,17 @@
         }
     }
 }
+
+.btn_card_ronda_calibracao{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn_voltar{
+    text-decoration: none;
+    color: #000000;
+    &:hover {
+        color: #000000;
+        text-decoration: none;
+    }
+}

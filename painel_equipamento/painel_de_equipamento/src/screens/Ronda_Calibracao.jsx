@@ -24,8 +24,7 @@ class Ronda_Calibracao extends Component {
     }
   }
 
-  // <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Ronda'} />
-  // <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Calibracao'} />
+  //
 
   tipo_de_formulario_ira_aprentar_para_atualizar() {
  
@@ -41,16 +40,12 @@ class Ronda_Calibracao extends Component {
     }else if(calibracao && ronda === 0){
       console.log('Calibracao')
       return(<Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Calibracao'} />)
-    }else if(calibracao === ronda){
+    }else if(calibracao === ronda ||calibracao !== 0 && ronda !== 0 && calibracao !== 0){
       return(
       <div className='row'>
          <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Ronda'} />
-        <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Calibracao'} />
+         <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Calibracao'} />
       </div>)
-    }else if(calibracao > ronda){
-      return(<h1>Exibi a ronda</h1>)
-    }else { 
-      return(<h1>Exibi a Calibracao</h1>)
     }
   }
 
@@ -58,13 +53,9 @@ class Ronda_Calibracao extends Component {
     return (
       <div>
         <div class="container  pt-20">
-          <div class="row">
-
-        {this.tipo_de_formulario_ira_aprentar_para_atualizar()}
-             
-                
+          <div class="row btn_voltar">
+              {this.tipo_de_formulario_ira_aprentar_para_atualizar()}
           </div>
-
         </div>
       </div>
     );

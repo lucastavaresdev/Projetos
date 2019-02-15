@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import date from 'date-and-time';
 import { Atualizar_Ronda_Calibracao } from "../Funcions";
 import JSAlert from "js-alert";
+import { Link } from 'react-router-dom'
 
 
 
@@ -26,8 +27,8 @@ class Card_Ronda_Calibracao extends Component {
     }
 
 
+    
     onSubmit(e) {
-
         e.preventDefault();
         const rondacalibracao = {
          id_equipamento: this.props.id_do_equipamento_selecionado,
@@ -47,9 +48,22 @@ class Card_Ronda_Calibracao extends Component {
            });
          }
 
+
+        //  voltar = () => {
+        //    console.log('teste')
+        //    return(
+        //      <div>
+        //            <Link to="/login" />Click to login</Link>
+        //     </div>
+        //   )
+        // }
+
   render() {
     return (
       <div class="col-6 mx-auto">
+
+
+
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{this.props.nome_do_campo}</h5>
@@ -100,14 +114,27 @@ class Card_Ronda_Calibracao extends Component {
                   onChange={this.onChange}
                 />
               </label>
-              <div className="col-12 mt-2 ">
-                <input
-                  type="submit"
-                  className="offset-md-10 col-md-2 col-sm-12 cadastrar"
-                  value="Inserir"
-                />
-                
+             
+             <div className="col-12 mt-2 ">
+                <div className='row'>
+               
+
+                  <div className="col-md-12 btn_card_ronda_calibracao">
+                  <div className="row justify-content-end">
+                    <div className="col-md-2">
+                      <button type="button" ><Link to="/listarequipamentos" className='btn_voltar ' >Voltar</Link></button>
+                    </div>
+                    <div className="col-md-2">
+                      <input type="submit" className="cadastrar" value="Inserir" />
+                    </div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
+              <span className="input-group-btn">
+              
+                </span>
             </form>
           </div>
         </div>
