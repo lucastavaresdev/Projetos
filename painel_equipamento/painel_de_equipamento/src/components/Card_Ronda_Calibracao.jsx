@@ -1,83 +1,96 @@
 import React, { Component } from "react";
-import date from 'date-and-time';
+import date from "date-and-time";
 import { Atualizar_Ronda_Calibracao } from "../Funcions";
 import JSAlert from "js-alert";
-import { Link } from 'react-router-dom'
-
-
+import { Link } from "react-router-dom";
 
 const now = new Date();
 
+
 class Card_Ronda_Calibracao extends Component {
-    constructor(props) {
-        super(props);
-            this.state = {
-                    data_e_hora: date.format(now, 'DD/MM/YYYY HH:mm'),
-                    data_e_hora_no_banco: date.format(now, 'YYYY-MM-DD HH:mm:ss'),
-                    id_equipamento: '' ,
-                    situacao: 1,
-                    observacao: '',
-                    tabela: this.props.tabela_no_banco,
-                    coluna: this.props.coluna_no_banco,
-                    reflesh_ronda: this.props.reflesh_ronda,
-                    reflesh_calibracao: this.props.reflesh_calibracao
+  constructor(props) {
+    super(props);
+    this.state = {
+      data_e_hora: ' ',
+      data_e_hora_no_banco: '',
+      id_equipamento: "",
+      situacao: 1,
+      observacao: "",
+      tabela: this.props.tabela_no_banco,
+      coluna: this.props.coluna_no_banco,
+      reflesh_ronda: this.props.reflesh_ronda,
+      reflesh_calibracao: this.props.reflesh_calibracao
+    };
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.render_hora = this.render_hora.bind(this);
+  }
 
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const rondacalibracao = {
+      id_equipamento: this.props.id_do_equipamento_selecionado,
+      ronda_ultima: this.state.data_e_hora_no_banco,
+      situacao: this.state.situacao,
+      observacao: this.state.observacao
+    };
+
+    var tabela = this.state.tabela;
+    var coluna = this.state.coluna;
+
+    if (this.state.reflesh_calibracao === 1 || this.state.reflesh_ronda === 1) {
+      var reflesh = 1;
+    }
+
+    Atualizar_Ronda_Calibracao(rondacalibracao, tabela, coluna, reflesh).then(
+      res => {
+        console.log(reflesh);
+        {
+          JSAlert.alert("Atualizado com sucesso").then(function(res) {
+            if (reflesh === 1) {
+              console.log("tes");
+            } else {
+              window.location.href = "/listarequipamentos";
             }
-        this.onSubmit = this.onSubmit.bind(this);
-        this.onChange = this.onChange.bind(this);
-    }
-
-    onChange(e) {
-        this.setState({ [e.target.name]: e.target.value });
-    }
-
-    
-    onSubmit(e) {
-        e.preventDefault();
-        const rondacalibracao = {
-         id_equipamento: this.props.id_do_equipamento_selecionado,
-         ronda_ultima: this.state.data_e_hora_no_banco,
-         situacao: this.state.situacao,
-         observacao: this.state.observacao,
-        };
-        
-        var tabela =this.state.tabela
-        var coluna = this.state.coluna
-
-
-        if(this.state.reflesh_calibracao === 1 || this.state.reflesh_ronda === 1){
-            var reflesh = 1
+          });
         }
-        
-        Atualizar_Ronda_Calibracao(rondacalibracao, tabela, coluna, reflesh).then(res => {
-          console.log(reflesh)
-                {JSAlert.alert("Atualizado com sucesso").then(function(res) {
-                        if(reflesh === 1 ){
-                            console.log('tes')
-                          }else{
-                            window.location.href = "/listarequipamentos"
-                        }
-                });
-                }
-           });
-         }
+      }
+    );
+  }
+
+  render_hora(){
+    const dt = new Date();
+
+    this.setState({ 
+        data_e_hora: date.format(dt, "DD/MM/YYYY HH:mm:ss"),
+        data_e_hora_no_banco: date.format(dt, "YYYY-MM-DD HH:mm:ss")
+      })
+  }
+
+  componentWillMount(){
+    setInterval(this.render_hora , 1000) 
+  }
+
 
   render() {
 
     return (
       <div class="col-6 mx-auto">
         <div class="card">
-        
-        
-      <Link to="/listarequipamentos" className='btn_voltar ' ><i class="fas fa-arrow-left fa-1x p-1 pl-2 pt-3 fa-1x"></i></Link>
-          
-          
-          
+          <Link to="/listarequipamentos" className="btn_voltar ">
+            <i class="fas fa-arrow-left fa-1x p-1 pl-2 pt-3 fa-1x" />
+          </Link>
+
           <div class="card-body card_ronda_calibracao">
             <h5 class="card-title">{this.props.nome_do_campo}</h5>
 
             <h6 class="card-subtitle mb-2 text-muted">
-             {this.props.nome_do_campo} periódica realizar em {this.state.data_e_hora}
+              {this.props.nome_do_campo} periódica realizar em{" "}
+              {this.state.data_e_hora}
             </h6>
             <form
               className="formulario_cadastro_equipamento"
@@ -122,19 +135,20 @@ class Card_Ronda_Calibracao extends Component {
                   onChange={this.onChange}
                 />
               </label>
-             
-             <div className="col-12 mt-2 ">
-                <div className='row'>
-               
-                  <div className="col-md-12 btn_card_ronda_calibracao">
-                      <button type="submit" className="btn btn-primary botao_atualizar cadastrar col-12" >Atualizar</button>
-                  </div>
 
+              <div className="col-12 mt-2 ">
+                <div className="row">
+                  <div className="col-md-12 btn_card_ronda_calibracao">
+                    <button
+                      type="submit"
+                      className="btn btn-primary botao_atualizar cadastrar col-12"
+                    >
+                      Atualizar
+                    </button>
+                  </div>
                 </div>
               </div>
-              <span className="input-group-btn">
-              
-                </span>
+              <span className="input-group-btn" />
             </form>
           </div>
         </div>
