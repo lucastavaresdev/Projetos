@@ -137,7 +137,7 @@ export const Atualizar_Setor = (setores, id) => {
 /* ------------------------------- Cadastrar Setores-------------------------------------**/
 
 export const Atualizar_Ronda_Calibracao = (rondacalibracao, tabela, coluna) => {
-    return axios.post(`http://localhost:3003/rondas_calibracao/${tabela}/${coluna}`, {
+    return axios.post(`http://localhost:3003/rondascalibracao/rondas_calibracao/${tabela}/${coluna}`, {
         id_equipamento: rondacalibracao.id_equipamento,
         ronda_ultima: rondacalibracao.ronda_ultima,
         situacao: rondacalibracao.situacao,

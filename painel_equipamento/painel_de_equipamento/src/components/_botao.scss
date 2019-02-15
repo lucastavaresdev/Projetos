@@ -48,3 +48,13 @@
     }
 }
   
+
+//Rondas e Calibração
+
+.botao_atualizar{
+    background: $cor;
+    border: none;
+    &:hover{
+        background: darken($cor, 10%)
+    }
+}

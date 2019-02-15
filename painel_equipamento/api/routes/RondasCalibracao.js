@@ -18,6 +18,7 @@ rondas.post('/rondas_calibracao/:tabela/:coluna', function (req, res) {
             }
 
      const $query = `INSERT INTO ${req.params.tabela} (id_equipamento,${req.params.coluna}, situacao, observacao) VALUES (${dados.id_equipamento}, '${dados.ultima}', ${dados.situacao},'${dados.observacao}');`; 
+     console.log($query)
     execQuery($query, res);
 });
 

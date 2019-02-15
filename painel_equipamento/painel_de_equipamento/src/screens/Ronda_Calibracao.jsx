@@ -7,8 +7,8 @@ class Ronda_Calibracao extends Component {
     super(props);
     this.state = {
       id_equipamento: "",
-      ronda: '',
-      calibracao: '',
+      ronda: "",
+      calibracao: ""
     };
   }
 
@@ -18,34 +18,60 @@ class Ronda_Calibracao extends Component {
 
   pegar_id_do_equipamento() {
     try {
-      this.setState({ id_equipamento: this.props.location.query.idx, ronda: this.props.location.query.ronda, calibracao: this.props.location.query.calibracao  });
+      this.setState({
+        id_equipamento: this.props.location.query.idx,
+        ronda: this.props.location.query.ronda,
+        calibracao: this.props.location.query.calibracao
+      });
     } catch {
       window.location.href = "/listarequipamentos";
     }
   }
 
-  //
-
   tipo_de_formulario_ira_aprentar_para_atualizar() {
- 
-
     const ronda = this.state.ronda;
     const calibracao = this.state.calibracao;
-    
 
-
-    if ( ronda && calibracao === 0) {
-      console.log('ronda')
-      return( <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Ronda'} />)
-    }else if(calibracao && ronda === 0){
-      console.log('Calibracao')
-      return(<Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Calibracao'} />)
-    }else if(calibracao === ronda ||calibracao !== 0 && ronda !== 0 && calibracao !== 0){
-      return(
-      <div className='row'>
-         <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Ronda'} />
-         <Card_Ronda_Calibracao  id_do_equipamento_selecionado={this.state.id_equipamento} nome_do_campo={'Calibracao'} />
-      </div>)
+    if (ronda && calibracao === 0) {
+      console.log("ronda");
+      return (
+        <Card_Ronda_Calibracao
+          id_do_equipamento_selecionado={this.state.id_equipamento}
+          nome_do_campo={"Ronda"}
+          tabela_no_banco={"rondas"}
+          coluna_no_banco={"ronda_ultima"}
+        />
+      );
+    } else if (calibracao && ronda === 0) {
+      console.log("Calibracao");
+      return (
+        <Card_Ronda_Calibracao
+          id_do_equipamento_selecionado={this.state.id_equipamento}
+          nome_do_campo={"Calibracao"}
+          tabela_no_banco={"calibracoes"}
+          coluna_no_banco={"calibracao_ultima"}
+        />
+      );
+    } else if (
+      calibracao === ronda ||
+      (calibracao !== 0 && ronda !== 0 && calibracao !== 0)
+    ) {
+      return (
+        <div className="row">
+          <Card_Ronda_Calibracao
+            id_do_equipamento_selecionado={this.state.id_equipamento}
+            nome_do_campo={"Ronda"}
+            tabela_no_banco={"rondas"}
+            coluna_no_banco={"ronda_ultima"}
+          />
+          <Card_Ronda_Calibracao
+            id_do_equipamento_selecionado={this.state.id_equipamento}
+            nome_do_campo={"Calibracao"}
+            tabela_no_banco={"calibracoes"}
+            coluna_no_banco={"calibracao_ultima"}
+          />
+        </div>
+      );
     }
   }
 
@@ -54,7 +80,7 @@ class Ronda_Calibracao extends Component {
       <div>
         <div class="container  pt-20">
           <div class="row btn_voltar">
-              {this.tipo_de_formulario_ira_aprentar_para_atualizar()}
+            {this.tipo_de_formulario_ira_aprentar_para_atualizar()}
           </div>
         </div>
       </div>

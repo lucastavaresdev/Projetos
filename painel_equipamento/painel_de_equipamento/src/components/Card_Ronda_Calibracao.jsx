@@ -17,6 +17,9 @@ class Card_Ronda_Calibracao extends Component {
                     id_equipamento: '' ,
                     situacao: 1,
                     observacao: '',
+                    tabela: this.props.tabela_no_banco,
+                    coluna: this.props.coluna_no_banco
+
             }
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -25,7 +28,6 @@ class Card_Ronda_Calibracao extends Component {
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value });
     }
-
 
     
     onSubmit(e) {
@@ -37,35 +39,29 @@ class Card_Ronda_Calibracao extends Component {
          observacao: this.state.observacao,
         };
     
-        var tabela='rondas'
-        var coluna='ronda_ultima'
+        var tabela =this.state.tabela
+        var coluna = this.state.coluna
         
         Atualizar_Ronda_Calibracao(rondacalibracao, tabela, coluna).then(res => {
-                {JSAlert.alert("Cadastro realizado com sucesso").then(function(res) {
+                {JSAlert.alert("Atualizado com sucesso").then(function(res) {
                         window.location.href = "/listarequipamentos";
                 });
                 }
            });
          }
 
-
-        //  voltar = () => {
-        //    console.log('teste')
-        //    return(
-        //      <div>
-        //            <Link to="/login" />Click to login</Link>
-        //     </div>
-        //   )
-        // }
-
   render() {
+
     return (
       <div class="col-6 mx-auto">
-
-
-
         <div class="card">
-          <div class="card-body">
+        
+        
+      <Link to="/listarequipamentos" className='btn_voltar ' ><i class="fas fa-arrow-left fa-1x p-1 pl-2 pt-3 fa-1x"></i></Link>
+          
+          
+          
+          <div class="card-body card_ronda_calibracao">
             <h5 class="card-title">{this.props.nome_do_campo}</h5>
 
             <h6 class="card-subtitle mb-2 text-muted">
@@ -119,15 +115,11 @@ class Card_Ronda_Calibracao extends Component {
                 <div className='row'>
                
 
+                     
+                 
+                 
                   <div className="col-md-12 btn_card_ronda_calibracao">
-                  <div className="row justify-content-end">
-                    <div className="col-md-2">
-                      <button type="button" ><Link to="/listarequipamentos" className='btn_voltar ' >Voltar</Link></button>
-                    </div>
-                    <div className="col-md-2">
-                      <input type="submit" className="cadastrar" value="Inserir" />
-                    </div>
-                    </div>
+                      <button type="submit" className="btn btn-primary botao_atualizar cadastrar col-12" >Atualizar</button>
                   </div>
 
                 </div>

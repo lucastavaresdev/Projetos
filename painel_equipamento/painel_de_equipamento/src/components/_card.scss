@@ -26,10 +26,9 @@
 }
 
 .btn_voltar{
-    text-decoration: none;
-    color: #000000;
-    &:hover {
-        color: #000000;
-        text-decoration: none;
-    }
+    font-size: 18px;
+}
+
+.card_ronda_calibracao{
+    padding-top: 10px;
 }
