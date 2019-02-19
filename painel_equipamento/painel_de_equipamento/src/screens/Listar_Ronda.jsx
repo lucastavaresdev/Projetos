@@ -249,13 +249,41 @@ class Listar_Ronda extends Component {
                     <div className="col-md-4">
                               <div class="card">
                                             <div class="card-body">
-                                              <h5 class="card-title">Status</h5>
+                                              <h5 class="card-title">Rondas Atrasadas</h5>
                                               <h6 class="card-subtitle mb-2 text-muted">
                                                 Status da semana
                                               </h6>
+
+                                              
                                             </div>
-                                          <div className="mb-4">
-                                            
+                                          <div>
+                                          <table class="table">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col">#</th>
+                                                  <th scope="col">Status</th>
+                                                  <th scope="col">Quantidade</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                  <th scope="row">1</th>
+                                                  <td>Mark</td>
+                                                  <td>Otto</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">2</th>
+                                                  <td>Jacob</td>
+                                                  <td>Thornton</td>
+                                                </tr>
+                                                <tr>
+                                                  <th scope="row">3</th>
+                                                  <td>Larry</td>
+                                                  <td>the Bird</td>
+                                                </tr>
+                                                
+                                              </tbody>
+                                            </table>
                                           </div>
                               </div>
                     </div>
