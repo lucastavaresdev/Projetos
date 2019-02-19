@@ -134,7 +134,7 @@ export const Atualizar_Setor = (setores, id) => {
     })
 }
 
-/* ------------------------------- Cadastrar Setores-------------------------------------**/
+/* ------------------------------- Ronda Calibração -------------------------------------**/
 
 export const Atualizar_Ronda_Calibracao = (rondacalibracao, tabela, coluna) => {
     return axios.post(`http://localhost:3003/rondascalibracao/rondas_calibracao/${tabela}/${coluna}`, {
@@ -151,6 +151,19 @@ export const Atualizar_Ronda_Calibracao = (rondacalibracao, tabela, coluna) => {
     });
   }
 
+
+export const Listar_Ronda_Calibracao = (tabela, coluna) => {
+    return axios.get(`http://localhost:3003/rondascalibracao/rondas_calibracao/${tabela}/${coluna}`)
+    .then(res => {
+        console.log("Listando Ronda ou Calibracao")
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    });
+  }
+
+
+
 /* -------------------------------------- Geral -------------------------------------**/
 
 export const Ocultar_Linha_Tabela = (id, tabela) => {
@@ -162,3 +175,5 @@ export const Ocultar_Linha_Tabela = (id, tabela) => {
         console.log(error);
     });
   }
+
+
