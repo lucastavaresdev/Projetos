@@ -62,12 +62,12 @@ equipamentos.get('/quantidade_de_equipamento', (req, res) =>{
 })
 
 equipamentos.get('/qtd_calibracoes', (req, res) =>{
-    const $query = 'SELECT distinct (pe_situacoes.nome_situacoes)  ,count(rondas.situacao) as quantidade FROM pe_situacoes left join rondas  ON pe_situacoes.nome_situacoes =  rondas.situacao group by pe_situacoes.nome_situacoes order by quantidade desc;';
+    const $query = 'SELECT distinct (pe_situacoes.nome_situacoes)  ,count(rondas.situacao) as quantidade FROM pe_situacoes left join rondas  ON pe_situacoes.id =  rondas.situacao group by pe_situacoes.nome_situacoes order by quantidade desc;';
     execQuery($query, res);
 })
 
 equipamentos.get('/rondas_status', (req, res) =>{
-    const $query = 'select pe_situacoes.nome_situacoes, count(situacao) as qtd from ( select id_equipamento, situacao, ronda_ultima from ( SELECT MAX(ronda_ultima) as reg_recente FROM rondas GROUP BY id_equipamento) reg left join rondas on rondas.ronda_ultima = reg.reg_recente group by id_equipamento) r right join pe_situacoes on pe_situacoes.nome_situacoes = r.situacao group by pe_situacoes.nome_situacoes';
+    const $query = 'select pe_situacoes.nome_situacoes, count(situacao) as qtd from ( select id_equipamento, situacao, ronda_ultima from ( SELECT MAX(ronda_ultima) as reg_recente FROM rondas GROUP BY id_equipamento) reg left join rondas on rondas.ronda_ultima = reg.reg_recente group by id_equipamento) r right join pe_situacoes  on pe_situacoes.id = r.situacao group by pe_situacoes.nome_situacoes';
     execQuery($query, res);
 })
 

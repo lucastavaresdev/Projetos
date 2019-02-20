@@ -87,8 +87,7 @@ class Rondas extends Component {
 
     componentDidMount(){
         this.exibir_quantidade_de_rondas()
-
-}
+    }
 
     render() {
         return (
