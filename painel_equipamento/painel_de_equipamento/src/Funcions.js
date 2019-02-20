@@ -161,6 +161,15 @@ export const Listar_Ronda_Calibracao = (tabela, coluna) => {
         console.log(error);
     });
   }
+  
+export const Grafico_status = (tabela, coluna) => {
+    return axios.get(`http://localhost:3003/rondascalibracao/grafico_status/${tabela}/${coluna}`)
+    .then(res => {
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    });
+  }
 
 
 
