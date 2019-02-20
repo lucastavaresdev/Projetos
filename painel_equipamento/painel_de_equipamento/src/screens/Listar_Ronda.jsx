@@ -14,7 +14,7 @@ class Listar_Ronda extends Component {
     };
     this.listar = this.listar.bind(this);
   }
-
+  
   listar() {
     var tabela = "rondas";
     var coluna = "ronda_ultima";
@@ -28,10 +28,6 @@ class Listar_Ronda extends Component {
   componentDidMount() {
     this.listar();
   }
-
-  
-
-
 
   render() {
     const columns = [
@@ -154,7 +150,7 @@ class Listar_Ronda extends Component {
           <TabPanel>
             
 
-              <Relatorios tabela='rondas' coluna='ronda_ultima' titulo_grafico='Ronda' subtitulo_grafico='rondas'/>
+              <Relatorios tabela='rondas' coluna='ronda_ultima' titulo_grafico='Ronda' subtitulo_grafico='rondas' />
 
               <Tabela
                 titulo_pagina={"Listar de Rondas"}

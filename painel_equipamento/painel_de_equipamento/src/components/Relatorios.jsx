@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Grafico_status } from "../Funcions";
+import "./_relatorios.scss";
 
 const options = {
   legend: {
@@ -77,7 +78,7 @@ class Relatorios extends Component {
 
   render() {
     return (
-      <div className="container-fluid ">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-md-4">
             <div class="card">
@@ -98,19 +99,16 @@ class Relatorios extends Component {
           </div>
 
           <div className="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Ultimas Rondas</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Status da semana</h6>
-              </div>
-              <div>
-                <table class="table">
+            <div class="card card_relatorios">
+                <div class="card-body ">
+                  <h5 class="card-title">Ultimas Rondas</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Status da semana</h6>
+                <table class="table mt-4">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">First</th>
-                      <th scope="col">Last</th>
-                      <th scope="col">Handle</th>
+                      <th scope="col">Equipamento</th>
+                      <th scope="col">Ultima {this.props.titulo_grafico}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -118,37 +116,28 @@ class Relatorios extends Component {
                       <th scope="row">1</th>
                       <td>Mark</td>
                       <td>Otto</td>
-                      <td>@mdo</td>
                     </tr>
                     <tr>
                       <th scope="row">2</th>
                       <td>Jacob</td>
                       <td>Thornton</td>
-                      <td>@fat</td>
                     </tr>
                     <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
                     </tr>
                     <tr>
-                      <th scope="row">4</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">5</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
+                      <th scope="row">1</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
+
           <div className="col-md-4">
             <div class="card">
               <div class="card-body">

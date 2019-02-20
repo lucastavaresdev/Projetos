@@ -6,13 +6,12 @@ import { Link } from "react-router-dom";
 
 const now = new Date();
 
-
 class Card_Ronda_Calibracao extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data_e_hora: ' ',
-      data_e_hora_no_banco: '',
+      data_e_hora: " ",
+      data_e_hora_no_banco: "",
       id_equipamento: "",
       situacao: 1,
       observacao: "",
@@ -62,22 +61,20 @@ class Card_Ronda_Calibracao extends Component {
     );
   }
 
-  render_hora(){
+  render_hora() {
     const dt = new Date();
 
-    this.setState({ 
-        data_e_hora: date.format(dt, "DD/MM/YYYY HH:mm:ss"),
-        data_e_hora_no_banco: date.format(dt, "YYYY-MM-DD HH:mm:ss")
-      })
+    this.setState({
+      data_e_hora: date.format(dt, "DD/MM/YYYY HH:mm:ss"),
+      data_e_hora_no_banco: date.format(dt, "YYYY-MM-DD HH:mm:ss")
+    });
   }
 
-  componentWillMount(){
-    setInterval(this.render_hora , 1000) 
+  componentWillMount() {
+    setInterval(this.render_hora, 1000);
   }
-
 
   render() {
-
     return (
       <div class="col-6 mx-auto">
         <div class="card">
