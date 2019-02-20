@@ -36,6 +36,12 @@ rondas.get('/grafico_status/:tabela/:coluna', (req, res) =>{
 })
 
 
+rondas.get('/ultimos_registros/:tabela/:coluna', (req, res) =>{
+    const $query = `SELECT e.nome, r. ${req.params.coluna} FROM  ${req.params.tabela} as r inner join equipamentos as e on e.id = r.id_equipamento order by  ${req.params.coluna} desc limit 5;`
+    execQuery($query, res);
+})
+
+
 
 
 module.exports = rondas
