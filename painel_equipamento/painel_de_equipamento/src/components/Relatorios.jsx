@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
-import { Grafico_status } from "../Funcions";
+import { Grafico_status, Ultimos_registros } from "../Funcions";
 import "./_relatorios.scss";
 
 const options = {
@@ -11,9 +11,12 @@ const options = {
 
 class Relatorios extends Component {
   constructor() {
+    
     super();
     this.state = {
-      quantidade_de_rondas_semanais: {}
+      quantidade_de_rondas_semanais: {},
+      Ultimos_registros: [],
+      Coluna_ultimos_registros: ''
     };
   }
 
@@ -33,11 +36,8 @@ class Relatorios extends Component {
             : labels.push("Setor não informado");
           data.push(element.qtd);
         } else {
-          console.log("as");
         }
       });
-      console.log(data);
-      console.log(labels);
 
       this.setState({
         quantidade_de_rondas_semanais: {
@@ -72,19 +72,41 @@ class Relatorios extends Component {
     });
   }
 
+  Ultimos_registros() {
+    const tabela = this.props.tabela;
+    const coluna = this.props.coluna;
+   
+    Ultimos_registros(tabela, coluna).then(json => {
+      this.setState({
+        Ultimos_registros: json.data,
+      });
+    });
+   
+
+  }
+
+  
+
   componentDidMount() {
     this.exibir_quantidade_de_rondas_semanais();
+    this.Ultimos_registros();
   }
 
   render() {
+
+
     return (
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-4">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Status de {this.props.titulo_grafico}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Dados dos Ultimos 7 dias de {this.props.subtitulo_grafico}</h6>
+                <h5 class="card-title">
+                  Status de {this.props.titulo_grafico}
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  Dados dos Ultimos 7 dias de {this.props.subtitulo_grafico}
+                </h6>
               </div>
               <div className="mb-4">
                 {Object.keys(this.state.quantidade_de_rondas_semanais)
@@ -100,9 +122,9 @@ class Relatorios extends Component {
 
           <div className="col-md-4">
             <div class="card card_relatorios">
-                <div class="card-body ">
-                  <h5 class="card-title">Ultimas Rondas</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Status da semana</h6>
+              <div class="card-body ">
+                <h5 class="card-title">Ultimas Rondas</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Status da semana</h6>
                 <table class="table mt-4">
                   <thead>
                     <tr>
@@ -112,26 +134,18 @@ class Relatorios extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                    </tr>
+                  
+                      
+                      {this.state.Ultimos_registros.map((item, state) => (
+                        <React.Fragment key={item.nome} >
+                          <tr>
+                            <td></td>
+                            <td>{item.nome}</td>
+                             <td>{item.ronda_ultima}{item.calibracao_ultima}</td>
+                          </tr>
+                        </React.Fragment>
+                      ))}
+                    
                   </tbody>
                 </table>
               </div>

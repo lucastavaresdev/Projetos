@@ -57,7 +57,6 @@ class Rondas extends Component {
 componentDidMount(){
     this.exibir_quantidade_de_equipamentos()
 }
-
     render() {
         return (
             <div>

@@ -56,9 +56,6 @@ export const Atualizar_Equipamento = (equipamento, id) => {
         console.log(error);
     });
   }
-
-
-
   
 export const tracking_equipamentos = equipamento => {
     return axios.get('http://localhost:3003/equipamento/tracking_equipamentos')
@@ -84,11 +81,7 @@ export const lista_de_equipamentos = equipamento => {
     return axios.get('http://localhost:3003/equipamento/lista_equipamentos')
 }
 
-
-
-
 /* ------------------------------- Cadastrar Setores-------------------------------------**/
-
 
 export const Inserir_Setores= setores => {
     return axios.post('http://localhost:3003/setores/cadastro_de_setor', {
@@ -109,11 +102,9 @@ export const Inserir_Setores= setores => {
     });
 }
 
-
   export const Lista_Setores = setores => {
     return axios.get('http://localhost:3003/setores/lista_setores')
 }
-
 
 export const Atualizar_Setor = (setores, id) => {
     return axios.put(`http://localhost:3003/setores/atualizar_setores/${id}`, {
@@ -164,6 +155,15 @@ export const Listar_Ronda_Calibracao = (tabela, coluna) => {
   
 export const Grafico_status = (tabela, coluna) => {
     return axios.get(`http://localhost:3003/rondascalibracao/grafico_status/${tabela}/${coluna}`)
+    .then(res => {
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    });
+  }
+
+export const Ultimos_registros = (tabela, coluna) => {
+    return axios.get(`http://localhost:3003/rondascalibracao/ultimos_registros/${tabela}/${coluna}`)
     .then(res => {
         return res
     }).catch(function (error) {
