@@ -124,11 +124,10 @@ class Relatorios extends Component {
             <div class="card card_relatorios">
               <div class="card-body ">
                 <h5 class="card-title">Ultimas Rondas</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Status da semana</h6>
+                <h6 class="card-subtitle mb-2 text-muted">5 Ultimas rondas realizadas</h6>
                 <table class="table mt-4">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
                       <th scope="col">Equipamento</th>
                       <th scope="col">Ultima {this.props.titulo_grafico}</th>
                     </tr>
@@ -139,7 +138,6 @@ class Relatorios extends Component {
                       {this.state.Ultimos_registros.map((item, state) => (
                         <React.Fragment key={item.nome} >
                           <tr>
-                            <td></td>
                             <td>{item.nome}</td>
                              <td>{item.ronda_ultima}{item.calibracao_ultima}</td>
                           </tr>
@@ -155,14 +153,13 @@ class Relatorios extends Component {
           <div className="col-md-4">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Rondas Atrasadas</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Status da semana</h6>
+                <h5 class="card-title">{this.props.titulo_grafico} Atrasadas</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{this.props.titulo_grafico} não realizadas </h6>
               </div>
               <div>
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
                       <th scope="col">Status</th>
                       <th scope="col">Quantidade</th>
                     </tr>
@@ -173,16 +170,8 @@ class Relatorios extends Component {
                       <td>Mark</td>
                       <td>Otto</td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                    </tr>
+                   
+                   
                   </tbody>
                 </table>
               </div>
