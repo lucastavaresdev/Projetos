@@ -171,6 +171,15 @@ export const Ultimos_registros = (tabela, coluna) => {
     });
   }
 
+export const Atrasos = (tabela, coluna) => {
+    return axios.get(`http://localhost:3003/rondascalibracao/atrasados/${tabela}/${coluna}`)
+    .then(res => {
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    });
+  }
+
 
 
 /* -------------------------------------- Geral -------------------------------------**/

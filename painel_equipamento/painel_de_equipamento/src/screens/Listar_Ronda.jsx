@@ -19,7 +19,6 @@ class Listar_Ronda extends Component {
   listar() {
     var tabela = "rondas";
     var coluna = "ronda_ultima";
-
     Listar_Ronda_Calibracao(tabela, coluna).then(json => {
       this.setState({ data2: json.data });
     });

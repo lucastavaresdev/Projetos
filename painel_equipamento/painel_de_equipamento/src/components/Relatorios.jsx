@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
-import { Grafico_status, Ultimos_registros } from "../Funcions";
+import { Grafico_status, Ultimos_registros, Atrasos } from "../Funcions";
 import "./_relatorios.scss";
 
 const options = {
@@ -11,11 +11,11 @@ const options = {
 
 class Relatorios extends Component {
   constructor() {
-    
     super();
     this.state = {
       quantidade_de_rondas_semanais: {},
       Ultimos_registros: [],
+      Atrasos: [],
       Coluna_ultimos_registros: ''
     };
   }
@@ -81,15 +81,24 @@ class Relatorios extends Component {
         Ultimos_registros: json.data,
       });
     });
-   
-
+    
   }
-
   
+  Atrasos(){
+    const tabela = this.props.tabela;
+    const coluna = this.props.coluna;
+    
+    Atrasos(tabela, coluna).then(json => {
+        this.setState({
+          Atrasos: json.data,
+        });
+      })
+  }
 
   componentDidMount() {
     this.exibir_quantidade_de_rondas_semanais();
     this.Ultimos_registros();
+    this.Atrasos();
   }
 
   render() {
@@ -165,12 +174,15 @@ class Relatorios extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                    </tr>
-                   
+           
+                  {this.state.Atrasos.map((item, state) => (
+                        <React.Fragment key={item.nome} >
+                          <tr>
+                            <td>{item.nome}</td>
+                             <td>{item.data_qtd_de_dias}</td>
+                          </tr>
+                        </React.Fragment>
+                      ))}
                    
                   </tbody>
                 </table>
