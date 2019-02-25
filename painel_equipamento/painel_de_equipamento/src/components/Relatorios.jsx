@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
-import { Grafico_status, Ultimos_registros, Atrasos } from "../Funcions";
+import { Grafico_status, Ultimos_registros, Atrasos, Listar_Ronda_Calibracao } from "../Funcions";
+import Tabela from "../components/Tabelas";
 import "./_relatorios.scss";
 
 const options = {
@@ -16,8 +17,21 @@ class Relatorios extends Component {
       quantidade_de_rondas_semanais: {},
       Ultimos_registros: [],
       Atrasos: [],
-      Coluna_ultimos_registros: ''
+      Coluna_ultimos_registros: '',
+      Listar_Ronda_Calibracao: '',
+      data2: [],
+      
     };
+    this.listar = this.listar.bind(this);
+  }
+
+
+  listar() {
+    const tabela = this.props.tabela;
+    const coluna = this.props.coluna;
+    Listar_Ronda_Calibracao(tabela, coluna).then(json => {
+      this.setState({ data2: json.data });
+    });
   }
 
   exibir_quantidade_de_rondas_semanais() {
@@ -95,15 +109,127 @@ class Relatorios extends Component {
       })
   }
 
+  numeros_para_positivo(numero){
+    const  x = numero;
+          return x * -1;
+  }
+
   componentDidMount() {
     this.exibir_quantidade_de_rondas_semanais();
     this.Ultimos_registros();
     this.Atrasos();
+    this.listar();
   }
 
   render() {
 
+    const columns = [
+      {
+        dataField: "nome",
+        text: "Nome",
+        sort: true,
+        sortCaret: (order, column) => {
+          if (!order)
+            return (
+              <span>
+                <i className="setas fas fa-chevron-up" />
+              </span>
+            );
+          else if (order === "asc")
+            return (
+              <span>
+                <i className="setas fas fa-chevron-up" />
+              </span>
+            );
+          else if (order === "desc")
+            return (
+              <span>
+                <i className="setas fas fa-chevron-down" />
+              </span>
+            );
+          return null;
+        }
+      },
+      {
+        dataField: `data_ultima`,
+        text: `Ultima ${this.props.titulo_grafico}`,
+        sort: true,
+        sortCaret: (order, column) => {
+          if (!order)
+            return (
+              <span>
+                <i className="setas fas fa-chevron-up" />
+              </span>
+            );
+          else if (order === "asc")
+            return (
+              <span>
+                <i className="setas fas fa-chevron-up" />
+              </span>
+            );
+          else if (order === "desc")
+            return (
+              <span>
+                <i className="setas fas fa-chevron-down" />
+              </span>
+            );
+          return null;
+        }
+      },
+      {
+        dataField: "nome_situacoes",
+        text: "nome_situacoes",
+        sort: true,
+        sortCaret: (order, column) => {
+          if (!order)
+            return (
+              <span>
+                <i className="setas fas fa-chevron-up" />
+              </span>
+            );
+          else if (order === "asc")
+            return (
+              <span>
+                <i className="setas fas fa-chevron-up" />
+              </span>
+            );
+          else if (order === "desc")
+            return (
+              <span>
+                <i className="setas fas fa-chevron-down" />
+              </span>
+            );
+          return null;
+        }
+      },
+      {
+        dataField: "observacao",
+        text: "observacao",
+        sort: true,
+        sortCaret: (order, column) => {
+          if (!order)
+            return (
+              <span>
+                <i className="setas fas fa-chevron-up" />
+              </span>
+            );
+          else if (order === "asc")
+            return (
+              <span>
+                <i className="setas fas fa-chevron-up" />
+              </span>
+            );
+          else if (order === "desc")
+            return (
+              <span>
+                <i className="setas fas fa-chevron-down" />
+              </span>
+            );
+          return null;
+        }
+      },
 
+    ];
     return (
       <div className="container-fluid">
         <div className="row">
@@ -135,25 +261,25 @@ class Relatorios extends Component {
                         <h5 class="card-title">Ultimas Rondas</h5>
                         <h6 class="card-subtitle mb-2 text-muted">5 Ultimas rondas realizadas</h6>
                     </div>
-                    <div>
+                    <div className='tamanho_cards' >
                       <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">Status</th>
-                            <th scope="col">Quantidade</th>
+                            <th scope="col">Equipamento</th>
+                            <th scope="col">Data</th>
                           </tr>
                         </thead>
                         <tbody>
                 
-                 
+                                       
                         {this.state.Ultimos_registros.map((item, state) => (
-                        <React.Fragment key={item.nome} >
-                          <tr>
-                            <td>{item.nome}</td>
-                             <td>{item.ronda_ultima}{item.calibracao_ultima}</td>
-                          </tr>
-                        </React.Fragment>
-                      ))}
+                            <React.Fragment key={item.nome} >
+                                <tr>
+                                  <td>{item.nome}</td>
+                                  <td>{item.ronda_ultima}{item.calibracao_ultima}</td>
+                                </tr>
+                              </React.Fragment>
+                          ))}
                         
                         </tbody>
                       </table>
@@ -169,21 +295,25 @@ class Relatorios extends Component {
                       <h5 class="card-title">{this.props.titulo_grafico} Atrasadas</h5>
                       <h6 class="card-subtitle mb-2 text-muted">{this.props.titulo_grafico} não realizadas </h6>
                     </div>
-                    <div>
+                    <div className='tamanho_cards'>
                       <table class="table">
-                        <thead>
+                        <thead >
                           <tr>
                             <th scope="col">Status</th>
                             <th scope="col">Quantidade</th>
+                            <th scope="col">Dias Atrasados</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody >
                 
-                        {this.state.Atrasos.map((item, state) => (
+                        {this.state.Atrasos.map((item) => (
                               <React.Fragment key={item.nome} >
                                 <tr>
                                   <td>{item.nome}</td>
                                   <td>{item.data_qtd_de_dias}</td>
+                                  <td>
+                                        {this.numeros_para_positivo(item.data_qtd_de_dias_atraso)}   
+                                  </td>
                                 </tr>
                               </React.Fragment>
                             ))}
@@ -193,7 +323,12 @@ class Relatorios extends Component {
                     </div>
                   </div>
                 </div>
-
+         
+                <Tabela
+                titulo_pagina={`Listar de ${    this.props.titulo_grafico}`}
+                colunas={columns}
+                data={this.state.data2}
+              />
 
         </div>
       </div>

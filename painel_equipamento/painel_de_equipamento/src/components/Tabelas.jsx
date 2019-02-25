@@ -155,7 +155,7 @@ class Tabelas extends Component {
     };
 
     return (
-      <div className="container-fluid p-5 espaco-top">
+      <div className="container-fluid espaco-top">
         <ToolkitProvider
           keyField="id"
           data={this.props.data}

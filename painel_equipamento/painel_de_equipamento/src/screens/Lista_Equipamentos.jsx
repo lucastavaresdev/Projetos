@@ -165,7 +165,7 @@ class Lista_Equipamentos extends Component {
 
 
         return (
-            <div>
+            <div className='p-5'>
                 <Tabela titulo_pagina={'Listar Equipamentos'} colunas={columns} data={this.state.data}/>
             </div>
         );

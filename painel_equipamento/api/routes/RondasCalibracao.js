@@ -23,7 +23,7 @@ rondas.post('/rondas_calibracao/:tabela/:coluna', function (req, res) {
 });
 
 rondas.get('/rondas_calibracao/:tabela/:coluna', function (req, res) {
-     const $query = `SELECT e.nome , r.${req.params.coluna}, sit.nome_situacoes, observacao  FROM ${req.params.tabela} as r INNER JOIN equipamentos as e on r.id_equipamento = e.id INNER JOIN pe_situacoes as sit on r.situacao = sit.id WHERE ${req.params.coluna} BETWEEN DATE_ADD(NOW(), INTERVAL -360 DAY)  AND NOW();`; 
+     const $query = `SELECT e.nome ,  DATE_FORMAT(r.${req.params.coluna}, '%d/%m/%Y') as data_ultima , sit.nome_situacoes, observacao  FROM ${req.params.tabela} as r INNER JOIN equipamentos as e on r.id_equipamento = e.id INNER JOIN pe_situacoes as sit on r.situacao = sit.id WHERE ${req.params.coluna} BETWEEN DATE_ADD(NOW(), INTERVAL -360 DAY)  AND NOW();`; 
      console.log($query)
     execQuery($query, res);
 });

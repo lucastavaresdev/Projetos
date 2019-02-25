@@ -147,6 +147,8 @@ class Admin extends Component {
                                 <Modal iconeAbrir={<i class="fas fa-plus-circle fa-3x"></i>}  tituloModal='Cadastrar Equipamento' />
                         </div>
                 </div>
+
+                          
         )
     }
 }
