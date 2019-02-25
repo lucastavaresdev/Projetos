@@ -54,7 +54,7 @@ class Acoes_Tabela extends Component {
           <Modal_cadastro_setores
             iconeAbrir={<i className="click azul mr-2 fas fa-pen-square fa-2x" />}
             tipo_de_envio={1}
-            tituloModal="Cadastrar Setor"
+            tituloModal= {`Atualizar ${this.props.nome}`}
             id_do_setor={this.props.id}
             nome_do_setor={this.props.nome}
             sigla_do_setor={this.props.sigla}
@@ -74,16 +74,13 @@ class Acoes_Tabela extends Component {
     } else {
       return (
         <div className="row">
-
           <div>
-          
           {this.exibir_botao_calibracao_ronda()}
-
           </div>
 
           <Modal
             iconeAbrir={
-              <i className="click azul mr-2 fas fa-pen-square fa-2x" />
+              <i className="click azul mr-2 fas fa-pen-square fa-2x " />
             }
             nomeBotao="Atualizar"
             tituloModal={`Atualizar  ${this.props.nome}`}

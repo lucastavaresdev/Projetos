@@ -296,11 +296,11 @@ class Cadastro_setores extends Component {
             colunas={columns}
             data={this.state.data}
           />
-          <Modal_cadastro_setores
-            iconeAbrir={<i class="fas fa-plus-circle fa-3x" />}
-            tituloModal="Cadastrar Setor"
-          />
         </div>
+        <Modal_cadastro_setores
+          iconeAbrir={<i class="fas fa-plus-circle fa-3x abrirCadSetores" />}
+          tituloModal="Cadastrar Setor"
+        />
       </div>
     );
   }

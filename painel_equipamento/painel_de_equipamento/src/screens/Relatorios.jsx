@@ -15,9 +15,9 @@ class Relatorios_pagina extends Component {
   render() {
     return (
       <div className="container-fluid p-5 espaco-top">
-        <h3 className="titulo_das_paginas">Relatórios</h3>
 
         <Tabs>
+        <h3 className="titulo_das_paginas espaco-top mt-5">Relatórios</h3>
           <TabList>
             <Tab>Rondas</Tab>
             <Tab>Calibração</Tab>

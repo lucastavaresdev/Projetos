@@ -16,7 +16,7 @@ class Modal_cadastro_setores extends Component {
       permanencia: this.props.permanencia_do_setor,
       tracking: this.props.tracking_do_setor,
       ativo: this.props.ativo_do_setor,
-      atendimentos: this.props.atendimentos_do_setor
+      atendimentos: this.props.atendimentos_do_setor,
     };
 
     this.openModal = this.openModal.bind(this);
@@ -86,7 +86,7 @@ class Modal_cadastro_setores extends Component {
     return (
       <section>
         <div onClick={this.openModal}>
-          <i className="abrirCad" /> {this.props.iconeAbrir}
+           {this.props.iconeAbrir}
         </div>
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento" >
           <div className="row">
@@ -103,7 +103,7 @@ class Modal_cadastro_setores extends Component {
               </div>
               <form className="formulario_cadastro_equipamento" onSubmit={this.onSubmit}>
                 
-                <p className="col-12">Cadastrar Setor</p>
+                <p className="col-12">Cadastrar Setor2</p>
 
                 <label className="col-md-9 col-sm-12">
                   Nome:
