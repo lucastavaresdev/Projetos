@@ -1,0 +1,38 @@
+@import '../screens/scss/_variaveis.scss';
+
+.texto-card{
+    font-size: 2em;
+    color: #4f4f4f;
+}
+
+.footer-card{
+    color: #c8c8c9;
+}
+
+.box-card{
+    border: none;
+    border-radius: 10px;
+    &:hover{
+        background: $cor;
+        p{
+            color: #FFFFFF;
+        }
+    }
+}
+
+.btn_card_ronda_calibracao{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn_voltar{
+    font-size: 18px;
+}
+
+.card_ronda_calibracao{
+    padding-top: 10px;
+}
+
+.tamanho_cards{
+    height: 312px;
+}

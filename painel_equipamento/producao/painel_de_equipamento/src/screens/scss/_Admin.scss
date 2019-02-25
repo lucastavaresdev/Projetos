@@ -1,0 +1,17 @@
+@import './variaveis';
+
+body{
+    background: $cor2;  
+}
+
+.AreaConteudo{
+    position: relative;
+}
+
+.titulo_left{
+    margin-left: 3.7%;
+}
+
+.click{
+    cursor: pointer;
+}

@@ -1,0 +1,74 @@
+@import '../screens/scss/_variaveis.scss';
+
+.box-botao{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        &:hover{
+            background: $cor2;
+            border-left: 8px solid $cor;
+            font-weight: bold;   
+        }
+        i{
+            padding-left: 30px;
+        }
+        a{
+            padding-left: 30px;
+            color: $cor;
+            text-decoration: none;
+            &:hover{
+                font-weight: bold;   
+            }
+        }
+    }
+
+.abrirCad{
+    cursor: pointer;
+    position: absolute;
+    float: right;
+    bottom: 20px;
+    right: 50px;
+    z-index: 10000;
+    color: $cor !important;
+    &:hover{
+        color: darken($cor, 10%);
+    }
+    }
+
+.abrirCadSetores{
+    cursor: pointer;
+    position: relative;
+    float: right;
+    bottom: 20px;
+    right: 50px;
+    z-index: 10000;
+    color: $cor !important;
+    &:hover{
+        color: darken($cor, 10%);
+    }
+}
+
+
+@media (max-width: 992px){
+    .box-botao{
+        border-left: 8px solid $cor;
+        &:hover{
+            font-weight: bold;   
+        }
+        .titulodobotao{
+            padding-left: 30px;
+            color: $cor;
+            text-decoration: none;
+        }
+    }
+}
+  
+
+//Rondas e Calibração
+
+.botao_atualizar{
+    background: $cor;
+    border: none;
+    &:hover{
+        background: darken($cor, 10%)
+    }
+}

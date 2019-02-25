@@ -41,5 +41,7 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "proxy": "http://itechflow.cloudapp.net:3004/:3004",
+  "homepage": "./"
 }

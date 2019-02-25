@@ -1,0 +1,54 @@
+$cinza: darken( #e1e2e6, 30%);
+
+.modal_equipamentos{
+    h2{
+        font-size: 22px;
+    }
+}
+
+.formulario_cadastro_equipamento{
+    p{
+        font-weight: 500;
+        color: darken(#aeb0c2, 30%);
+        font-size: 15px;
+    }
+    label{
+        color: $cinza
+    }
+  
+    input[type="text"], input[type="number"], select{
+        border: 1px solid $cinza;
+        display: block;
+        padding: 2px;
+        margin-top: 5px;
+        
+    }
+}
+.ReactModal__Content {
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.modal_imagem{
+    background: url('../images/bg_equipamentos.jpg');
+    background-size: cover;
+    background-position-x: 82%;
+}
+
+.icone_fechar{
+    cursor: pointer;
+}
+
+@media (max-width: 992px){
+
+
+    
+.ReactModal__Content {
+    height: 83%;
+    width: 93%;
+    }
+}
+
+.cadastrar{
+    cursor: pointer
+}
