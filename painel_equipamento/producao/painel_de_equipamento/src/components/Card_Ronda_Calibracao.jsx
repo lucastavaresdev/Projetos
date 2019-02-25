@@ -53,7 +53,7 @@ class Card_Ronda_Calibracao extends Component {
             if (reflesh === 1) {
               console.log("tes");
             } else {
-              window.location.href = "/listarequipamentos";
+              window.location.href = "http://itechflow.cloudapp.net/demos/painel_equipamento/#/listarequipamentos";
             }
           });
         }
@@ -78,7 +78,7 @@ class Card_Ronda_Calibracao extends Component {
     return (
       <div class="col-6 mx-auto">
         <div class="card">
-          <Link to="/listarequipamentos" className="btn_voltar ">
+          <Link to="http://itechflow.cloudapp.net/demos/painel_equipamento/#/listarequipamentos" className="btn_voltar ">
             <i class="fas fa-arrow-left fa-1x p-1 pl-2 pt-3 fa-1x" />
           </Link>
 

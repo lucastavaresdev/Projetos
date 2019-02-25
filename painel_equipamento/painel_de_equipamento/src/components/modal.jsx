@@ -186,6 +186,7 @@ class Modal2 extends Component {
                   <input
                     className="col-12"
                     type="number"
+                    min="0"
                     name="ronda"
                     placeholder="Qtd. de Dias"
                     value={this.state.ronda}
@@ -198,6 +199,7 @@ class Modal2 extends Component {
                   <input
                     className="col-12"
                     type="number"
+                    min="0"
                     name="calibracao"
                     placeholder="Qtd. de Dias"
                     value={this.state.calibracao}

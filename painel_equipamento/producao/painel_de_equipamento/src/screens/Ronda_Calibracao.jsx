@@ -24,7 +24,7 @@ class Ronda_Calibracao extends Component {
         calibracao: this.props.location.query.calibracao
       });
     } catch {
-      window.location.href = "/listarequipamentos";
+      window.location.href = "http://itechflow.cloudapp.net/demos/painel_equipamento/#/listarequipamentos";
     }
   }
 
