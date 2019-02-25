@@ -10,8 +10,7 @@ import Listar_Equipamento from './screens/Lista_Equipamentos'
 import Navbar from './components/navbar';
 import Cadastro_setores from './screens/Cadastro_setores';
 import Ronda_Calibracao from './screens/Ronda_Calibracao'
-import Listar_Ronda from './screens/Listar_Ronda'
-import Listar_Calibracao from './screens/Listar_Calibracao'
+import Relatorios from './screens/Relatorios'
 
 
 
@@ -32,8 +31,7 @@ class App extends Component {
                   <Route exact path="/listarequipamentos" component={Listar_Equipamento} /> 
                   <Route exact path="/cadastrosetores" component={Cadastro_setores} /> 
                   <Route exact path="/ronda_calibracao" component={Ronda_Calibracao} /> 
-                  <Route exact path="/listar_ronda" component={Listar_Ronda} /> 
-                  <Route exact path="/listar_calibracao" component={Listar_Calibracao} /> 
+                  <Route exact path="/relatorios" component={Relatorios} /> 
             </div>
           </div>
 

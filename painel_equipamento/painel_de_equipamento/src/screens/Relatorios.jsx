@@ -4,7 +4,7 @@ import "react-tabs/style/react-tabs.css";
 import Relatorios from "../components/Relatorios";
 
 
-class Listar_Ronda extends Component {
+class Relatorios_pagina extends Component {
   constructor() {
     super();
     this.state = {
@@ -37,4 +37,4 @@ class Listar_Ronda extends Component {
   }
 }
 
-export default Listar_Ronda;
+export default Relatorios_pagina;
