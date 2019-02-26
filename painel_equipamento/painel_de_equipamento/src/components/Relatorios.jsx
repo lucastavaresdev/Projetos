@@ -49,8 +49,7 @@ class Relatorios extends Component {
             ? labels.push(element.nome_situacoes)
             : labels.push("Setor não informado");
           data.push(element.qtd);
-        } else {
-        }
+        } 
       });
 
       this.setState({

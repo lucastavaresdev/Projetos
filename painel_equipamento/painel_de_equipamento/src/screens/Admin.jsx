@@ -13,24 +13,17 @@ class Admin extends Component {
         constructor(){
                 super()
                 this.state = { 
-                        quantidade_de_equipamento  : 0,
-                        quantidade_de_rondas  : 0,
-                        quantidade_de_calibracoes  : 0,
+                        quantidade_de_equipamento  : '',
+                        quantidade_de_rondas  : '',
+                        quantidade_de_calibracoes  : '',
                         equipamento_visivel: false,
                         ronda_visivel: false,
                         calibracao_visivel: false,
                         isOpened: false,
                 };
-                //this.toggleBox = this.toggleBox.bind(this);
         }
 
-        // toggleBox() {
-        //         const { isOpened } = this.state;
-        //         this.setState({
-        //           isOpened: !isOpened,
-        //         });
-        // }
-
+ 
         componentDidMount(){
                 this.exibir_quantidade_de_equipamento()
                 this.exibir_quantidade_de_rondas()

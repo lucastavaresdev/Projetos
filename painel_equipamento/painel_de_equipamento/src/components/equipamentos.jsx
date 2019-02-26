@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { quantidade_de_equipamentos } from '../Funcions'
-import { Doughnut,Chart  } from 'react-chartjs-2'
+import { Doughnut  } from 'react-chartjs-2'
 
 const options={
     legend: {
@@ -54,16 +54,17 @@ class Rondas extends Component {
         })
 }
 
-componentDidMount(){
-    this.exibir_quantidade_de_equipamentos()
-}
+    componentDidMount(){
+        this.exibir_quantidade_de_equipamentos()
+    }
+
     render() {
         return (
             <div>
-                <p>Equipamentos</p>
+                <p>Total de Equipamentos por Setor</p>
                 <div className="row justify-content-center">
                     <div className="col-md-8 ">
-                    {Object.keys(this.state.quantidade_de_equipamentos).length &&
+                    {Object.keys(this.state.quantidade_de_equipamentos) &&
                         <Doughnut data={this.state.quantidade_de_equipamentos} />
                     }
                     </div>

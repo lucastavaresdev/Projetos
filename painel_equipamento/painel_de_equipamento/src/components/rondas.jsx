@@ -32,49 +32,50 @@ class Rondas extends Component {
             {
               label: labels[0],
               data: [data[0]],
-              backgroundColor: "rgba(245, 74, 85, 0.5)",
+              backgroundColor: "#FF6384",
               borderWidth: 1
             },
+
             {
               label: labels[1],
               data: [data[1]],
-              backgroundColor: "rgba(90, 173, 246, 0.5)",
+              backgroundColor: "#36A2EB",
               borderWidth: 1
             },
             {
               label: labels[2],
               data: [data[2]],
-              backgroundColor: "rgba(245, 192, 50, 0.5)",
+              backgroundColor: "#FFCE56",
               borderWidth: 1
             },
             {
               label: labels[3],
               data: [data[3]],
-              backgroundColor: "rgba(245, 192, 50, 0.5)",
+              backgroundColor: "#3D92B2",
               borderWidth: 1
             },
             {
               label: labels[4],
               data: [data[4]],
-              backgroundColor: "rgba(245, 192, 50, 0.5)",
+              backgroundColor: "#D9CDC7",
               borderWidth: 1
             },
             {
               label: labels[5],
               data: [data[5]],
-              backgroundColor: "rgba(245, 192, 50, 0.5)",
+              backgroundColor:  "#1D3775",
               borderWidth: 1
             },
             {
               label: labels[6],
               data: [data[6]],
-              backgroundColor: "rgba(245, 192, 50, 0.5)",
+              backgroundColor: "#43005A",
               borderWidth: 1
             },
             {
               label: labels[7],
               data: [data[7]],
-              backgroundColor: "rgba(245, 192, 50, 0.5)",
+              backgroundColor: "#36A2EB",
               borderWidth: 1
             }
           ]
@@ -92,7 +93,7 @@ class Rondas extends Component {
       <div>
         <p>Rondas</p>
 
-        {Object.keys(this.state.quantidade_de_rondas).length && (
+        {Object.keys(this.state.quantidade_de_rondas) && (
           <Bar
             data={this.state.quantidade_de_rondas}
             options={options}
