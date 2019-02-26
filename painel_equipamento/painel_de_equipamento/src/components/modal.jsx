@@ -25,6 +25,8 @@ class Modal2 extends Component {
       setores: [],
     };
 
+    console.log(this.state.setor)
+
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.onChange = this.onChange.bind(this);

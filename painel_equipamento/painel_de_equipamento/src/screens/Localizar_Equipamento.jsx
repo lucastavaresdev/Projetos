@@ -182,7 +182,7 @@ class Equipamento extends Component {
             {
               props => (
                 <div>
-                   <h3 className='titulo_das_paginas pt-5'>Localizar Equipamento</h3>
+                   <h3 className='titulo_das_paginas pt-5'>Tracking Equipamentos</h3>
                     <SearchBar { ...props.searchProps } placeholder="Buscar"/>
                   <hr />
                       <div className="table-responsive-sm table-responsive-md  tabela click">

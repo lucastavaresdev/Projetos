@@ -4,13 +4,13 @@ import { Atualizar_Ronda_Calibracao } from "../Funcions";
 import JSAlert from "js-alert";
 import { Link } from "react-router-dom";
 
-const now = new Date();
+const dt = new Date();
 
 class Card_Ronda_Calibracao extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data_e_hora: " ",
+      data_e_hora: date.format(dt, "DD/MM/YYYY HH:mm"),
       data_e_hora_no_banco: "",
       id_equipamento: "",
       situacao: 1,
@@ -65,7 +65,7 @@ class Card_Ronda_Calibracao extends Component {
     const dt = new Date();
 
     this.setState({
-      data_e_hora: date.format(dt, "DD/MM/YYYY HH:mm:ss"),
+      data_e_hora: date.format(dt, "DD/MM/YYYY HH:mm"),
       data_e_hora_no_banco: date.format(dt, "YYYY-MM-DD HH:mm:ss")
     });
   }
@@ -78,15 +78,15 @@ class Card_Ronda_Calibracao extends Component {
     return (
       <div className="col-6 mx-auto">
         <div className="card">
-          <Link to="/listarequipamentos" className="btn_voltar  ">
-            <i className="fas fa-arrow-left fa-1x p-1 pl-2 pt-3 fa-1x" > Voltar</i>
+          <Link to="/listarequipamentos" className="btn_voltar  " >
+            <i className="fas fa-arrow-left fa-1x p-1 pl-2 pt-3 fa-1x "> Voltar</i>
           </Link>
 
           <div className="card-body card_ronda_calibracao">
             <h5 className="card-title">{this.props.titulo_nome_do_campo}</h5>
 
             <h6 className="card-subtitle mb-2 text-muted">
-              {this.props.titulo_nome_do_campo} periódica realizar em{" "}
+              {this.props.titulo_nome_do_campo} periódica realizar em {" "}
               {this.state.data_e_hora}
             </h6>
             <form

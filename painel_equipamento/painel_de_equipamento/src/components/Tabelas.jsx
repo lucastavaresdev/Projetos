@@ -132,7 +132,7 @@ class Tabelas extends Component {
 
     const options = {
       paginationSize: 5,
-      pageStartIndex: 0,
+      pageStartIndex: 1,
       alwaysShowAllBtns: true,
       withFirstAndLast: false,
       hideSizePerPage: true,
