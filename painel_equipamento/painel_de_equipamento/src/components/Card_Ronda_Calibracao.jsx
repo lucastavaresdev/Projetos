@@ -79,7 +79,7 @@ class Card_Ronda_Calibracao extends Component {
       <div className="col-6 mx-auto">
         <div className="card">
           <Link to="/listarequipamentos" className="btn_voltar  ">
-            <i className="fas fa-arrow-left fa-1x p-1 pl-2 pt-3 fa-1x btn_voltar_ronda_calibracao" > Voltar</i>
+            <i className="fas fa-arrow-left fa-1x p-1 pl-2 pt-3 fa-1x" > Voltar</i>
           </Link>
 
           <div className="card-body card_ronda_calibracao">
