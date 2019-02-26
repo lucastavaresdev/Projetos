@@ -21,7 +21,7 @@ class Lista_Equipamentos extends Component {
 
     acoes = (cell, row) => <Acoes id={row.id} nome={row.nome} serie={row.serie}  
     marca={row.marca} modelo={row.modelo} serie={row.serie} patrimonio={row.patrimonio}
-    ronda={row.ronda} calibracao={row.calibracao} situacao={row.id_situacao} ativo={row.ativo} setor={row.setor} tabela_que_ira_ocultar={'equipamentos'}   />;
+    ronda={row.ronda} calibracao={row.calibracao} situacao={row.id_situacao} ativo={row.ativo} setor={row.setor} tabela_que_ira_ocultar={'equipamentos'}/>;
 
     componentDidMount(){
           this.listar()
@@ -35,7 +35,7 @@ class Lista_Equipamentos extends Component {
         const columns = [
                {
                     dataField: 'id',
-                    text: 'id',
+                    text: 'ID',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
@@ -46,7 +46,7 @@ class Lista_Equipamentos extends Component {
                 },
                {
                     dataField: 'nome',
-                    text: 'nome',
+                    text: 'Nome',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
@@ -57,7 +57,7 @@ class Lista_Equipamentos extends Component {
                 },
                {
                     dataField: 'marca',
-                    text: 'marca',
+                    text: 'Marca',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
@@ -68,7 +68,7 @@ class Lista_Equipamentos extends Component {
                 },
                {
                     dataField: 'modelo',
-                    text: 'modelo',
+                    text: 'Modelo',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
@@ -79,7 +79,7 @@ class Lista_Equipamentos extends Component {
                 },
                {
                     dataField: 'serie',
-                    text: 'serie',
+                    text: 'Serie',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
@@ -90,7 +90,7 @@ class Lista_Equipamentos extends Component {
                 },
                {
                     dataField: 'patrimonio',
-                    text: 'patrimonio',
+                    text: 'Patrimonio',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
@@ -101,7 +101,7 @@ class Lista_Equipamentos extends Component {
                 },
                {
                     dataField: 'ronda',
-                    text: 'ronda',
+                    text: 'Ronda',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
@@ -112,7 +112,7 @@ class Lista_Equipamentos extends Component {
                 },
                {
                     dataField: 'calibracao',
-                    text: 'calibracao',
+                    text: 'Calibração',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
@@ -123,7 +123,7 @@ class Lista_Equipamentos extends Component {
                 },
                {
                     dataField: 'situacao',
-                    text: 'situacao',
+                    text: 'Situação',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);
@@ -145,7 +145,7 @@ class Lista_Equipamentos extends Component {
                 },
                {
                     dataField: 'setor',
-                    text: 'setor',
+                    text: 'Setor',
                     sort: true,
                     sortCaret: (order, column) => {
                         if (!order) return (<span><i className="setas fas fa-chevron-up"></i></span>);

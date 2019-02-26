@@ -76,17 +76,17 @@ class Card_Ronda_Calibracao extends Component {
 
   render() {
     return (
-      <div class="col-6 mx-auto">
-        <div class="card">
-          <Link to="/listarequipamentos" className="btn_voltar ">
-            <i class="fas fa-arrow-left fa-1x p-1 pl-2 pt-3 fa-1x" />
+      <div className="col-6 mx-auto">
+        <div className="card">
+          <Link to="/listarequipamentos" className="btn_voltar  ">
+            <i className="fas fa-arrow-left fa-1x p-1 pl-2 pt-3 fa-1x btn_voltar_ronda_calibracao" > Voltar</i>
           </Link>
 
-          <div class="card-body card_ronda_calibracao">
-            <h5 class="card-title">{this.props.nome_do_campo}</h5>
+          <div className="card-body card_ronda_calibracao">
+            <h5 className="card-title">{this.props.titulo_nome_do_campo}</h5>
 
-            <h6 class="card-subtitle mb-2 text-muted">
-              {this.props.nome_do_campo} periódica realizar em{" "}
+            <h6 className="card-subtitle mb-2 text-muted">
+              {this.props.titulo_nome_do_campo} periódica realizar em{" "}
               {this.state.data_e_hora}
             </h6>
             <form

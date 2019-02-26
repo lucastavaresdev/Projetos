@@ -38,11 +38,11 @@ class Acoes_Tabela extends Component {
   exibir_botao_calibracao_ronda = () =>{
    if (this.props.ronda === 0 && this.props.calibracao === 0){
     return(
-      <i class="mr-2 fas fa-cog fa-2x "></i>
+      <i className="mr-2 fas fa-cog fa-2x "></i>
       )
     }else{
       return(
-        <Link to={{ pathname: '/ronda_calibracao', query: { idx: this.props.id, ronda:this.props.ronda, calibracao: this.props.calibracao  } }} > <i class="click mr-2 fas fa-cog fa-2x cinza-escuro"></i></Link>
+        <Link to={{ pathname: '/ronda_calibracao', query: { idx: this.props.id, ronda:this.props.ronda, calibracao: this.props.calibracao  } }} > <i className="click mr-2 fas fa-cog fa-2x cinza-escuro"></i></Link>
       )
    }
  }

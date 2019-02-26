@@ -177,7 +177,7 @@ class Relatorios extends Component {
       },
       {
         dataField: "nome_situacoes",
-        text: "nome_situacoes",
+        text: "Status",
         sort: true,
         sortCaret: (order, column) => {
           if (!order)
@@ -203,7 +203,7 @@ class Relatorios extends Component {
       },
       {
         dataField: "observacao",
-        text: "observacao",
+        text: "Observacao",
         sort: true,
         sortCaret: (order, column) => {
           if (!order)
@@ -233,12 +233,12 @@ class Relatorios extends Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">
                   Status de {this.props.titulo_grafico}
                 </h5>
-                <h6 class="card-subtitle mb-2 text-muted">
+                <h6 className="card-subtitle mb-2 text-muted">
                   Dados dos Ultimos 7 dias de {this.props.subtitulo_grafico}
                 </h6>
               </div>
@@ -255,13 +255,13 @@ class Relatorios extends Component {
           </div>
 
           <div className="col-md-4">
-                  <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Ultimas Rondas</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">5 Ultimas rondas realizadas</h6>
+                  <div className="card">
+                    <div className="card-body">
+                        <h5 className="card-title">Ultimas Rondas</h5>
+                        <h6 className="card-subtitle mb-2 text-muted">5 Ultimas rondas realizadas</h6>
                     </div>
                     <div className='tamanho_cards' >
-                      <table class="table">
+                      <table className="table">
                         <thead>
                           <tr>
                             <th scope="col">Equipamento</th>
@@ -289,13 +289,13 @@ class Relatorios extends Component {
 
 
                 <div className="col-md-4">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">{this.props.titulo_grafico} Atrasadas</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">{this.props.titulo_grafico} não realizadas </h6>
+                  <div className="card">
+                    <div className="card-body">
+                      <h5 className="card-title">{this.props.titulo_grafico} Atrasadas</h5>
+                      <h6 className="card-subtitle mb-2 text-muted">{this.props.titulo_grafico} não realizadas </h6>
                     </div>
                     <div className='tamanho_cards'>
-                      <table class="table">
+                      <table className="table">
                         <thead >
                           <tr>
                             <th scope="col">Status</th>

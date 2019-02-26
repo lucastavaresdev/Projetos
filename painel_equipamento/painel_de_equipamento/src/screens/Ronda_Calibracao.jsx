@@ -37,6 +37,7 @@ class Ronda_Calibracao extends Component {
         <Card_Ronda_Calibracao
           id_do_equipamento_selecionado={this.state.id_equipamento}
           nome_do_campo={"Ronda"}
+          titulo_nome_do_campo={"Ronda"}
           tabela_no_banco={"rondas"}
           coluna_no_banco={"ronda_ultima"}
         />
@@ -47,6 +48,7 @@ class Ronda_Calibracao extends Component {
         <Card_Ronda_Calibracao
           id_do_equipamento_selecionado={this.state.id_equipamento}
           nome_do_campo={"Calibracao"}
+          titulo_nome_do_campo={"Calibração"}
           tabela_no_banco={"calibracoes"}
           coluna_no_banco={"calibracao_ultima"}
         />
@@ -60,6 +62,7 @@ class Ronda_Calibracao extends Component {
           <Card_Ronda_Calibracao
             id_do_equipamento_selecionado={this.state.id_equipamento}
             nome_do_campo={"Ronda"}
+            titulo_nome_do_campo={"Ronda"}
             tabela_no_banco={"rondas"}
             coluna_no_banco={"ronda_ultima"}
             reflesh_ronda={1}
@@ -67,6 +70,7 @@ class Ronda_Calibracao extends Component {
           <Card_Ronda_Calibracao
             id_do_equipamento_selecionado={this.state.id_equipamento}
             nome_do_campo={"Calibracao"}
+            titulo_nome_do_campo={"Calibração"}
             tabela_no_banco={"calibracoes"}
             coluna_no_banco={"calibracao_ultima"}
             reflesh_calibracao={1}
@@ -79,8 +83,8 @@ class Ronda_Calibracao extends Component {
   render() {
     return (
       <div>
-        <div class="container  pt-20">
-          <div class="row btn_voltar">
+        <div className="container  pt-20">
+          <div className="row btn_voltar">
             {this.tipo_de_formulario_ira_aprentar_para_atualizar()}
           </div>
         </div>

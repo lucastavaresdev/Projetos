@@ -298,7 +298,7 @@ class Cadastro_setores extends Component {
           />
         </div>
         <Modal_cadastro_setores
-          iconeAbrir={<i class="fas fa-plus-circle fa-3x abrirCadSetores" />}
+          iconeAbrir={<i className="fas fa-plus-circle fa-3x abrirCadSetores" />}
           tituloModal="Cadastrar Setor"
         />
       </div>
