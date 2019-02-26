@@ -19,11 +19,19 @@ class Admin extends Component {
                         equipamento_visivel: false,
                         ronda_visivel: false,
                         calibracao_visivel: false,
+                        isOpened: false,
                 };
+                //this.toggleBox = this.toggleBox.bind(this);
         }
 
+        // toggleBox() {
+        //         const { isOpened } = this.state;
+        //         this.setState({
+        //           isOpened: !isOpened,
+        //         });
+        // }
+
         componentDidMount(){
-                document.querySelector('.screens').style.display = 'block';
                 this.exibir_quantidade_de_equipamento()
                 this.exibir_quantidade_de_rondas()
                 this.exibir_quantidade_de_calibracoes()
@@ -47,7 +55,7 @@ class Admin extends Component {
 
                 })
         }
-
+        
         exibir_quantidade_de_calibracoes() {
                 quantidade_de_calibracoes().then(json => {
                         const calibracaojson = json.data;
@@ -63,7 +71,6 @@ class Admin extends Component {
                         }  
 
                         this.setState({ quantidade_de_calibracoes: result})
-
                 })
         }
 
@@ -75,17 +82,18 @@ class Admin extends Component {
 
         ExibirEquipamento = () => {
                 (this.state.equipamento_visivel === false) ? 
-                        this.setState({equipamento_visivel: true,  ronda_visivel: false, calibracao_visivel:false}): this.setState({equipamento_visivel: false });
+                        this.setState({equipamento_visivel: true,  ronda_visivel: false, calibracao_visivel:false, isOpened:true}): 
+                        this.setState({equipamento_visivel: false, isOpened:false});
         }
      
         ExibirRonda = () => {
                 (this.state.ronda_visivel === false) ? 
-                        this.setState({ronda_visivel: true, equipamento_visivel: false, calibracao_visivel:false}) : this.setState({ronda_visivel: false });
+                        this.setState({ronda_visivel: true, equipamento_visivel: false, calibracao_visivel:false,  isOpened:true}) : this.setState({ronda_visivel: false, isOpened:false});
         }
 
         ExibirCalibracao = () => {
                 (this.state.calibracao_visivel === false) ? 
-                        this.setState({calibracao_visivel: true ,ronda_visivel: false, equipamento_visivel: false}) : this.setState({calibracao_visivel: false });
+                        this.setState({calibracao_visivel: true ,ronda_visivel: false, equipamento_visivel: false, isOpened:true}) : this.setState({calibracao_visivel: false,  isOpened:false });
         }
         
         ComponenteEquipamentos = () => {
@@ -103,13 +111,16 @@ class Admin extends Component {
         }
                 
         ComponenteCalibracao = () => {
+                
                 if (!this.state.calibracao_visivel) return null;
                 return (
                         <Calibracao />
                 );
         }
+
                 
       render () {
+                const { isOpened } = this.state;
         return (
                 <div className="container-fluid">
                         <div className="row">
@@ -132,9 +143,10 @@ class Admin extends Component {
 
                         <div className="row mt-5">
                                 <div className="col-md-8 col-sm-12">
-                                        <div className="col-md-11 titulo_left">
-                                                <div className="card">
-                                                        <div className="row pt-5">
+                                        <div className="col-md-11 titulo_left"  id='admin_card_dinamico'>
+                                        {isOpened && (
+                                                <div className="card" >
+                                                        <div className="row pt-5" >
                                                                 <div className="col-md-12">
                                                                         {this.ComponenteCalibracao()}
                                                                         {this.ComponenteEquipamentos()}
@@ -142,6 +154,8 @@ class Admin extends Component {
                                                                 </div>
                                                         </div>
                                                 </div>
+                                        )}
+
                                         </div>
                                 </div>
                                 <Modal iconeAbrir={<i class="fas fa-plus-circle fa-3x abrirCad "></i>}  tituloModal='Cadastrar Equipamento' />
