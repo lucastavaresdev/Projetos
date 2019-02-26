@@ -165,7 +165,6 @@ class Modal_cadastro_setores extends Component {
                   />
                 </label>
 
-
                 <p className="col-12"></p>
 
                 <label className="col-md-4 col-sm-12">

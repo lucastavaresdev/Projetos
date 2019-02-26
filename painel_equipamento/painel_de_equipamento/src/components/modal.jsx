@@ -62,13 +62,10 @@ class Modal2 extends Component {
     const tipo_de_envio = this.props.tipo_de_envio
     const id = this.props.id_do_equipamento
 
-
     if(tipo_de_envio === 1  && tipo_de_envio != ""){
-      
       Atualizar_Equipamento(equipamento, id).then(res => {
         {JSAlert.alert("Atualizado com sucesso")}
         {this.closeModal()}
-        
       });
 
     } else {
