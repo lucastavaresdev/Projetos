@@ -186,7 +186,9 @@ class Modal2 extends Component {
                   <input
                     className="col-12"
                     type="number"
+                    maxlength = "3"
                     min="0"
+                    max="360"
                     name="ronda"
                     placeholder="Qtd. de Dias"
                     value={this.state.ronda}
@@ -199,7 +201,9 @@ class Modal2 extends Component {
                   <input
                     className="col-12"
                     type="number"
+                    maxlength = "3"
                     min="0"
+                    max="360"
                     name="calibracao"
                     placeholder="Qtd. de Dias"
                     value={this.state.calibracao}
@@ -215,8 +219,9 @@ class Modal2 extends Component {
                     name="situacao"
                     value={this.state.situacao}
                     onChange={this.onChange}
+                    required
                   >
-                    <option value="0" selected disabled>Selecionar...</option>
+                    <option value="" selected disabled>Selecionar...</option>
                     <option value="1">Disponivel</option>
                     <option value="2">Utilizado</option>
                     <option value="3">Reservado</option>
@@ -228,6 +233,7 @@ class Modal2 extends Component {
                   </select>
                 </label>
 
+       
                 <label className="col-md-4 col-sm-12">
                   Status:
                   <select className="col-12" name="ativo" value={this.state.ativo} onChange={this.onChange} >
@@ -238,8 +244,9 @@ class Modal2 extends Component {
 
                 <label className="col-md-4 col-sm-12">
                 Setor:
-                <select className="col-12" name="setor" value={this.state.setor} onChange={this.onChange}>
-                      <option value="0" selected disabled>Selecionar...</option>
+                <select className="col-12" name="setor" value={this.state.setor} onChange={this.onChange}   required>
+
+                <option value="" selected disabled>Selecionar...</option>
                         {
                           this.state.setores.map(function(index, e) {
                            return <option key={index.id} value={index.id}>{index.nome}</option>
