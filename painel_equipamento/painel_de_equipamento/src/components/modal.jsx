@@ -22,10 +22,10 @@ class Modal2 extends Component {
       setor:   this.props.setor_do_equipamento,
       cod: 3,
       tipo_de_envio: 0,
+      setor_edicao: '',
       setores: [],
     };
 
-    console.log(this.state.setor)
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -33,8 +33,23 @@ class Modal2 extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  openModal() {
+  openModal(e) {
     this.setState({ modalIsOpen: true });
+    // const setores = this.state.setores
+    // const setor = this.state.setor
+    
+    // if(this.state.setor){
+    //   for(var i = 0; i < setores.length; i++){
+    //     if(setor = setores[i].nome){
+    //       console.log(setor )
+
+
+
+    //       console.log(setores)
+    //     }
+      // }
+
+    // }
   }
 
   closeModal() {
@@ -42,6 +57,7 @@ class Modal2 extends Component {
   }
 
   onChange(e) {
+
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -66,9 +82,10 @@ class Modal2 extends Component {
 
     if(tipo_de_envio === 1  && tipo_de_envio != ""){
       Atualizar_Equipamento(equipamento, id).then(res => {
-        {JSAlert.alert("Atualizado com sucesso")}
-        {this.closeModal()}
+        JSAlert.alert("Atualizado com sucesso").then(function() {
+          window.location.reload();
       });
+     });
 
     } else {
       Inserir_Equipamento(equipamento).then(res => {
@@ -86,12 +103,11 @@ class Modal2 extends Component {
       });
     }
   }
-
+  
   
   componentDidMount(){
     this.listar_setores()
 }
-
 
   listar_setores() {    
     Lista_Setores().then(res => {
@@ -121,12 +137,10 @@ class Modal2 extends Component {
                 onSubmit={this.onSubmit}
               >
                 <p className="col-12">Dados do Equipamento </p>
-
                 <label className="col-md-9 col-sm-12">
                   Nome do Equipamento:
                   <input  className="col-12" type="text" name="nome" Value={this.state.nome}  onChange={this.onChange}   required />
                 </label>
-
                 <label className="col-md-3 col-sm-12">
                   Marca:
                   <input
@@ -138,7 +152,6 @@ class Modal2 extends Component {
                     required
                   />
                 </label>
-
                 <label className="col-md-4 col-sm-12">
                     Modelo:
                   <input
@@ -150,7 +163,6 @@ class Modal2 extends Component {
                     required
                   />
                 </label>
-
                 <label className="col-md-4 col-sm-12">
                     serie:
                   <input
@@ -163,7 +175,6 @@ class Modal2 extends Component {
                     required
                   />
                 </label>
-
                 <label className="col-md-4 col-sm-12">
                   Patrimonio:
                   <input
@@ -175,11 +186,8 @@ class Modal2 extends Component {
                     required
                   />
                 </label>
-
                 <hr />
-
                 <p className="col-12">Dados para o beacon</p>
-
                 <label className="col-md-4 col-sm-12">
                   Ronda:
                   <input
@@ -210,7 +218,6 @@ class Modal2 extends Component {
                     required
                   />
                 </label>
-
                 <label className="col-md-4 col-sm-12">
                   Situação:
                   <select
@@ -231,8 +238,6 @@ class Modal2 extends Component {
                     <option value="8">Não Encontrado</option>
                   </select>
                 </label>
-
-       
                 <label className="col-md-4 col-sm-12">
                   Status:
                   <select className="col-12" name="ativo" value={this.state.ativo} onChange={this.onChange} >
@@ -240,7 +245,6 @@ class Modal2 extends Component {
                     <option value="0">Inativo</option>
                   </select>
                 </label>
-
                 <label className="col-md-4 col-sm-12">
                 Setor:
                 <select className="col-12" name="setor" value={this.state.setor} onChange={this.onChange}   required>
@@ -248,13 +252,14 @@ class Modal2 extends Component {
                 <option value="" selected disabled>Selecionar...</option>
                         {
                           this.state.setores.map(function(index, e) {
-                           return <option key={index.id} value={index.id}>{index.nome}</option>
+                           return <option key={index.id} value={index.id} >{index.nome}</option>
+                           
                           })
                         }
                   </select>
                 </label>
                 <div className="col-12 mt-2 ">
-                  <input  type="submit" className="offset-md-10 col-md-2 col-sm-12 cadastrar" value={this.props.nomeBotao}/>
+                  <input  type="submit" className="offset-md-10 col-md-2 col-sm-12 cadastrar" id='btn_enviar_modal' value={this.props.nomeBotao}/>
                 </div>
               </form>
             </div>

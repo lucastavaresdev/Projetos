@@ -52,7 +52,7 @@ class Acoes_Tabela extends Component {
       return (
         <div className="row">
           <Modal_cadastro_setores
-            iconeAbrir={<i className="click azul mr-2 fas fa-pen-square fa-2x" />}
+            iconeAbrir={<i className="btn_editar click azul mr-2 fas fa-pen-square fa-2x" />}
             tipo_de_envio={1}
             tituloModal= {`Atualizar ${this.props.nome}`}
             id_do_setor={this.props.id}
@@ -80,7 +80,7 @@ class Acoes_Tabela extends Component {
 
           <Modal
             iconeAbrir={
-              <i className="click azul mr-2 fas fa-pen-square fa-2x " />
+              <i className="btn_editar click azul mr-2 fas fa-pen-square fa-2x " />
             }
             nomeBotao="Atualizar"
             tituloModal={`Atualizar  ${this.props.nome}`}
@@ -109,6 +109,7 @@ class Acoes_Tabela extends Component {
   }
 
   render() {
+
     return (
       <div className="row">
         {this.decide_tipo_modal_dependo_da_pagina()}

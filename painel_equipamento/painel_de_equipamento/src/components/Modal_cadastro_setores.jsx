@@ -86,7 +86,7 @@ class Modal_cadastro_setores extends Component {
     return (
       <section>
         <div onClick={this.openModal}>
-           {this.props.iconeAbrir}
+           {this.props.iconeAbrir} 
         </div>
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} style={customStyles} contentLabel="Inserir Equipamento" >
           <div className="row">

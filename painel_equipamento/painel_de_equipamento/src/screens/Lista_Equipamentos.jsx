@@ -21,17 +21,17 @@ class Lista_Equipamentos extends Component {
 
     acoes = (cell, row) => <Acoes id={row.id} nome={row.nome} serie={row.serie}  
     marca={row.marca} modelo={row.modelo} serie={row.serie} patrimonio={row.patrimonio}
-    ronda={row.ronda} calibracao={row.calibracao} situacao={row.id_situacao} ativo={row.ativo} setor={row.setor} tabela_que_ira_ocultar={'equipamentos'}
+    ronda={row.ronda} calibracao={row.calibracao} situacao={row.id_situacao} ativo={row.ativo} setor={row.setor_id}  tabela_que_ira_ocultar={'equipamentos'}
     
     />;
 
     componentDidMount(){
-          this.listar()
+        this.listar()
+        document.addEventListener('submit', this.listar);
     }
-        
-    componentDidUpdate(){
-            document.addEventListener('submit', this.listar);
-    }
+    
+
+
 
     render() {
         const columns = [
