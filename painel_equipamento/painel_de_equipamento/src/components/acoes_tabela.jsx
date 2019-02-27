@@ -42,7 +42,7 @@ class Acoes_Tabela extends Component {
       )
     }else{
       return(
-        <Link to={{ pathname: '/ronda_calibracao', query: { idx: this.props.id, ronda:this.props.ronda, calibracao: this.props.calibracao  } }} > <i className="click mr-2 fas fa-cog fa-2x cinza-escuro"></i></Link>
+        <Link to={{ pathname: '/ronda_calibracao', query: { idx: this.props.id, ronda:this.props.ronda, calibracao: this.props.calibracao, nome: this.props.nome  } }} > <i className="click mr-2 fas fa-cog fa-2x cinza-escuro"></i></Link>
       )
    }
  }

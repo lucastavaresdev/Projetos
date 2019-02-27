@@ -19,6 +19,7 @@ class Ronda_Calibracao extends Component {
   pegar_id_do_equipamento() {
     try {
       this.setState({
+        nome: this.props.location.query.nome,
         id_equipamento: this.props.location.query.idx,
         ronda: this.props.location.query.ronda,
         calibracao: this.props.location.query.calibracao
@@ -37,18 +38,18 @@ class Ronda_Calibracao extends Component {
         <Card_Ronda_Calibracao
           id_do_equipamento_selecionado={this.state.id_equipamento}
           nome_do_campo={"Ronda"}
-          titulo_nome_do_campo={"Ronda"}
+          titulo_nome_do_campo={"Cadastrar Ronda"}
           tabela_no_banco={"rondas"}
           coluna_no_banco={"ronda_ultima"}
-        />
+          />
       );
     } else if (calibracao && ronda === 0) {
-      console.log("Calibracao");
       return (
+       
         <Card_Ronda_Calibracao
           id_do_equipamento_selecionado={this.state.id_equipamento}
           nome_do_campo={"Calibracao"}
-          titulo_nome_do_campo={"Calibração"}
+          titulo_nome_do_campo={"Cadastrar Calibração"}
           tabela_no_banco={"calibracoes"}
           coluna_no_banco={"calibracao_ultima"}
         />
@@ -59,9 +60,14 @@ class Ronda_Calibracao extends Component {
     ) {
       return (
         <div>
-        <div className="row justify-content-center pb-3">
-        <h4>Cadastrar Calibração e Ronda</h4>
-        </div>
+          <div className="row justify-content-center pb-3">
+            <div className="col-md-12 text-center">
+              <h4>Cadastrar Calibração e Ronda </h4>
+            </div>
+            <div className="col-md-12 text-center">
+              <p> {this.state.nome}</p>
+            </div>
+          </div>
 
         <div className="row">
             <Card_Ronda_Calibracao

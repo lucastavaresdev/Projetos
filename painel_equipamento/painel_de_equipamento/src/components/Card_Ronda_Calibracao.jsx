@@ -86,7 +86,7 @@ class Card_Ronda_Calibracao extends Component {
             <h5 className="card-title">{this.props.titulo_nome_do_campo}</h5>
 
             <h6 className="card-subtitle mb-2 text-muted">
-              {this.props.titulo_nome_do_campo} periódica realizar em {" "}
+              {this.props.nome_do_campo} periódica realizar em {" "}
               {this.state.data_e_hora}
             </h6>
             <form
