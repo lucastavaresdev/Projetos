@@ -180,6 +180,15 @@ export const Atrasos = (tabela, coluna) => {
     });
   }
 
+export const Atrasos_tabela = (tabela, coluna) => {
+    return axios.get(`http://localhost:3003/rondascalibracao/atrasados_tabela/${tabela}/${coluna}`)
+    .then(res => {
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    });
+  }
+
 
 
 /* -------------------------------------- Geral -------------------------------------**/

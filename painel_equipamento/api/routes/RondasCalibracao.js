@@ -45,5 +45,10 @@ rondas.get('/atrasados/:tabela/:coluna', (req, res) =>{
     execQuery($query, res);
 })
 
+rondas.get('/atrasados_tabela/:tabela/:coluna', (req, res) =>{
+    const $query = `SELECT *, CASE WHEN data_qtd_de_dias_atraso > 1 THEN "Em dia" WHEN data_qtd_de_dias_atraso < -1 THEN "Atrasado" WHEN data_qtd_de_dias_atraso = 1 THEN "Amanhã" WHEN data_qtd_de_dias_atraso = -1 THEN "Ontem" ELSE "Hoje" END as status from ( select id_equipamento, nome, reg_recente, DATE_FORMAT(now(),'%Y/%m/%d') as hoje, DATE_FORMAT(DATE_ADD(reg_recente, INTERVAL ronda DAY), '%Y/%m/%d') as data_qtd_de_dias, DATEDIFF(DATE_ADD(reg_recente, INTERVAL ronda DAY),now()) as data_qtd_de_dias_atraso from ( SELECT id_equipamento,MAX(${req.params.coluna}) as reg_recente FROM ${req.params.tabela} GROUP BY id_equipamento ) as horario_mais_recente inner join equipamentos as e on e.id = horario_mais_recente.id_equipamento where e.ronda != 0 or e.calibracao != 0) as dados_ok where  data_qtd_de_dias_atraso < 0 order by data_qtd_de_dias_atraso`
+    execQuery($query, res);
+})
+
 
 module.exports = rondas
