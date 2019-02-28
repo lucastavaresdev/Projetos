@@ -27,7 +27,11 @@
 
 .btn_voltar{
     font-size: 18px;
-
+    span{
+        font-family: 'Lato', sans-serif;
+        padding-left: 10px;
+        font-size: 17px;
+    }
 }
 
 .card_ronda_calibracao{

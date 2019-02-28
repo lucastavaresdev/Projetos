@@ -103,7 +103,7 @@ class Modal_cadastro_setores extends Component {
               </div>
               <form className="formulario_cadastro_equipamento" onSubmit={this.onSubmit}>
                 
-                <p className="col-12">Cadastrar Setor2</p>
+                <p className="col-12">Cadastrar Setor</p>
 
                 <label className="col-md-9 col-sm-12">
                   Nome:

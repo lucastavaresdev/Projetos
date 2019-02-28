@@ -53,3 +53,13 @@ border-radius: 50px;
 .btn_voltar_ronda_calibracao{
     font-family: 'Lato', sans-serif;
 }
+
+@media (max-width: 1600px){
+    .titulo_grafico{
+        padding-top: 10px;
+       // height: 311px;
+    }
+    .grafico{
+        padding-bottom: 20%;
+    }
+}

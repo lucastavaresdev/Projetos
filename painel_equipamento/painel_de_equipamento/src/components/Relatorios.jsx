@@ -232,17 +232,19 @@ class Relatorios extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
+
           <div className="col-md-4">
             <div className="card">
               <div className="card-body">
-                <h5 className="card-title">
+                <h5 className="card-title titulo_grafico">
                   Status de {this.props.titulo_grafico}
                 </h5>
                 <h6 className="card-subtitle mb-2 text-muted">
                   Dados dos Ultimos 7 dias de {this.props.subtitulo_grafico}
                 </h6>
               </div>
-              <div className="mb-4">
+              <div className='tamanho_card_grafico' >
+              <div className="mb-4 grafico">
                 {Object.keys(this.state.quantidade_de_rondas_semanais)
                   .length && (
                   <Doughnut
@@ -250,6 +252,7 @@ class Relatorios extends Component {
                     options={options}
                   />
                 )}
+              </div>
               </div>
             </div>
           </div>
@@ -260,7 +263,7 @@ class Relatorios extends Component {
                         <h5 className="card-title">Ultimas Rondas</h5>
                         <h6 className="card-subtitle mb-2 text-muted">5 Ultimas rondas realizadas</h6>
                     </div>
-                    <div className='tamanho_cards' >
+                    <div className='tamanho_c' >
                       <table className="table">
                         <thead>
                           <tr>
