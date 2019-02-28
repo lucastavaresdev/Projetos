@@ -170,6 +170,15 @@ export const Ultimos_registros = (tabela, coluna) => {
         console.log(error);
     });
   }
+  
+export const Ultimos_registros_lista = (tabela, coluna) => {
+    return axios.get(`http://localhost:3003/rondascalibracao/ultimos_registros_lista/${tabela}/${coluna}`)
+    .then(res => {
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    });
+  }
 
 export const Atrasos = (tabela, coluna) => {
     return axios.get(`http://localhost:3003/rondascalibracao/atrasados/${tabela}/${coluna}`)
@@ -182,6 +191,15 @@ export const Atrasos = (tabela, coluna) => {
 
 export const Atrasos_tabela = (tabela, coluna) => {
     return axios.get(`http://localhost:3003/rondascalibracao/atrasados_tabela/${tabela}/${coluna}`)
+    .then(res => {
+        return res
+    }).catch(function (error) {
+        console.log(error);
+    });
+  }
+
+export const Status_equipamentos = (tabela, coluna) => {
+    return axios.get(`http://localhost:3003/rondascalibracao/status_equipamentos/${tabela}/${coluna}`)
     .then(res => {
         return res
     }).catch(function (error) {

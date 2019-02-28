@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Doughnut } from "react-chartjs-2";
-import { Grafico_status, Ultimos_registros, Atrasos, Listar_Ronda_Calibracao } from "../Funcions";
+import { Grafico_status, Ultimos_registros, Atrasos } from "../Funcions";
 import "./_relatorios.scss";
-import Tabela_Rondas_Atrasadas from './Tabela_Rondas_Atrasadas'
+import Tabela_Rondas_Status from './Tabela_Rondas_Status'
+import Tabela_Geral from "./Tabela_Geral";
+import Tabela_Ultimas_Rondas from "./Tabela_Ultimas_Rondas";
 
 const options = {
   legend: {
@@ -21,17 +23,11 @@ class Relatorios extends Component {
       Listar_Ronda_Calibracao: '',
       data2: [],
       tabela_atrasados_visivel: false,
+      tabela_geral_visivel: false,
+      tabela_ultimos_visivel: false,
     };
-    this.listar = this.Listar.bind(this);
   }
 
-  Listar() {
-    const tabela = this.props.tabela;
-    const coluna = this.props.coluna;
-    Listar_Ronda_Calibracao(tabela, coluna).then(json => {
-      this.setState({ data2: json.data });
-    });
-  }
 
   exibir_quantidade_de_rondas_semanais() {
     const tabela = this.props.tabela;
@@ -117,134 +113,50 @@ class Relatorios extends Component {
     this.exibir_quantidade_de_rondas_semanais();
     this.Ultimos_registros();
     this.Atrasos();
-    this.Listar();
   }
 
   Exibir_tabela_atrasados = () => {
     (this.state.tabela_atrasados_visivel === false) ? 
-            this.setState({tabela_atrasados_visivel: true,}): this.setState({tabela_atrasados_visivel: false, });
+            this.setState({tabela_atrasados_visivel: true, tabela_geral_visivel: false, tabela_ultimos_visivel: false}): this.setState({tabela_atrasados_visivel: false, });
+  }
+
+  Exibir_tabela_geral = () => {
+    (this.state.tabela_geral_visivel === false) ? 
+            this.setState({tabela_geral_visivel: true, tabela_atrasados_visivel: false, tabela_ultimos_visivel: false}): this.setState({tabela_geral_visivel: false, });
+  }
+  
+  Exibir_tabela_ultimas = () => {
+    (this.state.tabela_ultimos_visivel === false) ? 
+            this.setState({tabela_ultimos_visivel: true ,tabela_geral_visivel: false, tabela_atrasados_visivel: false,}): this.setState({tabela_ultimos_visivel: false, });
   }
 
   Componente_tabela_atrasados = () => {
     if (!this.state.tabela_atrasados_visivel) return null;
     return (
-        <Tabela_Rondas_Atrasadas tabela={this.props.tabela} coluna={this.props.coluna}/>
+        <Tabela_Rondas_Status tabela={this.props.tabela} coluna={this.props.coluna}  titulo={this.props.titulo_grafico}/>
     );
 }
 
+  Componente_tabela_geral = () => {
+    if (!this.state.tabela_geral_visivel) return null;
+    return (
+       <Tabela_Geral tabela={this.props.tabela} coluna={this.props.coluna} titulo={this.props.titulo}/>
+       );
+      }
+      
+      Componente_ultimas_rondas = () => {
+        if (!this.state.tabela_ultimos_visivel) return null;
+        return (
+          <Tabela_Ultimas_Rondas tabela={this.props.tabela} coluna={this.props.coluna}/>
+    );
+}
 
   render() {
-    const columns = [
-      {
-        dataField: "nome",
-        text: "Nome",
-        sort: true,
-        sortCaret: (order, column) => {
-          if (!order)
-            return (
-              <span>
-                <i className="setas fas fa-chevron-up" />
-              </span>
-            );
-          else if (order === "asc")
-            return (
-              <span>
-                <i className="setas fas fa-chevron-up" />
-              </span>
-            );
-          else if (order === "desc")
-            return (
-              <span>
-                <i className="setas fas fa-chevron-down" />
-              </span>
-            );
-          return null;
-        }
-      },
-      {
-        dataField: `data_ultima`,
-        text: `Ultima ${this.props.titulo_grafico}`,
-        sort: true,
-        sortCaret: (order, column) => {
-          if (!order)
-            return (
-              <span>
-                <i className="setas fas fa-chevron-up" />
-              </span>
-            );
-          else if (order === "asc")
-            return (
-              <span>
-                <i className="setas fas fa-chevron-up" />
-              </span>
-            );
-          else if (order === "desc")
-            return (
-              <span>
-                <i className="setas fas fa-chevron-down" />
-              </span>
-            );
-          return null;
-        }
-      },
-      {
-        dataField: "nome_situacoes",
-        text: "Status",
-        sort: true,
-        sortCaret: (order, column) => {
-          if (!order)
-            return (
-              <span>
-                <i className="setas fas fa-chevron-up" />
-              </span>
-            );
-          else if (order === "asc")
-            return (
-              <span>
-                <i className="setas fas fa-chevron-up" />
-              </span>
-            );
-          else if (order === "desc")
-            return (
-              <span>
-                <i className="setas fas fa-chevron-down" />
-              </span>
-            );
-          return null;
-        }
-      },
-      {
-        dataField: "observacao",
-        text: "Observacao",
-        sort: true,
-        sortCaret: (order, column) => {
-          if (!order)
-            return (
-              <span>
-                <i className="setas fas fa-chevron-up" />
-              </span>
-            );
-          else if (order === "asc")
-            return (
-              <span>
-                <i className="setas fas fa-chevron-up" />
-              </span>
-            );
-          else if (order === "desc")
-            return (
-              <span>
-                <i className="setas fas fa-chevron-down" />
-              </span>
-            );
-          return null;
-        }
-      },
-    ];
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-4">
-            <div className="card">
+          <div className="col-md-4 click">
+            <div className="card" onClick={this.Exibir_tabela_geral}>
               <div className="card-body">
                 <h5 className="card-title titulo_grafico">
                   Status de {this.props.titulo_grafico}
@@ -267,7 +179,7 @@ class Relatorios extends Component {
             </div>
           </div>
           <div className="col-md-4">
-                  <div className="card">
+                  <div className="card click" onClick={this.Exibir_tabela_ultimas}>
                     <div className="card-body">
                         <h5 className="card-title">Ultimas Rondas</h5>
                         <h6 className="card-subtitle mb-2 text-muted">5 Ultimas rondas realizadas</h6>
@@ -278,6 +190,7 @@ class Relatorios extends Component {
                           <tr>
                             <th scope="col">Equipamento</th>
                             <th scope="col">Data</th>
+                            <th scope="col">Status Atual</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -285,7 +198,8 @@ class Relatorios extends Component {
                             <React.Fragment key={item.nome} >
                                 <tr>
                                   <td>{item.nome}</td>
-                                  <td>{item.ronda_ultima}{item.calibracao_ultima}</td>
+                                  <td>{item.datas}</td>
+                                  <td>{item.nome_situacoes}</td>
                                 </tr>
                               </React.Fragment>
                           ))}
@@ -331,14 +245,9 @@ class Relatorios extends Component {
                     </div>
                   </div>
                 </div>
-         
-                {/* <Tabela
-                titulo_pagina={`Listar de ${    this.props.titulo_grafico}`}
-                colunas={columns}
-                data={this.state.data2}
-              /> */}
-
-                              {this.Componente_tabela_atrasados()}
+                  {this.Componente_tabela_atrasados()}
+                  {this.Componente_tabela_geral()}
+                  {this.Componente_ultimas_rondas()}
         </div>
       </div>
     );

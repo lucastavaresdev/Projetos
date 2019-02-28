@@ -24,11 +24,11 @@ class Relatorios_pagina extends Component {
           </TabList>
 
           <TabPanel>
-              <Relatorios tabela='rondas' coluna='ronda_ultima' titulo_grafico='Ronda' subtitulo_grafico='rondas'  />
+              <Relatorios tabela='rondas' coluna='ronda_ultima' titulo_grafico='Ronda' subtitulo_grafico='rondas' titulo='rondas' />
       
           </TabPanel>
           <TabPanel>
-              <Relatorios tabela='calibracoes' coluna='calibracao_ultima' titulo_grafico='Calibracao' subtitulo_grafico='calibracao'/>
+              <Relatorios tabela='calibracoes' coluna='calibracao_ultima' titulo_grafico='Calibracao' subtitulo_grafico='calibracao' titulo='calibrações'/>
             
           </TabPanel>
         </Tabs>

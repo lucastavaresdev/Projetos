@@ -47,13 +47,12 @@ class Card_Ronda_Calibracao extends Component {
 
     Atualizar_Ronda_Calibracao(rondacalibracao, tabela, coluna, reflesh).then(
       res => {
-        console.log(reflesh);
         {
           JSAlert.alert("Atualizado com sucesso").then(function(res) {
             if (reflesh === 1) {
               console.log("tes");
             } else {
-              window.location.href = "/listarequipamentos";
+              window.location.href = "http://localhost:3000/#/listarequipamentos";
             }
           });
         }
